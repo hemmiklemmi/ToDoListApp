@@ -1,0 +1,41 @@
+{
+  "name": "hopverkefni1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemmiklemmi/hopverkefni2.git"
+  },
+  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browser-sync": "browser-sync start --server --files index.html pages/*.html styles.css",
+    "sass": "sass styles.scss styles.css",
+    "sass-watch": "sass --watch styles.scss styles.css",
+    "dev": "concurrently npm:sass-watch npm:browser-sync",
+    "lint": "stylelint styles.scss ./**/*.scss",
+    "sass-build": "sass styles.scss ./build/styles.css",
+    "copyjs": "cpy ./js/*.js ./build/js",
+    "copyindex": "cpy index.html ./build/",
+    "copypages": "cpy pages/*.html ./build/pages",
+    "copyimg": "cpy ./images/*.png ./build/images",
+    "build": "concurrently npm:sass-build npm:copyjs npm:copyindex npm:copypages npm:copyimg"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hemmiklemmi/hopverkefni2/issues"
+  },
+  "homepage": "https://github.com/hemmiklemmi/hopverkefni2#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "concurrently": "^6.3.0",
+    "cpy-cli": "^3.1.1",
+    "sass": "^1.43.4",
+    "stylelint": "^13.13.1"
+  },
+  "dependencies": {
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0"
+  }
+}

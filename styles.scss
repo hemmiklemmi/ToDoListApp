@@ -1,0 +1,19 @@
+header{
+    display: flex;
+    justify-content: center;
+}
+main{
+    display: grid;
+    grid-template-columns: 40% 60% ;
+}
+.category__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dropdown__list{
+    display: flex;
+}
+.container{
+    margin-right: 2em;
+}

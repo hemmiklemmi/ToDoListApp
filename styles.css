@@ -8,19 +8,40 @@ main {
   grid-template-columns: 40% 60%;
 }
 
-.category__container {
-  display: flex;
-  justify-content: space-between;
+.category-container {
   align-items: center;
+  display: flex;
   height: 5vh;
+  justify-content: space-between;
 }
 
-.dropdown__list {
+.dropdown-list {
   display: flex;
+  align-items: center;
 }
 
 .container {
   margin-right: 2em;
+}
+
+.hidden {
+  display: none;
+}
+
+li {
+  border: 1px solid #000;
+  margin: 2em 0;
+  padding: 0 1em;
+  width: 50%;
+}
+
+.date-tag-container {
+  align-items: center;
+  display: flex;
+}
+.date-tag-container button,
+.date-tag-container p:last-child {
+  margin: 0 0 0 1em;
 }
 
 /*# sourceMappingURL=styles.css.map */

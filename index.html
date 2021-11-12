@@ -14,31 +14,56 @@
     </header>
     <main>
       <div class="container">
-        <div class="all__finished__projects">
-          <div class="category__container">
+        <div class="all-finished-projects">
+          <div class="category-container">
             <h3>Verkefni</h3>
-            <div class="project__count"></div>
+            <div class="project-count"></div>
           </div>
-          <div class="category__container">
+          <div class="category-container">
             <h3>Kláruð verkefni</h3>
-            <div class="unfinished__count"></div>
+            <div class="unfinished-count"></div>
           </div>
         </div>
-        <div class="project__categories">
+        <div class="project-categories">
           <h2>Flokkar</h2>
         </div>
-        <div class="project__tags">
+        <div class="project-tags">
           <h2>Tags</h2>
         </div>
       </div>
-      <div class="projects__container">
-        <div class="dropdown__list">
+      <div class="projects-container">
+        <div class="dropdown-list">
           <p>Raða eftir:</p>
           <select name="Raða eftir" id="Raða eftir">
             <option value="title">Titli</option>
             <option value="date">Dagsetningu</option>
             <option value="priority">Forgangi</option>
           </select>
+        </div>
+        <div class="new-project hidden">
+            <h2>Búa til nýtt verkefni</h2>
+            <fieldset>
+                <p>Titill:</p>
+                <input type="text" name="Titill">
+                <p>Lýsing:</p>
+                <input type="text" name="Lýsing">
+                <p>Hvenær skal verkefni klárast:</p>
+                <input type="date" name="Due">
+                <p>Tags:</p>
+                <input type="text" name="" placeholder="Bætið tags hér við með bil á milli">
+                <p>Flokkar:</p>
+                <p>
+                    <select name="Flokkar">
+                    <option>Vefforrit</option>
+                    <option>Skipulag</option>
+                    <option>Vefþjónustur</option>
+                    </select>
+                </p>
+                <p>Eyða verkefni:
+                    <input type="checkbox" name="Eyða verkefni" value="Eyða verkefni">
+                </p>
+                <input class="add-btn" type="submit" name="Bæta við" value="Bæta við">
+            </fieldset>
         </div>
       </div>
     </main>

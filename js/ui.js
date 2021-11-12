@@ -63,15 +63,12 @@ function countData(data){
             catCount[row.category] = 0;
         }
         catCount[row.category] += 1;
-    }
-    for(let row of items){
         for(let tag of row.tags){
             if (!tagCount[tag]) {
                 tagCount[tag] = 0;
             }
             tagCount[tag] += 1;
         }
-    }
-    
+    } 
     return {tagCount, catCount, count,finishedCount};
 }

@@ -14,13 +14,14 @@
     "sass": "sass styles.scss styles.css",
     "sass-watch": "sass --watch styles.scss styles.css",
     "dev": "concurrently npm:sass-watch npm:browser-sync",
-    "lint": "stylelint styles.scss ./**/*.scss",
+    "lint": "concurrently npm:stylelint styles.scss /**/*.scss npm:eslint /**/*.js",
     "sass-build": "sass styles.scss ./build/styles.css",
     "copyjs": "cpy ./js/*.js ./build/js",
     "copyindex": "cpy index.html ./build/",
     "copypages": "cpy pages/*.html ./build/pages",
     "copyimg": "cpy ./images/*.png ./build/images",
-    "build": "concurrently npm:sass-build npm:copyjs npm:copyindex npm:copypages npm:copyimg"
+    "build": "concurrently npm:sass-build npm:copyjs npm:copyindex npm:copypages npm:copyimg",
+    "prettier": "prettier --write ."
   },
   "license": "ISC",
   "bugs": {
@@ -32,7 +33,12 @@
     "concurrently": "^6.3.0",
     "cpy-cli": "^3.1.1",
     "sass": "^1.43.4",
-    "stylelint": "^13.13.1"
+    "stylelint": "^13.13.1",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.2",
+    "prettier": "2.4.1"
   },
   "dependencies": {
     "stylelint-config-sass-guidelines": "^8.0.0",

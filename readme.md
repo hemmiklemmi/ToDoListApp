@@ -18,11 +18,11 @@ Notast skal við Git og GitHub. Engar zip skrár með kóða ættu að ganga á 
 
 `README.md` skrá skal vera í rót verkefnis og innihalda:
 
-* Upplýsingar um hvernig keyra skuli verkefnið
-  * `npm run dev` eða `npm start` skal annaðhvort að vera til staðar
-  * `npm run lint` eða `npm start` skal vera til staðar og keyra lintera
-* Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS/Sass er skipulagt og fleira sem á við
-* Upplýsingar um alla sem unnu verkefni, nöfn, HÍ notendanöfn og GitHub notendanöfn
+- Upplýsingar um hvernig keyra skuli verkefnið
+  - `npm run dev` eða `npm start` skal annaðhvort að vera til staðar
+  - `npm run lint` eða `npm start` skal vera til staðar og keyra lintera
+- Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS/Sass er skipulagt og fleira sem á við
+- Upplýsingar um alla sem unnu verkefni, nöfn, HÍ notendanöfn og GitHub notendanöfn
 
 ## Tæki og tól
 
@@ -44,21 +44,21 @@ Ef spurningar vakna um þarfalýsingu er hægt að spyrja á #vef1-2021-h2 slack
 
 ### Gagnamódel
 
-* `id`, einstakt auðkenni fyrir verkefni
-* `title`, titll verkefnis, má ekki vera tómur
-* `description`, lýsing á verkefni, má vera tómt
-* `category`, flokkur verkefnis, má vera tómur eða nákvæmlega einn flokkur sem til er eftir auðkenni, sjá að neðan
-* `tags`, fylki af töggum, má vera tómt
-* `priority`, boolean gildi, hvort verkefni sé mikilvægt
-* `completed`, hvort verkefni sé klárað eða ekki
-* `due`, hvenær verkefni skal klárast í timestamp formi, má vera `null`
-* `modified`, dagstími í timestamp formi hvenær verkefni var seinast breytt. Notast þegar gögn eru _syncuð_, sjá að neðan
-* `deleted`, hvort verkefni hafi verið eytt, sjá að neðan
+- `id`, einstakt auðkenni fyrir verkefni
+- `title`, titll verkefnis, má ekki vera tómur
+- `description`, lýsing á verkefni, má vera tómt
+- `category`, flokkur verkefnis, má vera tómur eða nákvæmlega einn flokkur sem til er eftir auðkenni, sjá að neðan
+- `tags`, fylki af töggum, má vera tómt
+- `priority`, boolean gildi, hvort verkefni sé mikilvægt
+- `completed`, hvort verkefni sé klárað eða ekki
+- `due`, hvenær verkefni skal klárast í timestamp formi, má vera `null`
+- `modified`, dagstími í timestamp formi hvenær verkefni var seinast breytt. Notast þegar gögn eru _syncuð_, sjá að neðan
+- `deleted`, hvort verkefni hafi verið eytt, sjá að neðan
 
 Fyrir flokka, þá eru allir mögulegir flokkar skilgreindir í gefnum gögnum. Hver flokkur hefur:
 
-* `id`, einstakt auðkenni flokks
-* `title`, titill flokks
+- `id`, einstakt auðkenni flokks
+- `title`, titill flokks
 
 ### Gefin gögn
 
@@ -66,25 +66,25 @@ Fyrir flokka, þá eru allir mögulegir flokkar skilgreindir í gefnum gögnum. 
 
 Þegar vefur er opnaður skal:
 
-* sækja þessa skrá
-* athuga hvort _öll_ gögn úr henni hafi verið flutt inn (importuð)
-  * ef svo, ekki gera neitt
-  * ef ekki, færa inn þau gögn sem ekki hafa nú þegar verið flutt inn
+- sækja þessa skrá
+- athuga hvort _öll_ gögn úr henni hafi verið flutt inn (importuð)
+  - ef svo, ekki gera neitt
+  - ef ekki, færa inn þau gögn sem ekki hafa nú þegar verið flutt inn
 
 Hugsa skal þessa virkni sem „placeholder“ virkni fyrir það þegar vefþjónusta í útgáfu 2 myndi gefa nýjustu gögn fyrir notanda. Þetta væri til þess að hægt væri að halda gögnum notanda í _sync_ á milli mismunandi útgáfa, t.d. vefs og apps.
 
 Þegar verkefni er klárað eða því eytt, þarf að passa upp á að geta viðhaldið þeirri stöðu gegnum vefþjónustu. T.d.
 
-* Verkefni með id `1` er í upprunalegu gögnum
-* Verkefni `1` er klárað og það er ekki lengur birt
-* Þegar vefur er keyrður aftur upp þarf að horfa til `modified` gildis og ekki uppfæra (þ.e.a.s. merkja verkefnið sem óklárað) þegar sync er keyrt
+- Verkefni með id `1` er í upprunalegu gögnum
+- Verkefni `1` er klárað og það er ekki lengur birt
+- Þegar vefur er keyrður aftur upp þarf að horfa til `modified` gildis og ekki uppfæra (þ.e.a.s. merkja verkefnið sem óklárað) þegar sync er keyrt
 
 Annað dæmi:
 
-* Verkefni með id `1` er í upprunalegu gögnum
-* Verkefni með id `1` er eytt
-* Geyma þarf verkefnið áfram í gögnum þ.a. það sé ekki syncað aftur þegar sync er keyrt. Það er hægt með því að nota _soft delete_, boolean breytu sem segir til um hvort gögnum hafi verið eytt eða ekki, án þess að fjarlægja
-* Þegar vefur er keyrður aftur upp á verkefnið ekki að birtast aftur
+- Verkefni með id `1` er í upprunalegu gögnum
+- Verkefni með id `1` er eytt
+- Geyma þarf verkefnið áfram í gögnum þ.a. það sé ekki syncað aftur þegar sync er keyrt. Það er hægt með því að nota _soft delete_, boolean breytu sem segir til um hvort gögnum hafi verið eytt eða ekki, án þess að fjarlægja
+- Þegar vefur er keyrður aftur upp á verkefnið ekki að birtast aftur
 
 Huga þarf að því að birta loading state, error state, og state fyrir tóm gögn: hvort sem það eru engin verkefni yfirhöfuð, eða valinn er tómur flokkur eða tagg.
 
@@ -102,35 +102,35 @@ Búa skal til allt viðmót og virkni með HTML, CSS og JavaScript _án þess a�
 
 Forritið skal:
 
-* Sækja gögn og synca, eins og lýst er að ofan
-  * Meðan gögn eru sótt eða vistuð skal huga að því að sýna viðkomandi stöður (loading, error, tómt, gögn)
-* Vista gögn jafnóðum og gögnum er breytt, eins og lýst er að ofan
-* Sýna skal valmynd með möguleikum, þegar hver möguleiki er valinn skal gefa það til kynna í valmynd
-  * `Verkefni`, þegar smellt er á skal sýna yfirlit með öllum verkefnum sem ekki eru kláruð
-  * `Kláruð verkefni`, þegar smellt er á skal sýna yfirlit með öllum verkefnum sem hafa verið kláruð
-  * `Flokkar`, allir mögulegir flokkar eru sýndir undir yfirheiti, þegar smellt er á flokk eru aðeins verkefni í þeim flokk sýnd
-  * `Tags`, öll möguleg tags eru sýndir undir yfirheiti, þegar smellt er á tag eru aðeins verkefni með það tag sýnd
-  * Fyrir alla möguleika skal sýna fjölda verkefna sem eiga við (heiltala, `0` eða stærri)
-* Yfirlit skal sýna öll verkefni sem eiga við valinn möguleika, með þeim eiginleikum per verkefni sem lýst er að neðan. Sjálfgefið má velja eftir hverju er raðað, t.d. titli. Hægt er að raða verkefnum eftir:
-  * Titli
-  * Hvenær skal klárast (`due`), næst í tíma fyrst
-  * Forgangi, þá verkefni í forgangi efst, síðan raðað í `due` röð
-* Hvert verkefni skal sýna:
-  * „Checkbox“, ef smellt er í það skal klára verkefnið (setja `completed = true`)
-  * Titil
-  * Lýsingu ef einhver
-  * Dags þegar á að klárast, ef einhver á stuttu formi (t.d. `10. nóv`, `24. des`)
-  * Tags, ef einhver í lista með aðgreiningu frá flokki
-  * Flokkur ef einhver
-* Þegar smellt er á verkefni í lista skal birta möguleika til að breyta verkefni:
-  * Titli
-  * Lýsingu
-  * Hvenær á að klárast
-  * Hvort í forgangi eða ekki
-  * Flokkur, val með dropdown
-  * Tags, input reitur sem aðgreinir tags með bili
-  * Takki til að eyða verkefni
-* Alltaf fyrir neðan verkefnalista skal birta takka sem leyfir að búa til nýtt verkefni sem tekur við sömu gögnum og þegar verkefni er breytt
+- Sækja gögn og synca, eins og lýst er að ofan
+  - Meðan gögn eru sótt eða vistuð skal huga að því að sýna viðkomandi stöður (loading, error, tómt, gögn)
+- Vista gögn jafnóðum og gögnum er breytt, eins og lýst er að ofan
+- Sýna skal valmynd með möguleikum, þegar hver möguleiki er valinn skal gefa það til kynna í valmynd
+  - `Verkefni`, þegar smellt er á skal sýna yfirlit með öllum verkefnum sem ekki eru kláruð
+  - `Kláruð verkefni`, þegar smellt er á skal sýna yfirlit með öllum verkefnum sem hafa verið kláruð
+  - `Flokkar`, allir mögulegir flokkar eru sýndir undir yfirheiti, þegar smellt er á flokk eru aðeins verkefni í þeim flokk sýnd
+  - `Tags`, öll möguleg tags eru sýndir undir yfirheiti, þegar smellt er á tag eru aðeins verkefni með það tag sýnd
+  - Fyrir alla möguleika skal sýna fjölda verkefna sem eiga við (heiltala, `0` eða stærri)
+- Yfirlit skal sýna öll verkefni sem eiga við valinn möguleika, með þeim eiginleikum per verkefni sem lýst er að neðan. Sjálfgefið má velja eftir hverju er raðað, t.d. titli. Hægt er að raða verkefnum eftir:
+  - Titli
+  - Hvenær skal klárast (`due`), næst í tíma fyrst
+  - Forgangi, þá verkefni í forgangi efst, síðan raðað í `due` röð
+- Hvert verkefni skal sýna:
+  - „Checkbox“, ef smellt er í það skal klára verkefnið (setja `completed = true`)
+  - Titil
+  - Lýsingu ef einhver
+  - Dags þegar á að klárast, ef einhver á stuttu formi (t.d. `10. nóv`, `24. des`)
+  - Tags, ef einhver í lista með aðgreiningu frá flokki
+  - Flokkur ef einhver
+- Þegar smellt er á verkefni í lista skal birta möguleika til að breyta verkefni:
+  - Titli
+  - Lýsingu
+  - Hvenær á að klárast
+  - Hvort í forgangi eða ekki
+  - Flokkur, val með dropdown
+  - Tags, input reitur sem aðgreinir tags með bili
+  - Takki til að eyða verkefni
+- Alltaf fyrir neðan verkefnalista skal birta takka sem leyfir að búa til nýtt verkefni sem tekur við sömu gögnum og þegar verkefni er breytt
 
 ### Útlit
 
@@ -144,10 +144,10 @@ Hér er hugmynd að því hvernig útlit gæti verið:
 
 ## Mat
 
-* 20% — `README` eftir forskrift, tæki og tól uppsett, vefur keyrir á Netilfy
-* 20% — Útlit
-* 30% — Gagnamódel, gefin gögn og vistun gagna
-* 30% — Viðmót og virkni
+- 20% — `README` eftir forskrift, tæki og tól uppsett, vefur keyrir á Netilfy
+- 20% — Útlit
+- 30% — Gagnamódel, gefin gögn og vistun gagna
+- 30% — Viðmót og virkni
 
 ## Sett fyrir
 
@@ -161,14 +161,14 @@ Hópstjóri skal skila fyrir hönd allra og skila skal í Canvas í seinasta lag
 
 Skil skulu innihalda:
 
-* GitHub notendanöfn allra (passa þarf að allir nemendur séu í hópnum!)
-* Skilaboð skulu innihalda slóð á GitHub repo fyrir verkefni, og dæmatímakennurum skal hafa verið boðið í repo ([sjá leiðbeiningar](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)). Notendanöfn þeirra eru:
-  * `alli959`
-  * `einarpalsson`
-  * `HallurKrist`
-  * `oscar6662`
-  * `thth168`
-* Slóð á verkefnið keyrandi á Netlify
+- GitHub notendanöfn allra (passa þarf að allir nemendur séu í hópnum!)
+- Skilaboð skulu innihalda slóð á GitHub repo fyrir verkefni, og dæmatímakennurum skal hafa verið boðið í repo ([sjá leiðbeiningar](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)). Notendanöfn þeirra eru:
+  - `alli959`
+  - `einarpalsson`
+  - `HallurKrist`
+  - `oscar6662`
+  - `thth168`
+- Slóð á verkefnið keyrandi á Netlify
 
 ## Einkunn
 

@@ -1,3 +1,3 @@
-import{fetchAndCreatePage} from './js/ui.js'
+import { fetchAndCreatePage } from './js/ui.js';
 
 fetchAndCreatePage();

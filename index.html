@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type ="module" src="main.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="main.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <title>Hópverkefni 2</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Verkefnalistinn</h1>
+      <h1>Verkefnalistinn</h1>
     </header>
     <main>
-        <div class= "container">
-            <div class= "all__finished__projects">
-                <div class="category__container">
-                    <h3>Verkefni</h3>
-                    <div class="project__count"></div>
-                </div>
-                <div class="category__container">
-                    <h3>Kláruð verkefni</h3>
-                    <div class="unfinished__count"></div>
-                </div>
-            </div>
-            <div class = "project__categories">
-                <h2>Flokkar</h2>
-            </div>
-            <div class= "project__tags">
-                <h2>Tags</h2>
-            </div>
+      <div class="container">
+        <div class="all__finished__projects">
+          <div class="category__container">
+            <h3>Verkefni</h3>
+            <div class="project__count"></div>
+          </div>
+          <div class="category__container">
+            <h3>Kláruð verkefni</h3>
+            <div class="unfinished__count"></div>
+          </div>
         </div>
-        <div class="projects__container">
-            <div class="dropdown__list">
-                <p>Raða eftir:</p>
-                <select name="Raða eftir" id="Raða eftir">
-                    <option value="Dagsetningu">Dagsetningu</option>
-                    <option value="Flokkum">Flokkum</option>
-                    <option value="Tags">Tags</option>
-                </select>
-            </div>
+        <div class="project__categories">
+          <h2>Flokkar</h2>
         </div>
+        <div class="project__tags">
+          <h2>Tags</h2>
+        </div>
+      </div>
+      <div class="projects__container">
+        <div class="dropdown__list">
+          <p>Raða eftir:</p>
+          <select name="Raða eftir" id="Raða eftir">
+            <option value="title">Titli</option>
+            <option value="date">Dagsetningu</option>
+            <option value="priority">Forgangi</option>
+          </select>
+        </div>
+      </div>
     </main>
-    
-</body>
+  </body>
 </html>

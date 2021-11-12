@@ -122,27 +122,5 @@
       "id": "vefþjónustur",
       "title": "Vefþjónustur"
     }
-  ],
-  "tags":[
-    {
-      "id": "ráðning",
-      "title": "Ráðning"
-    },
-    {
-      "id": "framendi",
-      "title": "Framendi"
-    },
-    {
-      "id": "framework",
-      "title": "Framework"
-    },
-    {
-      "id": "gagnagrunnur",
-      "title": "Gagnagrunnur"
-    },
-    {
-      "id": "hönnun",
-      "title": "Hönnun"
-    }
   ]
 }

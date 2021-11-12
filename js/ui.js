@@ -3,96 +3,75 @@ import { el } from "./helpers.js";
 export async function fetchAndCreatePage(){
     const data = await getData();
     createCategories(data);
-
 }
+/**
+ * Býr til yfirlitið yfir alla flokka og tags og upplýsingar um fjölda verkefna.
+ * @param {*} data upplýsingar um verkefnin okkar
+ */
 function createCategories(data){
+    const counts = countData(data);
     for(let i = 0; i < data.categories.length; i++){
         const ge = document.createElement('div');
-        ge.classList.add('title__and__count');
+        ge.classList.add('category__container');
         let newCat = el("h3", data.categories[i].title);
         const he = document.querySelector('.project__categories');
         he.append(ge);
         ge.append(newCat);
+        for(let items in counts.catCount){
+            if(items === data.categories[i].id){
+                const counter = el("p", `${counts.catCount[items]}`);
+                ge.append(counter);
+            }
+        }
     }
-    for(let i = 0; i < data.tags.length; i++){
+    for(let items in counts.tagCount){
         const ge = document.createElement('div');
-        ge.classList.add('title__and__count');
-        let newCat = el("h3", data.tags[i].title);
+        ge.classList.add('category__container');
+        let newCat = el("h3", items);
         const he = document.querySelector('.project__tags');
         he.append(ge);
         ge.append(newCat);
-        
+        const counter = el("p", `${counts.tagCount[items]}`);
+        ge.append(counter);
     }
-    const counteddata =countData(data);
-    counteddata.forEach((items) =>{
-        console.log(items);
-    })
     const projectCount = document.querySelector('.project__count');
-    projectCount.textContent = counteddata[0];
+    projectCount.textContent = counts.count;
 
     const unfinishedCount = document.querySelector('.unfinished__count');
-    unfinishedCount.textContent = counteddata[1];
+    unfinishedCount.textContent = counts.finishedCount;
 }
+
+/**
+ * Teljum hversu mörg entries eru í hvaða flokki og tags.
+ * @param {*} data 
+ * @returns Hlut með upplýsingum um fjölda verkefna, kláruð verkefni, fjöldi verkefna í hverjum flokk og með hvert tag.
+ */
 function countData(data){
     let count = 0;
     let finishedCount = 0;
-    let Catcount = {};
-    let Tagcount = {};
+    let catCount = {};
+    let tagCount = {};
     const items = data.items;
-    const tags = data.tags;
-    //console.log(categories);
-   // data.items.forEach((items) =>{
-   //     categories.forEach((element) => {
-   //         if(items.category === element.id){
-   //             if (element.id === "vefforrit"){
-   //                 count[element.id]++;
-   //             }
-   //             if(element.id === "skipulag"){
-   //                 count[element.id]++;
-   //             }
-   //             if(element.id === "vefþjónustur"){
-   //                 count[element.id]++;
-   //             }
-   //         }
-   //     });
-   // })
    items.forEach((id) =>{
         if(id.completed === true){
             finishedCount++;
         }
         count++
    })
-   //console.log(count);
-   //console.log(finishedCount);
-    items.forEach(function (o) {
-        if (!Catcount.hasOwnProperty(o.category)) {
-            Catcount[o.category] = 0;
+   for(let row of items){
+        if (!catCount[row.category]) {
+            catCount[row.category] = 0;
         }
-        Catcount[o.category] += 1;
-    });
-    
-    //console.log(Catcount);
-    
-    items.forEach(function (o) {
-        if (!Tagcount.hasOwnProperty(o.tags)) {
-            Tagcount[o.tags] = 0;
+        catCount[row.category] += 1;
+    }
+    for(let row of items){
+        for(let tag of row.tags){
+            if (!tagCount[tag]) {
+                tagCount[tag] = 0;
+            }
+            tagCount[tag] += 1;
         }
-        Tagcount[o.tags] += 1;
-    });
+    }
     
-    //console.log(Tagcount);
-        
-    items.forEach(function (o) {
-        if (!Catcount.hasOwnProperty(o.category)) {
-            Catcount[o.category] = 0;
-        }
-        Catcount[o.category] += 1;
-    });
-    
-    //console.log(Catcount);
-    //const ye = el('p', `${vefforritcount}`);
-    //container.append(ye);
-    const finalData = [count,finishedCount,Catcount,Tagcount];
-    return finalData;
+    return {tagCount, catCount, count,finishedCount};
 }
-fetchAndCreatePage();

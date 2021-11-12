@@ -11,10 +11,4 @@ export async function getData(){
         return null;
       }
 }
-export async function printData(){
-    const a = await getData();
-    console.log(a);
-    for(let i = 0; i <3 ;i++){
-        console.log(a.categories[i].id);
-    }
-}
+

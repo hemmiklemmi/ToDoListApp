@@ -1,7 +1,7 @@
 import { createNewProjectBtn, createCategories, showProjects } from './js/ui.js';
 import {el, empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
-import { getData } from './js/data.js';
+import { getData} from './js/data.js';
 
 // Birtum allt efnið þegar við opnum síðuna
 async function fetchAndCreatePage() {
@@ -46,7 +46,7 @@ function addProject(){
         newItem.due = dateTimeStamp;
         
         // Bætum nýja verkefninu í localStorage
-        console.log(newItem);
+        //console.log(newItem);
         addNewData(newItem);
         
         // Eyðum bætaviðverkefni takkanum og bætum við aftur neðst

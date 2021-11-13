@@ -51,8 +51,11 @@ function countData() {
   
   for(let i = 1; i<=window.localStorage.length; i+= 1){
     const parsedItem = JSON.parse(window.localStorage.getItem(i));
-    all[i] = parsedItem;
+    if(parsedItem !== null){
+      all[i] = parsedItem;
+    }
   }
+  //console.log(all);
   
   all.forEach((id) =>{
     if (id.completed === true) {

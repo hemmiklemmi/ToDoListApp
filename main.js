@@ -46,6 +46,7 @@ function addProject(){
         newItem.due = dateTimeStamp;
         
         // Bætum nýja verkefninu í localStorage
+        console.log(newItem);
         addNewData(newItem);
         
         // Eyðum bætaviðverkefni takkanum og bætum við aftur neðst

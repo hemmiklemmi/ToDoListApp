@@ -1,8 +1,8 @@
-export const newProject = e =>
-  let formdata = {
-    title: document.querySelector()
-  }
-
+//  Braut síðuna þegar þetta fall var inni
+//  export const newProject = e =>
+//  let formdata = {
+//  title: document.querySelector()
+//  }
 export async function getData() {
   try {
     const result = await fetch('../data.json');

@@ -43,26 +43,29 @@
         <div class="new-project hidden">
             <h2>Búa til nýtt verkefni</h2>
             <fieldset>
+              <form class ="new-project-form">
                 <p>Titill:</p>
-                <input type="text" name="Titill">
+                <input type="text" name="Titill" class="title">
                 <p>Lýsing:</p>
-                <input type="text" name="Lýsing">
+                <input type="text" name="Lýsing" class="description">
                 <p>Hvenær skal verkefni klárast:</p>
-                <input type="date" name="Due">
+                <input type="date" name="Due" class="duedate">
                 <p>Tags:</p>
-                <input type="text" name="" placeholder="Bætið tags hér við með bil á milli">
+                <input type="text" name="" placeholder="Bætið tags hér við með bil á milli" class="tags">
                 <p>Flokkar:</p>
                 <p>
-                    <select name="Flokkar">
-                    <option>Vefforrit</option>
-                    <option>Skipulag</option>
-                    <option>Vefþjónustur</option>
+                    <select name="Flokkar" class="category">
+                      <option value=""></option>
+                      <option value="vefforrit">Vefforrit</option>
+                      <option value="skipulag">Skipulag</option>
+                      <option value="vefþjónustur">Vefþjónustur</option>
                     </select>
                 </p>
                 <p>Eyða verkefni:
                     <input type="checkbox" name="Eyða verkefni" value="Eyða verkefni">
                 </p>
                 <input class="add-btn" type="submit" name="Bæta við" value="Bæta við">
+              </form>
             </fieldset>
         </div>
       </div>

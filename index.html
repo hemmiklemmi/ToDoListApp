@@ -42,28 +42,30 @@
         </div>
         <div class="new-project hidden">
             <h2>Búa til nýtt verkefni</h2>
-            <fieldset>
-                <p>Titill:</p>
-                <input type="text" name="Titill">
-                <p>Lýsing:</p>
-                <input type="text" name="Lýsing">
-                <p>Hvenær skal verkefni klárast:</p>
-                <input type="date" name="Due">
-                <p>Tags:</p>
-                <input type="text" name="" placeholder="Bætið tags hér við með bil á milli">
-                <p>Flokkar:</p>
-                <p>
-                    <select name="Flokkar">
-                    <option>Vefforrit</option>
-                    <option>Skipulag</option>
-                    <option>Vefþjónustur</option>
-                    </select>
-                </p>
-                <p>Eyða verkefni:
-                    <input type="checkbox" name="Eyða verkefni" value="Eyða verkefni">
-                </p>
-                <input class="add-btn" type="submit" name="Bæta við" value="Bæta við">
-            </fieldset>
+            <form action="">
+              <fieldset>
+                  <p>Titill:</p>
+                  <input type="text" name="Titill" required>
+                  <p>Lýsing:</p>
+                  <input type="text" name="Lýsing">
+                  <p>Hvenær skal verkefni klárast:</p>
+                  <input type="date" name="Due">
+                  <p>Tags:</p>
+                  <input type="text" name="" placeholder="Bætið tags hér við með bil á milli">
+                  <p>Flokkar:</p>
+                  <p>
+                      <select name="Flokkar">
+                      <option>Vefforrit</option>
+                      <option>Skipulag</option>
+                      <option>Vefþjónustur</option>
+                      </select>
+                  </p>
+                  <p>Eyða verkefni:
+                      <input type="checkbox" name="Eyða verkefni" value="Eyða verkefni">
+                  </p>
+                  <input class="add-btn" type="submit" name="Bæta við" value="Bæta við">
+              </fieldset>
+            </form>
         </div>
       </div>
     </main>

@@ -1,3 +1,7 @@
+export function getFormData() {
+
+}
+
 export async function getData() {
   try {
     const result = await fetch('../data.json');

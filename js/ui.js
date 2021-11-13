@@ -1,35 +1,23 @@
-import { getData } from './data.js';
 import { el } from './helpers.js';
-import { importData } from './locals.js';
 
-export async function fetchAndCreatePage() {
-  const data = await getData();
-  importData(data);
-  createCategories(data);
-  showProjects();
-  createNewProjectBtn();
-  return data;
-}
 /**
  * Býr til yfirlitið yfir alla flokka og tags og upplýsingar um fjölda verkefna.
  * @param {*} data upplýsingar um verkefnin okkar
  */
-function createCategories(data) {
-  const counts = countData(data);
-  for (let i = 0; i < data.categories.length; i+=1) {
-    const ge = document.createElement('div');
-    ge.classList.add('category-container');
-    const newCat = el('h3', data.categories[i].title);
-    const he = document.querySelector('.project-categories');
-    he.append(ge);
-    ge.append(newCat);
-    for (const items in counts.catCount) {
-      if (items === data.categories[i].id) {
-        const counter = el('p', `${counts.catCount[items]}`);
-        ge.append(counter);
+export function createCategories() {
+  const counts = countData();
+  for (const items in counts.catCount) {
+    if(items){
+      const ge = document.createElement('div');
+      ge.classList.add('category-container');
+      const newCat = el('h3', items);
+      const he = document.querySelector('.project-categories');
+      he.append(ge);
+      ge.append(newCat);
+      const counter = el('p', `${counts.catCount[items]}`);
+      ge.append(counter);
       }
     }
-  }
   for (const items in counts.tagCount) {
       if(items){
         const ge = document.createElement('div');
@@ -54,38 +42,43 @@ function createCategories(data) {
  * @param {*} data
  * @returns Hlut með upplýsingum um fjölda verkefna, kláruð verkefni, fjöldi verkefna í hverjum flokk og með hvert tag.
  */
-function countData(data) {
+function countData() {
   let count = 0;
+  const all= [];
   let finishedCount = 0;
   const catCount = {};
   const tagCount = {};
-  const {items} = data;
-  items.forEach((id) => {
+  
+  for(let i = 1; i<=window.localStorage.length; i+= 1){
+    const parsedItem = JSON.parse(window.localStorage.getItem(i));
+    all[i] = parsedItem;
+  }
+  
+  all.forEach((id) =>{
     if (id.completed === true) {
       finishedCount+=1;
     }
-    count+=1;
-  });
-  for (const row of items) {
-    if (!catCount[row.category]) {
-      catCount[row.category] = 0;
+    if (!catCount[id.category]) {
+      catCount[id.category] = 0;
     }
-    catCount[row.category] += 1;
-    for (const tag of row.tags) {
+    catCount[id.category] += 1;
+    for (const tag of id.tags) {
       if (!tagCount[tag]) {
         tagCount[tag] = 0;
       }
       tagCount[tag] += 1;
     }
-  }
+    count+=1;
+  });
+  
   return { tagCount, catCount, count, finishedCount };
 }
-function showProjects(id = ''){
+export function showProjects(){
     const ul = document.createElement('ul');
     ul.classList.add('projects');
     const container= document.querySelector('.projects-container')
     container.append(ul);
-    for(let i = 1; i<window.localStorage.length; i+= 1){
+    for(let i = 1; i<=window.localStorage.length; i+= 1){
         const parsedItem = JSON.parse(window.localStorage.getItem(i));
         const newLi = el('li','');
         const title = el('h3',  parsedItem.title)
@@ -117,7 +110,8 @@ function showProjects(id = ''){
     }
     
 }
-function createNewProjectBtn(){
+
+export function createNewProjectBtn(){
   const newProjectBtn = el('button', 'Búa til nýtt verkefni');
   const ul = document.querySelector('.projects');
   ul.append(newProjectBtn);

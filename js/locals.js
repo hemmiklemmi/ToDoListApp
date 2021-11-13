@@ -6,3 +6,6 @@ export function importData(data) {
   }
 
 }
+export function addNewData(data){
+  localStorage.setItem(data.id, JSON.stringify(data));
+}

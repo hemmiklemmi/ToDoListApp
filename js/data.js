@@ -1,6 +1,7 @@
-export function getFormData() {
-
-}
+export const newProject = e =>
+  let formdata = {
+    title: document.querySelector()
+  }
 
 export async function getData() {
   try {

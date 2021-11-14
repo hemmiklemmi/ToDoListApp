@@ -175,11 +175,16 @@ export function sortByDate(id =''){
   
   // ef forgangur er valinn þá sorterum við einning eftir forgangi
   if(id === '1'){
-    all.sort((a,b) => { 
-      if(a.priority === b.priority) return 0;
-      if(a.priority !== 0) return 1;
-      return -1;
-    });
+    all.sort((a,b)=> (a.priority === b.priority)? 0 : a.priority? -1 : 1);
+    //  all.sort((a,b) => { 
+    //  if(a.priority === b.priority){
+    //    return 0;
+    //  } 
+    //  if(a.priority !== 0){
+    //    return 1;
+    //  } 
+    //  return -1;
+    //  });
   }
   const addNewBtn = document.querySelector('.new-modify-project')
   addNewBtn.remove();

@@ -20,9 +20,9 @@
     "sass-build": "sass styles.scss ./build/styles.css",
     "copyjs": "cpy ./js/*.js ./build/js",
     "copyindex": "cpy index.html ./build/",
-    "copypages": "cpy pages/*.html ./build/pages",
-    "copyimg": "cpy ./images/*.png ./build/images",
-    "build": "concurrently npm:sass-build npm:copyjs npm:copyindex npm:copypages npm:copyimg",
+    "copymain": "cpy main.js ./build/",
+    "copyjson": "cpy data.json ./build",
+    "build": "concurrently npm:sass-build npm:copyjs npm:copyindex npm:copymain npm:copyjson",
     "prettier": "prettier --write ."
   },
   "license": "ISC",

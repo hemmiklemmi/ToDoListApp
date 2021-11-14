@@ -1,18 +1,11 @@
+@import 'styles/config';
+@import 'styles/projects';
+@import 'styles/categories';
+
 header {
   display: flex;
   justify-content: center;
-}
-
-main {
-  display: grid;
-  grid-template-columns: 40% 60%;
-}
-
-.category-container {
-  align-items: center;
-  display: flex;
-  height: 5vh;
-  justify-content: space-between;
+  margin: 20px;
 }
 
 .dropdown-list {
@@ -20,27 +13,8 @@ main {
   align-items: center;
 }
 
-.container {
-  margin-right: 2em;
-}
-
 .hidden {
   display: none;
 }
 
-li {
-  border: 1px solid #000;
-  margin: 2em 0;
-  padding: 0 1em;
-  width: 50%;
-}
 
-.date-tag-container {
-  align-items: center;
-  display: flex;
-
-  button,
-  p:last-child {
-    margin: 0 0 0 1em;
-  }
-}

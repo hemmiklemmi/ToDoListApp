@@ -103,6 +103,7 @@ export function showProjects(id = ''){
 
         if(parsedItem.description !== ''){
             const descript = el('p' , parsedItem.description);
+            descript.classList.add('desc');
             newLi.appendChild(descript);
         }
         newLi.append(dateTagsContainer);
@@ -110,17 +111,20 @@ export function showProjects(id = ''){
           const date = new Date(parsedItem.due)
           const dateString =(date.toString()).split(' ');
           const dateTime = el('p' , dateString[2], ' ', dateString[1]);
+          dateTime.classList.add('date-tag-container-dagsetning');
           dateTagsContainer.append(dateTime);
         }
         
         for(const item in parsedItem.tags){
             if(parsedItem.tags[item] !== ''){
                 const tag = el('button', parsedItem.tags[item])
+                tag.classList.add('date-tag-container-tag');
                 dateTagsContainer.append(tag);
             }
         }
         if(parsedItem.category !== ''){
           const category = el('p' , parsedItem.category);
+          category.classList.add('date-tag-container-category');
           dateTagsContainer.appendChild(category);
         }
     }

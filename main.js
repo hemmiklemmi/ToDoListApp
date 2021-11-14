@@ -17,6 +17,20 @@ async function fetchAndCreatePage() {
 const addBtn = document.querySelector('.add-btn');
 addBtn.addEventListener('click', addProject());
 
+const selectTitle = document.querySelector('.select-title');
+selectTitle.addEventListener('click', ()=>{
+    console.log("titill");
+});
+const selectDate = document.querySelector('.select-date');
+selectDate.addEventListener('click', ()=>{
+    console.log("date");
+});
+
+const selectPrio = document.querySelector('.select-prio');
+selectPrio.addEventListener('click', ()=>{
+    console.log("prio");
+});
+
 
 function addProject(){
     return (e) => {
@@ -46,7 +60,6 @@ function addProject(){
         newItem.due = dateTimeStamp;
         
         // Bætum nýja verkefninu í localStorage
-        //console.log(newItem);
         addNewData(newItem);
         
         // Eyðum bætaviðverkefni takkanum og bætum við aftur neðst
@@ -71,9 +84,10 @@ function addProject(){
         const dateString =(date.toString()).split(' ');
         const dateTime = el('p' , dateString[2], ' ', dateString[1]);
         dateTagsContainer.append(dateTime);
+        console.log(newItem.tags);
         
         for(const item in newItem.tags){
-            if(newItem.tags !== ''){
+            if(newItem.tags[item] !== ''){
                 const tag = el('button', newItem.tags[item])
                 dateTagsContainer.append(tag);
             }
@@ -83,8 +97,8 @@ function addProject(){
           dateTagsContainer.appendChild(category);
         }
         createNewProjectBtn();
-        const categoryContainer = document.querySelector('.project-categories');
-        const tagContainer = document.querySelector('.project-tags');
+        const categoryContainer = document.querySelector('.all-container');
+        const tagContainer = document.querySelector('.all-tags');
         const allCountContainer = document.querySelector('.project-count');
         const finishedCountContainer = document.querySelector('.unfinished-count');
         empty(categoryContainer);

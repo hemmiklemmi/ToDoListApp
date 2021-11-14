@@ -6,30 +6,36 @@ import { el } from './helpers.js';
  */
 export function createCategories() {
   const counts = countData();
+  const allCatContainer = el('div', '');
+  allCatContainer.classList.add('all-container');
+  const allTagsContainer = el('div', '');
+  allTagsContainer.classList.add('all-tags');
+  const categoriesHeaderContainer = document.querySelector('.project-categories');
+  const tagsHeaderContainer = document.querySelector('.project-tags');
   for (const items in counts.catCount) {
     if(items){
       const ge = document.createElement('div');
       ge.classList.add('category-container');
       const newCat = el('h3', items);
-      const he = document.querySelector('.project-categories');
-      he.append(ge);
       ge.append(newCat);
       const counter = el('p', `${counts.catCount[items]}`);
       ge.append(counter);
+      allCatContainer.appendChild(ge);
       }
     }
+  categoriesHeaderContainer.append(allCatContainer);
   for (const items in counts.tagCount) {
       if(items){
         const ge = document.createElement('div');
         ge.classList.add('category-container');
         const newCat = el('h3', items);
-        const he = document.querySelector('.project-tags');
-        he.append(ge);
         ge.append(newCat);
         const counter = el('p', `${counts.tagCount[items]}`);
         ge.append(counter);
+        allTagsContainer.appendChild(ge);
       }
   }
+  tagsHeaderContainer.append(allTagsContainer);
   const projectCount = document.querySelector('.project-count');
   projectCount.textContent = counts.count;
 
@@ -55,7 +61,6 @@ function countData() {
       all[i] = parsedItem;
     }
   }
-  //console.log(all);
   
   all.forEach((id) =>{
     if (id.completed === true) {
@@ -101,7 +106,7 @@ export function showProjects(){
         dateTagsContainer.append(dateTime);
         
         for(const item in parsedItem.tags){
-            if(parsedItem.tags !== ''){
+            if(parsedItem.tags[item] !== ''){
                 const tag = el('button', parsedItem.tags[item])
                 dateTagsContainer.append(tag);
             }

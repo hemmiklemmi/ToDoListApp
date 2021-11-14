@@ -1,4 +1,4 @@
-import { createNewProjectBtn, createCategories, showProjects } from './js/ui.js';
+import { createNewProjectBtn, createCategories, showProjects, sortByDate} from './js/ui.js';
 import {el, empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
 import { getData} from './js/data.js';
@@ -10,6 +10,7 @@ async function fetchAndCreatePage() {
     createCategories(data);
     showProjects();
     createNewProjectBtn();
+    sortByDate('2');
     return data;
   }
 
@@ -17,19 +18,26 @@ async function fetchAndCreatePage() {
 const addBtn = document.querySelector('.add-btn');
 addBtn.addEventListener('click', addProject());
 
-const selectTitle = document.querySelector('.select-title');
-selectTitle.addEventListener('click', ()=>{
-    console.log("titill");
+const select = document.querySelector('.select');
+select.addEventListener('change', ()=>{
+    if(select.value ==='title'){
+        sortByDate('2');
+    }
+    if(select.value === 'date'){
+        sortByDate();
+    }
+    if(select.value === 'priority'){
+        sortByDate('1');
+    }
 });
-const selectDate = document.querySelector('.select-date');
-selectDate.addEventListener('click', ()=>{
-    console.log("date");
-});
-
-const selectPrio = document.querySelector('.select-prio');
-selectPrio.addEventListener('click', ()=>{
-    console.log("prio");
-});
+//const selectTitle = document.querySelector('.select-title');
+//selectTitle.addEventListener('change',()=> sortByDate('2'));
+//
+//const selectDate = document.querySelector('.select-date');
+//selectDate.addEventListener('change', sortByDate);
+//
+//const selectPrio = document.querySelector('.select-prio');
+//selectPrio.addEventListener('change', ()=> sortByDate('1'));
 
 
 function addProject(){
@@ -58,7 +66,6 @@ function addProject(){
         const dates = new Date(newDate.value);
         const dateTimeStamp = dates.getTime();
         newItem.due = dateTimeStamp;
-        
         // Bætum nýja verkefninu í localStorage
         addNewData(newItem);
         

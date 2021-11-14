@@ -1,4 +1,4 @@
-import { el } from './helpers.js';
+import { el, empty } from './helpers.js';
 
 /**
  * Býr til yfirlitið yfir alla flokka og tags og upplýsingar um fjölda verkefna.
@@ -81,15 +81,21 @@ function countData() {
   
   return { tagCount, catCount, count, finishedCount };
 }
-export function showProjects(){
+export function showProjects(id = ''){
     const ul = document.createElement('ul');
     ul.classList.add('projects');
     const container= document.querySelector('.projects-container')
     container.append(ul);
     for(let i = 1; i<=window.localStorage.length; i+= 1){
-        const parsedItem = JSON.parse(window.localStorage.getItem(i));
+      let parsedItem;
+      if(id !== ''){
+        parsedItem = id[i-1];
+      }
+      else{
+        parsedItem = JSON.parse(window.localStorage.getItem(i));
+      }
         const newLi = el('li','');
-        const title = el('h3',  parsedItem.title)
+        const title = el('h3',  parsedItem.title);
         ul.appendChild(newLi);
         newLi.append(title);
         const dateTagsContainer = el('div', '');
@@ -100,10 +106,12 @@ export function showProjects(){
             newLi.appendChild(descript);
         }
         newLi.append(dateTagsContainer);
-        const date = new Date(parsedItem.due)
-        const dateString =(date.toString()).split(' ');
-        const dateTime = el('p' , dateString[2], ' ', dateString[1]);
-        dateTagsContainer.append(dateTime);
+        if(parsedItem.due !== null){
+          const date = new Date(parsedItem.due)
+          const dateString =(date.toString()).split(' ');
+          const dateTime = el('p' , dateString[2], ' ', dateString[1]);
+          dateTagsContainer.append(dateTime);
+        }
         
         for(const item in parsedItem.tags){
             if(parsedItem.tags[item] !== ''){
@@ -129,4 +137,49 @@ export function createNewProjectBtn(){
     he.classList.remove('hidden');
     ul.classList.add('hidden');
   } )
+}
+
+export function sortByDate(id =''){
+  const all = [];
+  for(let i = 1; i<=window.localStorage.length; i+= 1){
+    const parsedItem = JSON.parse(window.localStorage.getItem(i));
+    if(parsedItem !== null){
+      all[i] = parsedItem;
+    }
+  }
+  const ul = document.querySelector('.projects');
+  
+  // ef title er valið þá sorterum við eftir tilti
+  if(id === '2'){
+    all.sort((a,b) => {
+      const nameA = a.title.toUpperCase(); 
+      const nameB = b.title.toUpperCase(); 
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+    return 0;
+    });
+  }
+  
+  // ef titill er ekki valinn þá sorterum við eftir dagsetningu
+  if(id !== '2'){
+    all.sort((a,b)=> a.due-b.due);
+  }
+  
+  // ef forgangur er valinn þá sorterum við einning eftir forgangi
+  if(id === '1'){
+    all.sort((a,b) => { 
+      if(a.priority === b.priority) return 0;
+      if(a.priority !== 0) return 1;
+      return -1;
+    });
+  }
+  const addNewBtn = document.querySelector('.new-modify-project')
+  addNewBtn.remove();
+  ul.remove();
+  showProjects(all);
+  createNewProjectBtn();
 }

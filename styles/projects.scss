@@ -1,0 +1,50 @@
+.projects-container {
+    grid-column: span 2;
+}
+
+.projects {
+    list-style: none;
+}
+
+li {
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    div {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .desc {
+        opacity: 70%;
+    }
+
+    * {
+        margin: 10px 0;
+    }
+}
+
+.date-tag-container {
+    
+    * {
+        grid-column: span 1;
+    }
+
+    &-dagsetning {
+        grid-column-start: 1;
+        opacity: 70%;
+    }
+
+    &-category {
+        grid-column-start: 5;
+    }
+    
+    &-tag {
+        border-radius: 5px;
+        width: 90%;
+        //þarf að laga fyrir gagnagrunnur
+        overflow: hidden;
+    }
+  }

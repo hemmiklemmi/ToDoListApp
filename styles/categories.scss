@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.category-container {
+    display: flex;
+    justify-content: space-between;
+    
+    * {
+        padding-bottom: 5px;
+    }
+}
+
+.header-tag {
+    padding-top: 10%;
+}
+
+.project-tags {
+    
+    * {
+        padding-bottom: 5px;
+    }
+}
+
+.project-categories {
+    
+    * {
+        padding-bottom: 5px;
+    }
+}

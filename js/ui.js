@@ -1,4 +1,4 @@
-import { el, empty } from './helpers.js';
+import { el} from './helpers.js';
 
 /**
  * Býr til yfirlitið yfir alla flokka og tags og upplýsingar um fjölda verkefna.

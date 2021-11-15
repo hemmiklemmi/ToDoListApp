@@ -1,0 +1,17 @@
+.new-project {
+    padding: 10px;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+
+    * {
+        padding-bottom: 10px;
+    }
+
+    input {
+        width: 50%;
+    }
+}

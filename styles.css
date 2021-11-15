@@ -78,6 +78,22 @@ li * {
   padding-bottom: 5px;
 }
 
+.new-project {
+  padding: 10px;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+fieldset * {
+  padding-bottom: 10px;
+}
+fieldset input {
+  width: 50%;
+}
+
 header {
   display: flex;
   justify-content: center;

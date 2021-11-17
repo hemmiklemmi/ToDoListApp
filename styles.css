@@ -111,6 +111,7 @@ fieldset input {
 .button-style button:hover {
   background-color: #580e0e;
   color: white;
+  transition: 0.3s;
 }
 .button-style p {
   padding: 0 10px;

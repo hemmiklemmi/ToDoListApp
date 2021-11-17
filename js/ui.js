@@ -94,17 +94,18 @@ export function showProjects(id = ''){
       else{
         parsedItem = JSON.parse(window.localStorage.getItem(i));
       }
-        const newLi = el('li','');
+
+      const newLi = el('li','');
+      const dateTagsContainer = el('div', '');
+      if (parsedItem !== null && parsedItem !== undefined) {
         const title = el('h3',  parsedItem.title);
         ul.appendChild(newLi);
         newLi.append(title);
-        const dateTagsContainer = el('div', '');
         dateTagsContainer.classList.add('date-tag-container');
-
         if(parsedItem.description !== ''){
-            const descript = el('p' , parsedItem.description);
-            descript.classList.add('desc');
-            newLi.appendChild(descript);
+          const descript = el('p' , parsedItem.description);
+          descript.classList.add('desc');
+          newLi.appendChild(descript);
         }
         newLi.append(dateTagsContainer);
         if(parsedItem.due !== null){
@@ -114,7 +115,7 @@ export function showProjects(id = ''){
           dateTime.classList.add('date-tag-container-dagsetning');
           dateTagsContainer.append(dateTime);
         }
-        
+
         for(const item in parsedItem.tags){
             if(parsedItem.tags[item] !== ''){
                 const tag = el('button', parsedItem.tags[item])
@@ -127,6 +128,7 @@ export function showProjects(id = ''){
           category.classList.add('date-tag-container-category');
           dateTagsContainer.appendChild(category);
         }
+      }
     }
     
 }

@@ -97,6 +97,8 @@ export function showProjects(id = ''){
 
       const newLi = el('li','');
       const dateTagsContainer = el('div', '');
+      
+      // lagaði villu hja mer með því að setja allt í if block!
       if (parsedItem !== null && parsedItem !== undefined) {
         const title = el('h3',  parsedItem.title);
         ul.appendChild(newLi);

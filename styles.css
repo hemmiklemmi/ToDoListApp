@@ -17,6 +17,7 @@ main {
 
 .projects {
   list-style: none;
+  padding: 10px;
 }
 
 li {
@@ -92,6 +93,27 @@ fieldset * {
 }
 fieldset input {
   width: 50%;
+}
+
+.button-style {
+  display: flex;
+  align-items: center;
+}
+.button-style button {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0;
+  border-radius: 10px;
+  width: 2%;
+  background-color: white;
+  color: #580e0e;
+}
+.button-style button:hover {
+  background-color: #580e0e;
+  color: white;
+}
+.button-style p {
+  padding: 0 10px;
 }
 
 header {

@@ -88,11 +88,13 @@ fieldset {
   display: flex;
   flex-direction: column;
 }
-fieldset * {
-  padding-bottom: 10px;
+fieldset p {
+  padding-bottom: 5px;
 }
 fieldset input {
   width: 50%;
+  padding: 5px 0;
+  margin-bottom: 10px;
 }
 
 .button-style {

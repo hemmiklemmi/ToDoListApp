@@ -39,7 +39,6 @@ function addProject(){
         const newProjects =document.querySelector('.new-project');
         projects.classList.remove('hidden')
         newProjects.classList.add('hidden');
-        
         // búum til nýtt object með öllum upplýsingum um verkefnið
         const newTitle = document.querySelector('.title');
         const newDescription = document.querySelector('.description');
@@ -57,10 +56,8 @@ function addProject(){
         const dates = new Date(newDate.value);
         const dateTimeStamp = dates.getTime();
         newItem.due = dateTimeStamp;
-        
         // Bætum nýja verkefninu í localStorage
         addNewData(newItem);
-        
         // Birtum öll verkefnin nú aftur og sorterum eftir því sem er valið
         if(select.value ==='title'){
             sortByDate('2');
@@ -71,7 +68,6 @@ function addProject(){
         if(select.value === 'priority'){
             sortByDate('1');
         }
-
         const categoryContainer = document.querySelector('.all-container');
         const tagContainer = document.querySelector('.all-tags');
         const allCountContainer = document.querySelector('.project-count');

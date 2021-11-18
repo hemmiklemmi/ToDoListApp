@@ -17,6 +17,7 @@ main {
 
 .projects {
   list-style: none;
+  padding: 10px;
 }
 
 li {
@@ -87,11 +88,35 @@ fieldset {
   display: flex;
   flex-direction: column;
 }
-fieldset * {
-  padding-bottom: 10px;
+fieldset p {
+  padding-bottom: 5px;
 }
 fieldset input {
   width: 50%;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+
+.button-style {
+  display: flex;
+  align-items: center;
+}
+.button-style button {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0;
+  border-radius: 10px;
+  width: 2%;
+  background-color: white;
+  color: #580e0e;
+}
+.button-style button:hover {
+  background-color: #580e0e;
+  color: white;
+  transition: 0.3s;
+}
+.button-style p {
+  padding: 0 10px;
 }
 
 header {

@@ -71,6 +71,37 @@
               </fieldset>
             </form>
         </div>
+        <div class="modify-project hidden">
+          <h2>Breyta verkefni</h2>
+          <form action="">
+            <fieldset>
+                <p>Titill:</p>
+                <input type="text" class ="title" name="Titill" required>
+                <p>Lýsing:</p>
+                <input type="text" class="description" name="Lýsing">
+                <p>Hvenær skal verkefni klárast:</p>
+                <input type="date" class="duedate"  name="Due">
+                <p>Tags:</p>
+                <input type="text" class="tags" name="" placeholder="Bætið tags hér við með bil á milli">
+                <p>Flokkar:</p>
+                <p>
+                    <select class= "category" name="Flokkar">
+                      <option value=""></option>
+                      <option  value="vefforrit">Vefforrit</option>
+                      <option value="skipulag">Skipulag</option>
+                      <option value="vefþjónustur">Vefþjónustur</option>
+                    </select>
+                </p>
+                <p>Eyða verkefni:
+                    <input type="checkbox" name="Eyða verkefni" value="Eyða verkefni">
+                </p>
+                <div class="button-style">
+                  <button class="change-btn">+</button>
+                  <p>Staðfesta Breytingar!</p>
+                </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </main>
   </body>

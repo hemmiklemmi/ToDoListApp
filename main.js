@@ -1,4 +1,4 @@
-import { createNewProjectBtn, createCategories, showProjects, sortByDate} from './js/ui.js';
+import { createNewProjectBtn, createCategories, showProjects, sortByDate, modifyProject} from './js/ui.js';
 import {empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
 import { getData} from './js/data.js';
@@ -13,7 +13,6 @@ async function fetchAndCreatePage() {
     sortByDate('2');
     return data;
   }
-
 // Bætum eventListener við bæta við hnappinn
 const addBtn = document.querySelector('.add-btn');
 addBtn.addEventListener('click', addProject());

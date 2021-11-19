@@ -143,8 +143,8 @@ export function modifyProject(id) {
   const modify = document.querySelector('.modify-project');
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
-  let item = localStorage.getItem(id)
-  console.log(item);
+  let title = document.getElementById('titill').value
+  let item = JSON.parse(localStorage.getItem(id));
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');

@@ -1,9 +1,10 @@
 import { createNewProjectBtn, createCategories, showProjects, sortByDate,
-        modifyProject, sortByProject} from './js/ui.js';
+        modifyProject, sortByProject, isclicked} from './js/ui.js';
 import {empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
 import { getData} from './js/data.js';
 
+const select = document.querySelector('.select');
 // Birtum allt efnið þegar við opnum síðuna
 async function fetchAndCreatePage() {
     const data = await getData();
@@ -11,14 +12,18 @@ async function fetchAndCreatePage() {
     createCategories(data);
     showProjects();
     createNewProjectBtn();
-    sortByDate('2');
-    return data;
+    sortByDate('title');
   }
 
   // Bætum eventListener við dropdown listann svo það flokkist rétt
-const select = document.querySelector('.select');
+//const select = document.querySelector('.select');
 select.addEventListener('change', ()=>{
-    sortByDate(select.value);
+    if(isclicked === ''){
+        sortByDate(select.value);
+    }
+    else{
+        sortByProject(isclicked);
+    }
   });
 
   // Bætum eventListener við bæta við hnappinn
@@ -28,7 +33,11 @@ addBtn.addEventListener('click', addProject());
 modButton.addEventListener('click', changeProject());
 const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');
-showAll.addEventListener('click', () => sortByDate(select.value));
+showAll.addEventListener('click', () => {
+    window.event.preventDefault();
+    sortByDate(select.value);
+});
+   
 showFinished.addEventListener('click', () => sortByProject(showFinished.textContent));
 
 
@@ -37,7 +46,7 @@ showFinished.addEventListener('click', () => sortByProject(showFinished.textCont
 function changeProject() {
     return (e) => {
         e.preventDefault();
-        let clickedProject = modifyProject();
+        const clickedProject = modifyProject();
         const projects = document.querySelector('.projects');
         const newProjects =document.querySelector('.new-project');
         const modProject = document.querySelector('.modify-project');
@@ -83,15 +92,8 @@ function addProject(){
         addNewData(newItem);
         
         // Birtum öll verkefnin nú aftur og sorterum eftir því sem er valið
-        if(select.value ==='title'){
-            sortByDate('2');
-        }
-        if(select.value === 'date'){
-            sortByDate();
-        }
-        if(select.value === 'priority'){
-            sortByDate('1');
-        }
+        sortByDate(select.value);
+    
         const categoryContainer = document.querySelector('.all-container');
         const tagContainer = document.querySelector('.all-tags');
         const allCountContainer = document.querySelector('.project-count');

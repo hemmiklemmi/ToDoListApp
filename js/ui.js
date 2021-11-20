@@ -1,5 +1,11 @@
 import { el} from './helpers.js';
 
+// Sáum enga þæginlega leið en að disablea þetta hér
+// Leyfir okkar flokka rétt eftir því hvort einhver flokkur/
+// tagg er valið eða hvort öll verkefninu eru völd.
+// eslint-disable-next-line import/no-mutable-exports
+export let isclicked ='';
+
 /**
  * Býr til yfirlitið yfir alla flokka og tags og upplýsingar um fjölda verkefna.
  * @param {*} data upplýsingar um verkefnin okkar
@@ -150,7 +156,7 @@ export function modifyProject(id) {
   const modify = document.querySelector('.modify-project');
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
-  let item = JSON.parse(localStorage.getItem(id));
+  const item = JSON.parse(localStorage.getItem(id));
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');
@@ -177,9 +183,8 @@ export function createNewProjectBtn(){
  * @param {*} id Segir til um hvað var valið í listanum
  */
 export function sortByDate(id =''){
-  window.event.preventDefault();
   const all = [];
- 
+  isclicked = '';
   for(let i = 1; i<=window.localStorage.length; i+= 1){
     const parsedItem = JSON.parse(window.localStorage.getItem(i));
     if(parsedItem !== null){
@@ -233,12 +238,12 @@ export function sortByDate(id =''){
  * @param {*} id 
  */
 export function sortByProject(id = ''){
+  isclicked = id;
   window.event.preventDefault();
   const allInCat = [];
   const allCompleted = [];
   for(let i = 1; i<=window.localStorage.length; i+= 1){
     const parsedItem = JSON.parse(window.localStorage.getItem(i));
-    if(parsedItem !== null){
       if(parsedItem.category === id){
         allInCat[i] = parsedItem;
       }
@@ -251,7 +256,6 @@ export function sortByProject(id = ''){
         if(parsedItem.completed === true){
           allCompleted[i] = parsedItem;
         }
-      }
     }
   }
   const ul = document.querySelector('.projects');

@@ -63,6 +63,11 @@ li * {
   background-color: #eedddd;
 }
 
+.delete-button {
+  width: 10%;
+  height: 4vh;
+}
+
 .container {
   display: flex;
   flex-direction: column;

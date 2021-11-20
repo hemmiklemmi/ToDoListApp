@@ -15,8 +15,7 @@ async function fetchAndCreatePage() {
     sortByDate('title');
   }
 
-  // Bætum eventListener við dropdown listann svo það flokkist rétt
-//const select = document.querySelector('.select');
+// Bætum eventListener við dropdown listann svo það flokkist rétt
 select.addEventListener('change', ()=>{
     if(isclicked === ''){
         sortByDate(select.value);
@@ -26,11 +25,12 @@ select.addEventListener('change', ()=>{
     }
   });
 
-  // Bætum eventListener við bæta við hnappinn
+  // Bætum eventListener við hnappana
 const addBtn = document.querySelector('.add-btn');
 const modButton = document.querySelector('.change-btn');
 addBtn.addEventListener('click', addProject());
 modButton.addEventListener('click', changeProject());
+
 const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');
 showAll.addEventListener('click', () => {
@@ -40,6 +40,8 @@ showAll.addEventListener('click', () => {
    
 showFinished.addEventListener('click', () => sortByProject(showFinished.textContent));
 
+const deleteBtn = document.querySelector('.delete-button');
+//deleteBtn.addEventListener('click')
 
 
 
@@ -50,6 +52,9 @@ function changeProject() {
         const projects = document.querySelector('.projects');
         const newProjects =document.querySelector('.new-project');
         const modProject = document.querySelector('.modify-project');
+        console.log(clickedProject.title);
+        newTitle.value = clickedProject.title;
+        newDescription.value = clickedProject.description;
         projects.classList.remove('hidden');
         newProjects.classList.add('hidden');
         modProject.classList.add('hidden');
@@ -106,6 +111,19 @@ function addProject(){
         finishedCountContainer.textContent = '';
         createCategories();
     };
+}
+function deleteProject(){
+    return (e) => {
+        e.preventDefault();
+        if(isclicked === ''){
+            sortByDate(select.value);
+        }
+        else{
+            sortByProject(isclicked);
+        }
+
+    
+    }
 }
 
 fetchAndCreatePage();

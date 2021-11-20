@@ -61,9 +61,6 @@
                         <option value="vefþjónustur">Vefþjónustur</option>
                       </select>
                   </p>
-                  <p>Eyða verkefni:
-                      <input type="checkbox" name="Eyða verkefni" value="Eyða verkefni">
-                  </p>
                   <div class="button-style">
                     <button class="add-btn">+</button>
                     <p>Bæta við verkefni!</p>
@@ -73,28 +70,26 @@
         </div>
         <div class="modify-project hidden">
           <h2>Breyta verkefni</h2>
-          <form action="">
+          <form autocomplete="off" action="">
             <fieldset>
                 <label for="titill">Titill:</label>
-                <input type="text" class ="title" name="Titill" id="titill">
+                <input type="text" class ="mod-title" name="Titill" id="titill">
                 <label for="lýsing">Lýsing:</label>
-                <input type="text" class="description" name="Lýsing" id="lýsing">
+                <input type="text" class="mod-description" name="Lýsing" id="lýsing">
                 <label for="date">Hvenær skal verkefni klárast:</label>
-                <input type="date" class="duedate"  name="Due" id="date">
+                <input type="date" class="mod-duedate"  name="Due" id="date">
                 <label for="tags">Tags:</label>
-                <input type="text" class="tags" name="" placeholder="Bætið tags hér við með bil á milli" id="tags">
+                <input type="text" class="mod-tags" name="" placeholder="Bætið tags hér við með bil á milli" id="tags">
                 <label for="cat">Flokkar:</label>
                 <p>
-                    <select class= "category" name="Flokkar" id="cat">
+                    <select class= "mod-category" name="Flokkar" id="cat">
                       <option value=""></option>
                       <option  value="vefforrit">Vefforrit</option>
                       <option value="skipulag">Skipulag</option>
                       <option value="vefþjónustur">Vefþjónustur</option>
                     </select>
                 </p>
-                <label for="del">Eyða verkefni:
-                    <input type="checkbox" name="Eyða verkefni" value="Eyða verkefni" id="del">
-                </label>
+                <button class ="delete-button">Eyða verkefni</button>
                 <div class="button-style">
                   <button class="change-btn">+</button>
                   <p>Staðfesta Breytingar!</p>

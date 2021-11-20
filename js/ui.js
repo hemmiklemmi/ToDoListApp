@@ -112,11 +112,16 @@ export function showProjects(id = ''){
       const newLi = el('li','');
       const projectButton = el('button','');
       projectButton.classList.add('modify-project-button');
-      projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
+      if(parsedItem !== null && parsedItem !== undefined){
+        console.log(parsedItem.id);
+        projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
+      }
+    
       const dateTagsContainer = el('div', '');
       
       if (parsedItem !== null && parsedItem !== undefined) {
         const title = el('h3',  parsedItem.title);
+        title.classList.add('project-title');
         ul.appendChild(newLi);
         newLi.append(projectButton);
         projectButton.append(title);
@@ -157,11 +162,31 @@ export function modifyProject(id) {
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
   const item = JSON.parse(localStorage.getItem(id));
+
+  const newTitle = document.querySelector('.mod-title');
+  const newDescription = document.querySelector('.mod-description');
+  const newDate = document.querySelector('.mod-duedate');
+  const newTag = document.querySelector('.mod-tags');
+  const newCat = document.querySelector('.mod-category');
+
+  newTitle.value = item.title;
+  newDescription.value = item.description;
+  const date = new Date(item.due);
+  
+  // TODO þarf að setja eitthvað if statemnt til að láta date virka
+  // semsagt ef mánuður er minni en 10 þarf að bæta 0 fyrir framan date.getmonth og alveg eins með dagana
+  const correctDate =`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+  newDate.value = correctDate;
+  
+  // Setjum hvert tagg inn
+  for(let i = 0; i < item.tags.length; i+=1){
+    newTag.value += item.tags[i];
+    newTag.value += ' ';
+  }
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');
-  console.log(item);
-  return item;
+  //return item;
 }
 
 export function createNewProjectBtn(){

@@ -98,7 +98,7 @@ export function showProjects(id = ''){
       const newLi = el('li','');
       const projectButton = el('button','');
       projectButton.classList.add('modify-project-button');
-      projectButton.addEventListener('click', () => modifyProject(i));
+      projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
       const dateTagsContainer = el('div', '');
       
       // lagaði villu hja mer með því að setja allt í if block!
@@ -144,10 +144,11 @@ export function modifyProject(id) {
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
   let item = JSON.parse(localStorage.getItem(id));
-  console.log(item);
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');
+  console.log(item);
+  return item;
 }
 
 export function createNewProjectBtn(){

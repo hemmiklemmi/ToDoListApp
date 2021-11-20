@@ -15,7 +15,9 @@ async function fetchAndCreatePage() {
   }
 // Bætum eventListener við bæta við hnappinn
 const addBtn = document.querySelector('.add-btn');
+const modButton = document.querySelector('.change-btn');
 addBtn.addEventListener('click', addProject());
+modButton.addEventListener('click', changeProject());
 
 const select = document.querySelector('.select');
 select.addEventListener('change', ()=>{
@@ -30,14 +32,30 @@ select.addEventListener('change', ()=>{
     }
 });
 
+function changeProject() {
+    return (e) => {
+        e.preventDefault();
+        let clickedProject = modifyProject();
+        const projects = document.querySelector('.projects');
+        const newProjects =document.querySelector('.new-project');
+        const modProject = document.querySelector('.modify-project');
+        projects.classList.remove('hidden');
+        newProjects.classList.add('hidden');
+        modProject.classList.add('hidden');
+        console.log(clickedProject);
+    }
+}
+
 function addProject(){
     return (e) => {
         e.preventDefault();
         // birtum og felum rétt element
         const projects = document.querySelector('.projects');
         const newProjects =document.querySelector('.new-project');
-        projects.classList.remove('hidden')
+        const modProject = document.querySelector('.modify-project');
+        projects.classList.remove('hidden');
         newProjects.classList.add('hidden');
+        modProject.classList.add('hidden');
         // búum til nýtt object með öllum upplýsingum um verkefnið
         const newTitle = document.querySelector('.title');
         const newDescription = document.querySelector('.description');

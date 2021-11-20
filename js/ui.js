@@ -96,20 +96,24 @@ export function showProjects(id = ''){
       }
 
       const newLi = el('li','');
+      const projectButton = el('button','');
+      projectButton.classList.add('modify-project-button');
+      projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
       const dateTagsContainer = el('div', '');
       
       // lagaði villu hja mer með því að setja allt í if block!
       if (parsedItem !== null && parsedItem !== undefined) {
         const title = el('h3',  parsedItem.title);
         ul.appendChild(newLi);
-        newLi.append(title);
+        newLi.append(projectButton);
+        projectButton.append(title);
         dateTagsContainer.classList.add('date-tag-container');
         if(parsedItem.description !== ''){
           const descript = el('p' , parsedItem.description);
           descript.classList.add('desc');
-          newLi.appendChild(descript);
+          projectButton.appendChild(descript);
         }
-        newLi.append(dateTagsContainer);
+        projectButton.append(dateTagsContainer);
         if(parsedItem.due !== null){
           const date = new Date(parsedItem.due)
           const dateString =(date.toString()).split(' ');
@@ -135,6 +139,18 @@ export function showProjects(id = ''){
     
 }
 
+export function modifyProject(id) {
+  const modify = document.querySelector('.modify-project');
+  const he = document.querySelector('.new-project');
+  const ul = document.querySelector('.projects');
+  let item = JSON.parse(localStorage.getItem(id));
+  modify.classList.remove('hidden');
+  he.classList.add('hidden');
+  ul.classList.add('hidden');
+  console.log(item);
+  return item;
+}
+
 export function createNewProjectBtn(){
   const newProjectBtn = el('button', 'Búa til nýtt verkefni');
   const ul = document.querySelector('.projects');
@@ -142,8 +158,10 @@ export function createNewProjectBtn(){
   newProjectBtn.classList.add('new-modify-project');
   newProjectBtn.addEventListener('click', ()=>{
     const he = document.querySelector('.new-project');
+    const modify = document.querySelector('.modify-project');
     he.classList.remove('hidden');
     ul.classList.add('hidden');
+    modify.classList.add('hidden');
   } )
 }
 

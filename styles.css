@@ -53,6 +53,16 @@ li * {
   overflow: hidden;
 }
 
+.modify-project-button {
+  background-color: white;
+  border: none;
+}
+
+.modify-project-button:hover {
+  cursor: pointer;
+  background-color: #eedddd;
+}
+
 .container {
   display: flex;
   flex-direction: column;

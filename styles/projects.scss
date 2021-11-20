@@ -25,6 +25,7 @@ li {
     * {
         margin: 10px 0;
     }
+
 }
 
 .date-tag-container {
@@ -48,4 +49,14 @@ li {
         //þarf að laga fyrir gagnagrunnur
         overflow: hidden;
     }
-  }
+}
+
+.modify-project-button {
+    background-color: white;
+    border: none;
+}
+
+.modify-project-button:hover {
+    cursor: pointer;
+    background-color: rgb(238, 221, 221);
+}

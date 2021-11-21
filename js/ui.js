@@ -163,7 +163,6 @@ export function modifyProject(id) {
   const modify = document.querySelector('.modify-project');
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
-  const modButton = document.querySelector('.change-btn');
   const deleteBtn = document.querySelector('.delete-button');
   const item = JSON.parse(localStorage.getItem(id));
   
@@ -203,9 +202,6 @@ export function modifyProject(id) {
   }
   
   newDate.value = correctDate;
-  
-  // bætum við eventlistener á uppfæra takkann og setjum gildi á delete takkann
-  modButton.addEventListener('click', modbutton(id));
   deleteBtn.id = id;
   
   // Setjum hvert tagg inn
@@ -222,45 +218,6 @@ export function modifyProject(id) {
   he.classList.add('hidden');
   ul.classList.add('hidden');
   
-}
-
-export function modbutton(id) {
-  return (e) => {
-    e.preventDefault();
-    const modify = document.querySelector('.modify-project');
-    const he = document.querySelector('.new-project');
-    const ul = document.querySelector('.projects');
-    const newTitle = document.querySelector('.mod-title');
-    const newDescription = document.querySelector('.mod-description');
-    const newDate = document.querySelector('.mod-duedate');
-    const newTag = document.querySelector('.mod-tags');
-    const newCat = document.querySelector('.mod-category');
-    const newItem = {};
- 
-    newItem.id = id;
-    newItem.title = newTitle.value;
-    newItem.description = newDescription.value;
-    newItem.category = newCat.value;
-    newItem.priority = false;
-    const tags = (newTag.value).split(' ');
-    newItem.tags = tags;
-    const dates = new Date(newDate.value);
-    const dateTimeStamp = dates.getTime();
-    newItem.due = dateTimeStamp;
-
-    addNewData(newItem);
-    
-    // Getum gert þetta í stað reloads til að fá upplýsingar strax inn
-    const addNewBtn = document.querySelector('.new-modify-project')
-    addNewBtn.remove();
-    ul.remove();
-    showProjects();
-    createNewProjectBtn();
-    
-    modify.classList.add('hidden');
-    he.classList.add('hidden');
-    ul.classList.remove('hidden');
-  }
 }
 
 export function createNewProjectBtn(){

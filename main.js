@@ -28,8 +28,10 @@ select.addEventListener('change', ()=>{
   // Bætum eventListener við hnappana
 const addBtn = document.querySelector('.add-btn');
 const modButton = document.querySelector('.change-btn');
+const modp = document.querySelector('.change-confirm')
 addBtn.addEventListener('click', addProject());
-// modButton.addEventListener('click', changeProject());
+modButton.addEventListener('click', modbutton());
+modp.addEventListener('click', modbutton());
 
 const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');
@@ -43,24 +45,6 @@ showFinished.addEventListener('click', () => sortByProject(showFinished.textCont
 const deleteBtn = document.querySelector('.delete-button');
 deleteBtn.addEventListener('click',deleteProject());
 
-
-
-// function changeProject() {
-//     return (e) => {
-//         e.preventDefault();
-//         const clickedProject = modifyProject();
-//         const projects = document.querySelector('.projects');
-//         const newProjects =document.querySelector('.new-project');
-//         const modProject = document.querySelector('.modify-project');
-//         console.log(clickedProject.title);
-//         newTitle.value = clickedProject.title;
-//         newDescription.value = clickedProject.description;
-//         projects.classList.remove('hidden');
-//         newProjects.classList.add('hidden');
-//         modProject.classList.add('hidden');
-//         console.log(clickedProject);
-//     }
-// }
 
 function addProject(){
     return (e) => {
@@ -112,6 +96,46 @@ function addProject(){
         createCategories();
     };
 }
+
+export function modbutton() {
+    return (e) => {
+      e.preventDefault();
+      const modify = document.querySelector('.modify-project');
+      const he = document.querySelector('.new-project');
+      const ul = document.querySelector('.projects');
+      const newTitle = document.querySelector('.mod-title');
+      const newDescription = document.querySelector('.mod-description');
+      const newDate = document.querySelector('.mod-duedate');
+      const newTag = document.querySelector('.mod-tags');
+      const newCat = document.querySelector('.mod-category');
+      const newItem = {};
+   
+      newItem.id = deleteBtn.id;
+      newItem.title = newTitle.value;
+      newItem.description = newDescription.value;
+      newItem.category = newCat.value;
+      newItem.priority = false;
+      const tags = (newTag.value).split(' ');
+      newItem.tags = tags;
+      const dates = new Date(newDate.value);
+      const dateTimeStamp = dates.getTime();
+      newItem.due = dateTimeStamp;
+  
+      addNewData(newItem);
+      
+      // Getum gert þetta í stað reloads til að fá upplýsingar strax inn
+      const addNewBtn = document.querySelector('.new-modify-project')
+      addNewBtn.remove();
+      ul.remove();
+      showProjects();
+      createNewProjectBtn();
+      
+      modify.classList.add('hidden');
+      he.classList.add('hidden');
+      ul.classList.remove('hidden');
+    }
+}
+
 function deleteProject(){
     return (e) => {
         e.preventDefault();
@@ -126,6 +150,7 @@ function deleteProject(){
         else{
             sortByProject(isclicked);
         }
+
         const modify = document.querySelector('.modify-project');
         const he = document.querySelector('.new-project');
         const ul = document.querySelector('.projects');

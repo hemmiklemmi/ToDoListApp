@@ -200,6 +200,7 @@ export function modifyProject(id) {
   const newDate = document.querySelector('.mod-duedate');
   const newTag = document.querySelector('.mod-tags');
   const newCat = document.querySelector('.mod-category');
+  const newPrio = document.querySelector('.mod-priority-check');
   
   // Setjum titilinn og descriptionið inn í formið
   newTitle.value = item.title;
@@ -228,10 +229,13 @@ export function modifyProject(id) {
   else{
     correctDate = null;
   }
-  
   newDate.value = correctDate;
+  
+  // setjum id á hverju verkefni í delete takkann
   deleteBtn.id = id;
   
+  // Setjum hvort verkefnið er í forgangi eða ekki
+  newPrio.checked = item.priority;
   // Setjum hvert tagg inn
   newTag.value = '';
   for(let i = 0; i < item.tags.length; i+=1){

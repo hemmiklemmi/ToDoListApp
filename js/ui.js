@@ -221,6 +221,8 @@ export function modbutton(id) {
     newItem.due = dateTimeStamp;
 
     addNewData(newItem);
+    // léleg lausn, en samt lausn
+    window.location.reload();
 
     
     modify.classList.add('hidden');

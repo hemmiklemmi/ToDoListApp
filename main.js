@@ -29,7 +29,7 @@ select.addEventListener('change', ()=>{
 const addBtn = document.querySelector('.add-btn');
 const modButton = document.querySelector('.change-btn');
 addBtn.addEventListener('click', addProject());
-modButton.addEventListener('click', changeProject());
+// modButton.addEventListener('click', changeProject());
 
 const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');
@@ -45,22 +45,22 @@ const deleteBtn = document.querySelector('.delete-button');
 
 
 
-function changeProject() {
-    return (e) => {
-        e.preventDefault();
-        const clickedProject = modifyProject();
-        const projects = document.querySelector('.projects');
-        const newProjects =document.querySelector('.new-project');
-        const modProject = document.querySelector('.modify-project');
-        console.log(clickedProject.title);
-        newTitle.value = clickedProject.title;
-        newDescription.value = clickedProject.description;
-        projects.classList.remove('hidden');
-        newProjects.classList.add('hidden');
-        modProject.classList.add('hidden');
-        console.log(clickedProject);
-    }
-}
+// function changeProject() {
+//     return (e) => {
+//         e.preventDefault();
+//         const clickedProject = modifyProject();
+//         const projects = document.querySelector('.projects');
+//         const newProjects =document.querySelector('.new-project');
+//         const modProject = document.querySelector('.modify-project');
+//         console.log(clickedProject.title);
+//         newTitle.value = clickedProject.title;
+//         newDescription.value = clickedProject.description;
+//         projects.classList.remove('hidden');
+//         newProjects.classList.add('hidden');
+//         modProject.classList.add('hidden');
+//         console.log(clickedProject);
+//     }
+// }
 
 function addProject(){
     return (e) => {

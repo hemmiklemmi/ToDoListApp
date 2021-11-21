@@ -1,4 +1,5 @@
 import { el} from './helpers.js';
+import { addNewData } from './locals.js';
 
 // Sáum enga þæginlega leið en að disablea þetta hér
 // Leyfir okkar flokka rétt eftir því hvort einhver flokkur/
@@ -161,6 +162,8 @@ export function modifyProject(id) {
   const modify = document.querySelector('.modify-project');
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
+  const modButton = document.querySelector('.change-btn');
+  const newItem = {};
   const item = JSON.parse(localStorage.getItem(id));
 
   const newTitle = document.querySelector('.mod-title');
@@ -177,6 +180,18 @@ export function modifyProject(id) {
   // semsagt ef mánuður er minni en 10 þarf að bæta 0 fyrir framan date.getmonth og alveg eins með dagana
   const correctDate =`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
   newDate.value = correctDate;
+
+  newItem.id = item.id
+  newItem.title = newTitle.value;
+  newItem.description = newDescription.value;
+  newItem.category = newCat.value;
+  newItem.priority = false;
+  const tags = (newTag.value).split(' ');
+  newItem.tags = tags;
+  const dates = new Date(newDate.value);
+  const dateTimeStamp = dates.getTime();
+  newItem.due = dateTimeStamp;
+  modButton.addEventListener('click', modbutton(newItem));
   
   // Setjum hvert tagg inn
   for(let i = 0; i < item.tags.length; i+=1){
@@ -187,6 +202,21 @@ export function modifyProject(id) {
   he.classList.add('hidden');
   ul.classList.add('hidden');
   //return item;
+}
+
+export function modbutton(newItem) {
+  return (e) => {
+    e.preventDefault();
+
+    console.log(newItem);
+    const modify = document.querySelector('.modify-project');
+    const he = document.querySelector('.new-project');
+    const ul = document.querySelector('.projects');
+    addNewData(newItem);
+    modify.classList.add('hidden');
+    he.classList.add('hidden');
+    ul.classList.remove('hidden');
+  }
 }
 
 export function createNewProjectBtn(){
@@ -297,7 +327,7 @@ export function sortByProject(id = ''){
  * Tekur við verkefnum sem á að sýna, flokkar þau rétt og sýnir þau svo
  * @param {} item 
  */
-function sortSelectedCat(item){
+function sortSelectedCat(item) {
   const select = document.querySelector('.select');
   // ef title er valið þá sorterum við eftir titli
   if(select.value === 'title'){

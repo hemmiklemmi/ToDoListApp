@@ -61,7 +61,7 @@ export function createCategories() {
  * @param {*} data
  * @returns Hlut með upplýsingum um fjölda verkefna, kláruð verkefni, fjöldi verkefna í hverjum flokk og með hvert tag.
  */
-function countData() {
+export function countData() {
   let count = 0;
   const all= [];
   let finishedCount = 0;
@@ -76,20 +76,22 @@ function countData() {
   }
   
   all.forEach((id) =>{
-    if (id.completed === true) {
-      finishedCount+=1;
-    }
-    if (!catCount[id.category]) {
-      catCount[id.category] = 0;
-    }
-    catCount[id.category] += 1;
-    for (const tag of id.tags) {
-      if (!tagCount[tag]) {
-        tagCount[tag] = 0;
+    if(id.deleted !== true){
+      if (id.completed === true) {
+        finishedCount+=1;
       }
-      tagCount[tag] += 1;
+      if (!catCount[id.category]) {
+        catCount[id.category] = 0;
+      }
+      catCount[id.category] += 1;
+      for (const tag of id.tags) {
+        if (!tagCount[tag]) {
+          tagCount[tag] = 0;
+        }
+        tagCount[tag] += 1;
+      }
+      count+=1;
     }
-    count+=1;
   });
   
   return { tagCount, catCount, count, finishedCount };
@@ -113,13 +115,13 @@ export function showProjects(id = ''){
       const newLi = el('li','');
       const projectButton = el('button','');
       projectButton.classList.add('modify-project-button');
-      if(parsedItem !== null && parsedItem !== undefined){
+      if(parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !==true){
         projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
       }
     
       const dateTagsContainer = el('div', '');
       
-      if (parsedItem !== null && parsedItem !== undefined) {
+      if (parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !== true) {
         const title = el('h3',  parsedItem.title);
         title.classList.add('project-title');
         ul.appendChild(newLi);
@@ -162,6 +164,7 @@ export function modifyProject(id) {
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
   const modButton = document.querySelector('.change-btn');
+  const deleteBtn = document.querySelector('.delete-button');
   const newItem = {};
   const item = JSON.parse(localStorage.getItem(id));
 
@@ -180,6 +183,7 @@ export function modifyProject(id) {
   const correctDate =`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
   newDate.value = correctDate;
   modButton.addEventListener('click', modbutton(id));
+  deleteBtn.id = id;
   
   // Setjum hvert tagg inn
   for(let i = 0; i < item.tags.length; i+=1){
@@ -223,10 +227,6 @@ export function modbutton(id) {
     ul.remove();
     showProjects();
     createNewProjectBtn();
-    
-    // léleg lausn, en samt lausn
-    //window.location.reload();
-
     
     modify.classList.add('hidden');
     he.classList.add('hidden');

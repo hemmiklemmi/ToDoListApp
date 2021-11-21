@@ -1,5 +1,5 @@
 import { createNewProjectBtn, createCategories, showProjects, sortByDate,
-        modifyProject, sortByProject, isclicked} from './js/ui.js';
+        countData, sortByProject, isclicked} from './js/ui.js';
 import {empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
 import { getData} from './js/data.js';
@@ -41,7 +41,7 @@ showAll.addEventListener('click', () => {
 showFinished.addEventListener('click', () => sortByProject(showFinished.textContent));
 
 const deleteBtn = document.querySelector('.delete-button');
-//deleteBtn.addEventListener('click')
+deleteBtn.addEventListener('click',deleteProject());
 
 
 
@@ -115,13 +115,37 @@ function addProject(){
 function deleteProject(){
     return (e) => {
         e.preventDefault();
+        console.log(deleteBtn.id);
+        const item =JSON.parse(window.localStorage.getItem(deleteBtn.id));
+        console.log(item);
+        item.deleted = true;
+        localStorage.setItem(item.id, JSON.stringify(item));
         if(isclicked === ''){
             sortByDate(select.value);
         }
         else{
             sortByProject(isclicked);
         }
-
+        const modify = document.querySelector('.modify-project');
+        const he = document.querySelector('.new-project');
+        const ul = document.querySelector('.projects');
+        
+        const categoryContainer = document.querySelector('.all-container');
+        const tagContainer = document.querySelector('.all-tags');
+        const allCountContainer = document.querySelector('.project-count');
+        const finishedCountContainer = document.querySelector('.unfinished-count');
+        modify.classList.add('hidden');
+        he.classList.add('hidden');
+        ul.classList.remove('hidden');
+        // Uppfærum flokkana og counterana vinstra megin á síðunni
+        
+        // Smá bögg ennþá hérna, ef maður deletar tvisvar í röð án refresh
+        //empty(categoryContainer);
+        //empty(tagContainer);
+        //allCountContainer.textContent= '';
+        //finishedCountContainer.textContent = '';
+        //createCategories();
+        
     
     }
 }

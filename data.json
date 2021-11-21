@@ -18,7 +18,7 @@
       "description": "Eftir retro fyrir sprett #3",
       "category": "skipulag",
       "tags": ["fundir"],
-      "priority": true,
+      "priority": false,
       "modified": 1635638400000,
       "due": 1636648500000,
       "deleted": false,

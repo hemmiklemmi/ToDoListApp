@@ -1,5 +1,5 @@
-import { createNewProjectBtn, createCategories, showProjects, sortByDate,
-         sortByProject, isclicked} from './js/ui.js';
+import { createNewProjectBtn, createCategories, showProjects} from './js/ui.js';
+import {sortByProject, sortBy, isclicked} from './js/sort.js';
 import {empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
 import { getData} from './js/data.js';
@@ -12,13 +12,13 @@ async function fetchAndCreatePage() {
     createCategories(data);
     showProjects();
     createNewProjectBtn();
-    sortByDate('title');
+    sortBy('title');
   }
 
 // Bætum eventListener við dropdown listann svo það flokkist rétt
 select.addEventListener('change', ()=>{
     if(isclicked === ''){
-        sortByDate(select.value);
+        sortBy(select.value);
     }
     else{
         sortByProject(isclicked);
@@ -37,7 +37,7 @@ const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');
 showAll.addEventListener('click', () => {
     window.event.preventDefault();
-    sortByDate(select.value);
+    sortBy(select.value);
 });
    
 showFinished.addEventListener('click', () => sortByProject(showFinished.textContent));
@@ -69,13 +69,15 @@ function addProject(){
         const newDate = document.querySelector('.duedate');
         const newTag = document.querySelector('.tags');
         const newCat = document.querySelector('.category');
+        const priority = document.querySelector('.priority-check');
         const newItem = {}
         const id = window.localStorage.length +1
         newItem.id = id;
         newItem.title = newTitle.value;
         newItem.description = newDescription.value;
         newItem.category = newCat.value;
-        newItem.priority = false;
+        console.log(priority.checked);
+        newItem.priority = priority.checked;
         const tags = (newTag.value).split(' ');
         newItem.tags = tags;
         const dates = new Date(newDate.value);
@@ -86,7 +88,7 @@ function addProject(){
         addNewData(newItem);
         
         // Birtum öll verkefnin nú aftur og sorterum eftir því sem er valið
-        sortByDate(select.value);
+        sortBy(select.value);
     
         const categoryContainer = document.querySelector('.all-container');
         const tagContainer = document.querySelector('.all-tags');
@@ -157,7 +159,7 @@ function deleteProject(){
         item.deleted = true;
         localStorage.setItem(item.id, JSON.stringify(item));
         if(isclicked === ''){
-            sortByDate(select.value);
+            sortBy(select.value);
         }
         else{
             sortByProject(isclicked);

@@ -1,11 +1,6 @@
 import { el} from './helpers.js';
-import { addNewData } from './locals.js';
-
-// Sáum enga þæginlega leið en að disablea þetta hér
-// Leyfir okkar flokka rétt eftir því hvort einhver flokkur/
-// tagg er valið eða hvort öll verkefninu eru völd.
-// eslint-disable-next-line import/no-mutable-exports
-export let isclicked ='';
+// eslint-disable-next-line import/no-cycle
+import { sortByProject } from './sort.js';
 
 /**
  * Býr til yfirlitið yfir alla flokka og tags og upplýsingar um fjölda verkefna.
@@ -96,11 +91,19 @@ export function countData() {
   
   return { tagCount, catCount, count, finishedCount };
 }
+
+/**
+ * Fall sem birtir verkefnin á skjáinn
+ * @param {} id obj með hluta af verkefnunum, ef tómt þá er allt birt út localStorage
+ */
 export function showProjects(id = ''){
     const ul = document.createElement('ul');
     ul.classList.add('projects');
     const container= document.querySelector('.projects-container')
     container.append(ul);
+    
+    // Ef showprojects fær ekkert inntak sýnir það bara allt í localStorage
+    // Annars sýnir það verkefnin í objectinu sem var tekið inn sem id
     for(let i = 0; i<=window.localStorage.length; i+= 1){
       let parsedItem;
       if(id !== ''){
@@ -122,18 +125,37 @@ export function showProjects(id = ''){
       const dateTagsContainer = el('div', '');
       
       if (parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !== true) {
+        // Birtum titil verkefnisins
         const title = el('h3',  parsedItem.title);
         title.classList.add('project-title');
         ul.appendChild(newLi);
         newLi.append(projectButton);
         projectButton.append(title);
         dateTagsContainer.classList.add('date-tag-container');
+        
+        // Checkbox fyrir completed, á eftir að útfæra
+        // Set allt hér í comment til að geta pushað, held þetta sé eins
+        //const checkbox = el('input', 'completed');
+        //checkbox.type ='checkbox';
+        //checkbox.classList.add('completed');
+        //projectButton.append(checkbox);
+        
+        // Birtum lýsinguna fyrir verkefnið
         if(parsedItem.description !== ''){
           const descript = el('p' , parsedItem.description);
           descript.classList.add('desc');
           projectButton.appendChild(descript);
         }
         projectButton.append(dateTagsContainer);
+        
+        // Ef verkefnið er í forgangi, þá birtum við það, annars ekki
+        if(parsedItem.priority ===true){
+          const prio = el('p' , 'Í forgangi');
+          prio.classList.add('priority');
+          projectButton.appendChild(prio);
+        }
+        
+        // Birtum dagsetningu á skilum á verkefninu
         if(parsedItem.due !== null){
           const date = new Date(parsedItem.due)
           const dateString =(date.toString()).split(' ');
@@ -141,7 +163,8 @@ export function showProjects(id = ''){
           dateTime.classList.add('date-tag-container-dagsetning');
           dateTagsContainer.append(dateTime);
         }
-
+        
+        // Birtum töggin á verkefninu
         for(const item in parsedItem.tags){
             if(parsedItem.tags[item] !== ''){
                 const tag = el('button', parsedItem.tags[item])
@@ -149,6 +172,8 @@ export function showProjects(id = ''){
                 dateTagsContainer.append(tag);
             }
         }
+        
+        // Birtum flokkana á verkefninu
         if(parsedItem.category !== ''){
           const category = el('p' , parsedItem.category);
           category.classList.add('date-tag-container-category');
@@ -235,134 +260,3 @@ export function createNewProjectBtn(){
   } )
 }
 
-/**
- * Flokkar verkefnin eftir því hvað var valið í dropdown listanum
- * @param {*} id Segir til um hvað var valið í listanum
- */
-export function sortByDate(id =''){
-  const all = [];
-  isclicked = '';
-  for(let i = 1; i<=window.localStorage.length; i+= 1){
-    const parsedItem = JSON.parse(window.localStorage.getItem(i));
-    if(parsedItem !== null){
-      all[i] = parsedItem;
-    }
-  }
-  const ul = document.querySelector('.projects');
-  
-  // ef title er valið þá sorterum við eftir titli
-  if(id === 'title'){
-      all.sort((a,b) => {
-        const nameA = a.title.toUpperCase(); 
-        const nameB = b.title.toUpperCase(); 
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-      return 0;
-      });
-    }
-  
-  // ef titill er ekki valinn þá sorterum við eftir dagsetningu
-  if(id !== 'title'){
-    all.sort((a,b)=> a.due-b.due);
-  }
-  
-  // ef forgangur er valinn þá sorterum við einning eftir forgangi
-  if(id === 'priority'){
-    all.sort((a,b) => { 
-    if(a.priority === b.priority){
-      return 0;
-      } 
-    if(a.priority){
-        return -1;
-      } 
-    return 1;
-    });
-  }
-  const addNewBtn = document.querySelector('.new-modify-project')
-  addNewBtn.remove();
-  ul.remove();
-  showProjects(all);
-  createNewProjectBtn();
-}
-
-/**
- * Hópar saman öll verkefni sem tengjast þeim flokki eða taggi sem var
- * valið vinstra megin á skjánum
- * @param {*} id 
- */
-export function sortByProject(id = ''){
-  isclicked = id;
-  window.event.preventDefault();
-  const allInCat = [];
-  const allCompleted = [];
-  for(let i = 1; i<=window.localStorage.length; i+= 1){
-    const parsedItem = JSON.parse(window.localStorage.getItem(i));
-      if(parsedItem.category === id){
-        allInCat[i] = parsedItem;
-      }
-      for(const item of parsedItem.tags){
-          if(item === id){
-              allInCat[i] = parsedItem;
-          }
-      }
-      if(id === 'Kláruð verkefni'){
-        if(parsedItem.completed === true){
-          allCompleted[i] = parsedItem;
-        }
-    }
-  }
-  const ul = document.querySelector('.projects');
-  ul.remove();
-  if(id === 'Kláruð verkefni'){
-    sortSelectedCat(allCompleted);
-  }
-  else{
-    sortSelectedCat(allInCat);
-  }
-}
-
-/**
- * Tekur við verkefnum sem á að sýna, flokkar þau rétt og sýnir þau svo
- * @param {} item 
- */
-function sortSelectedCat(item) {
-  const select = document.querySelector('.select');
-  // ef title er valið þá sorterum við eftir titli
-  if(select.value === 'title'){
-   item.sort((a,b) => {
-      const nameA = a.title.toUpperCase(); 
-      const nameB = b.title.toUpperCase(); 
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-    return 0;
-    });
-  }
-
-  // ef titill er ekki valinn þá sorterum við eftir dagsetningu
-  if(select.value !== 'title'){
-    item.sort((a,b)=> a.due-b.due);
-  }
-
-  // ef forgangur er valinn þá sorterum við einning eftir forgangi
-  if(select.value === 'priority'){
-    item.sort((a,b) => { 
-    if(a.priority === b.priority){
-      return 0;
-      } 
-    if(a.priority){
-        return -1;
-      } 
-    return 1;
-    });
-  }
-  showProjects(item);
-  createNewProjectBtn();
-}

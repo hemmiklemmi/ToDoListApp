@@ -194,7 +194,14 @@ export function modifyProject(id) {
   else{
     correctDay = date.getDate();
   }
-  const correctDate =`${date.getFullYear()}-${correctMonth}-${correctDay}`;
+  let correctDate = '';
+  if(item.due !== null){
+    correctDate = `${date.getFullYear()}-${correctMonth}-${correctDay}`;
+  }
+  else{
+    correctDate = null;
+  }
+  
   newDate.value = correctDate;
   
   // bætum við eventlistener á uppfæra takkann og setjum gildi á delete takkann

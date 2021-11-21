@@ -220,7 +220,6 @@ export function modbutton(id) {
     const dateTimeStamp = dates.getTime();
     newItem.due = dateTimeStamp;
 
-    console.log(newItem);
     addNewData(newItem);
 
     

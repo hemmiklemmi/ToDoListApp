@@ -164,8 +164,8 @@ export function modifyProject(id) {
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
   const modButton = document.querySelector('.change-btn');
+  const modp = document.querySelector('.change-confirm')
   const deleteBtn = document.querySelector('.delete-button');
-  const newItem = {};
   const item = JSON.parse(localStorage.getItem(id));
 
   const newTitle = document.querySelector('.mod-title');
@@ -182,7 +182,8 @@ export function modifyProject(id) {
   // semsagt ef mánuður er minni en 10 þarf að bæta 0 fyrir framan date.getmonth og alveg eins með dagana
   const correctDate =`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
   newDate.value = correctDate;
-  modButton.addEventListener('click', modbutton(id));
+  // modButton.addEventListener('click', modbutton(id));
+  // modp.addEventListener('click', modbutton(id));
   deleteBtn.id = id;
   
   // Setjum hvert tagg inn
@@ -193,45 +194,6 @@ export function modifyProject(id) {
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');
-}
-
-export function modbutton(id) {
-  return (e) => {
-    e.preventDefault();
-    const modify = document.querySelector('.modify-project');
-    const he = document.querySelector('.new-project');
-    const ul = document.querySelector('.projects');
-    const newTitle = document.querySelector('.mod-title');
-    const newDescription = document.querySelector('.mod-description');
-    const newDate = document.querySelector('.mod-duedate');
-    const newTag = document.querySelector('.mod-tags');
-    const newCat = document.querySelector('.mod-category');
-    const newItem = {};
- 
-    newItem.id = id;
-    newItem.title = newTitle.value;
-    newItem.description = newDescription.value;
-    newItem.category = newCat.value;
-    newItem.priority = false;
-    const tags = (newTag.value).split(' ');
-    newItem.tags = tags;
-    const dates = new Date(newDate.value);
-    const dateTimeStamp = dates.getTime();
-    newItem.due = dateTimeStamp;
-
-    addNewData(newItem);
-    
-    // Getum gert þetta í stað reloads til að fá upplýsingar strax inn
-    const addNewBtn = document.querySelector('.new-modify-project')
-    addNewBtn.remove();
-    ul.remove();
-    showProjects();
-    createNewProjectBtn();
-    
-    modify.classList.add('hidden');
-    he.classList.add('hidden');
-    ul.classList.remove('hidden');
-  }
 }
 
 export function createNewProjectBtn(){

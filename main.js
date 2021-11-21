@@ -124,19 +124,25 @@ export function modbutton() {
       const newDate = document.querySelector('.mod-duedate');
       const newTag = document.querySelector('.mod-tags');
       const newCat = document.querySelector('.mod-category');
+      const newPrio = document.querySelector('.mod-priority-check');
       const newItem = {};
    
       newItem.id = deleteBtn.id;
       newItem.title = newTitle.value;
       newItem.description = newDescription.value;
       newItem.category = newCat.value;
-      newItem.priority = false;
+      newItem.priority = newPrio.checked;
       const tags = (newTag.value).split(' ');
       newItem.tags = tags;
       const dates = new Date(newDate.value);
       const dateTimeStamp = dates.getTime();
       newItem.due = dateTimeStamp;
-  
+
+      // uppfærum hvenær verkefnið var síðast breytt
+      const lastModified = new Date();
+      newItem.modified = lastModified.getTime();
+      
+      // Uppfærum verkefnið í localStorage
       addNewData(newItem);
       
       // Getum gert þetta í stað reloads til að fá upplýsingar strax inn

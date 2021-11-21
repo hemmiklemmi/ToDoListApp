@@ -114,6 +114,8 @@ export function showProjects(id = ''){
 
       const newLi = el('li','');
       const projectButton = el('button','');
+      const completed = el('input');
+      completed.setAttribute('type','checkbox');
       projectButton.classList.add('modify-project-button');
       if(parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !==true){
         projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
@@ -125,6 +127,7 @@ export function showProjects(id = ''){
         const title = el('h3',  parsedItem.title);
         title.classList.add('project-title');
         ul.appendChild(newLi);
+        newLi.appendChild(completed);
         newLi.append(projectButton);
         projectButton.append(title);
         dateTagsContainer.classList.add('date-tag-container');

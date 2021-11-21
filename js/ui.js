@@ -180,18 +180,7 @@ export function modifyProject(id) {
   // semsagt ef mánuður er minni en 10 þarf að bæta 0 fyrir framan date.getmonth og alveg eins með dagana
   const correctDate =`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
   newDate.value = correctDate;
-
-  newItem.id = item.id
-  newItem.title = newTitle.value;
-  newItem.description = newDescription.value;
-  newItem.category = newCat.value;
-  newItem.priority = false;
-  const tags = (newTag.value).split(' ');
-  newItem.tags = tags;
-  const dates = new Date(newDate.value);
-  const dateTimeStamp = dates.getTime();
-  newItem.due = dateTimeStamp;
-  modButton.addEventListener('click', modbutton(newItem));
+  modButton.addEventListener('click', modbutton(id));
   
   // Setjum hvert tagg inn
   for(let i = 0; i < item.tags.length; i+=1){
@@ -204,15 +193,37 @@ export function modifyProject(id) {
   //return item;
 }
 
-export function modbutton(newItem) {
+export function modbutton(id) {
   return (e) => {
     e.preventDefault();
-
-    console.log(newItem);
     const modify = document.querySelector('.modify-project');
     const he = document.querySelector('.new-project');
     const ul = document.querySelector('.projects');
+
+    const newTitle = document.querySelector('.mod-title');
+    const newDescription = document.querySelector('.mod-description');
+    const newDate = document.querySelector('.mod-duedate');
+    const newTag = document.querySelector('.mod-tags');
+    const newCat = document.querySelector('.mod-category');
+    const newItem = {};
+    
+    
+    
+    newItem.id = id;
+    newItem.title = newTitle.value;
+    newItem.description = newDescription.value;
+    newItem.category = newCat.value;
+    newItem.priority = false;
+    const tags = (newTag.value).split(' ');
+    newItem.tags = tags;
+    const dates = new Date(newDate.value);
+    const dateTimeStamp = dates.getTime();
+    newItem.due = dateTimeStamp;
+
+    console.log(newItem);
     addNewData(newItem);
+
+    
     modify.classList.add('hidden');
     he.classList.add('hidden');
     ul.classList.remove('hidden');

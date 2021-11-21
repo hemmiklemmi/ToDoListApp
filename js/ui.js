@@ -205,6 +205,7 @@ export function modifyProject(id) {
   deleteBtn.id = id;
   
   // Setjum hvert tagg inn
+  newTag.value = '';
   for(let i = 0; i < item.tags.length; i+=1){
     newTag.value += item.tags[i];
     newTag.value += ' ';

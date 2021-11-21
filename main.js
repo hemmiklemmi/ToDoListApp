@@ -28,8 +28,10 @@ select.addEventListener('change', ()=>{
   // Bætum eventListener við hnappana
 const addBtn = document.querySelector('.add-btn');
 const modButton = document.querySelector('.change-btn');
+const modp = document.querySelector('.change-confirm')
 addBtn.addEventListener('click', addProject());
 modButton.addEventListener('click', modbutton());
+modp.addEventListener('click', modbutton());
 
 const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');

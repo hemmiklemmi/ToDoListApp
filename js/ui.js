@@ -163,8 +163,6 @@ export function modifyProject(id) {
   const modify = document.querySelector('.modify-project');
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
-  const modButton = document.querySelector('.change-btn');
-  const modp = document.querySelector('.change-confirm')
   const deleteBtn = document.querySelector('.delete-button');
   const item = JSON.parse(localStorage.getItem(id));
   
@@ -197,8 +195,6 @@ export function modifyProject(id) {
   }
   const correctDate =`${date.getFullYear()}-${correctMonth}-${correctDay}`;
   newDate.value = correctDate;
-  // modButton.addEventListener('click', modbutton(id));
-  // modp.addEventListener('click', modbutton(id));
   deleteBtn.id = id;
   
   // Setjum hvert tagg inn

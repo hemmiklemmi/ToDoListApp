@@ -1,6 +1,6 @@
 export function importData(data) {
   for (const item of data.items) {
-    if (!localStorage.item) {
+    if (!(item.id in localStorage)) {
       localStorage.setItem(item.id, JSON.stringify(item));
     }
   }

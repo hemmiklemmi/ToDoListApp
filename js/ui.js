@@ -114,7 +114,6 @@ export function showProjects(id = ''){
       const projectButton = el('button','');
       projectButton.classList.add('modify-project-button');
       if(parsedItem !== null && parsedItem !== undefined){
-        console.log(parsedItem.id);
         projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
       }
     
@@ -190,7 +189,6 @@ export function modifyProject(id) {
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');
-  //return item;
 }
 
 export function modbutton(id) {
@@ -199,16 +197,13 @@ export function modbutton(id) {
     const modify = document.querySelector('.modify-project');
     const he = document.querySelector('.new-project');
     const ul = document.querySelector('.projects');
-
     const newTitle = document.querySelector('.mod-title');
     const newDescription = document.querySelector('.mod-description');
     const newDate = document.querySelector('.mod-duedate');
     const newTag = document.querySelector('.mod-tags');
     const newCat = document.querySelector('.mod-category');
     const newItem = {};
-    
-    
-    
+ 
     newItem.id = id;
     newItem.title = newTitle.value;
     newItem.description = newDescription.value;
@@ -221,8 +216,16 @@ export function modbutton(id) {
     newItem.due = dateTimeStamp;
 
     addNewData(newItem);
+    
+    // Getum gert þetta í stað reloads til að fá upplýsingar strax inn
+    const addNewBtn = document.querySelector('.new-modify-project')
+    addNewBtn.remove();
+    ul.remove();
+    showProjects();
+    createNewProjectBtn();
+    
     // léleg lausn, en samt lausn
-    window.location.reload();
+    //window.location.reload();
 
     
     modify.classList.add('hidden');

@@ -42,16 +42,16 @@
         </div>
         <div class="new-project hidden">
             <h2>Búa til nýtt verkefni</h2>
-            <form action="">
+            <form autocomplete="off" action="">
               <fieldset>
                   <p>Titill:</p>
-                  <input type="text" class ="title" name="Titill" required>
+                  <input type="text" class ="title" name="Titill" required/>
                   <p>Lýsing:</p>
-                  <input type="text" class="description" name="Lýsing">
+                  <input type="text" class="description" name="Lýsing"/>
                   <p>Hvenær skal verkefni klárast:</p>
-                  <input type="date" class="duedate"  name="Due">
+                  <input type="date" class="duedate"  name="Due"/>
                   <p>Tags:</p>
-                  <input type="text" class="tags" name="" placeholder="Bætið tags hér við með bil á milli">
+                  <input type="text" class="tags" name="" placeholder="Bætið tags hér við með bil á milli"/>
                   <p>Flokkar:</p>
                   <p>
                       <select class= "category" name="Flokkar">
@@ -73,7 +73,7 @@
           <form autocomplete="off" action="">
             <fieldset>
                 <label for="titill">Titill:</label>
-                <input type="text" class ="mod-title" name="Titill" id="titill">
+                <input type="text" class ="mod-title" name="Titill" id="titill" required>
                 <label for="lýsing">Lýsing:</label>
                 <input type="text" class="mod-description" name="Lýsing" id="lýsing">
                 <label for="date">Hvenær skal verkefni klárast:</label>

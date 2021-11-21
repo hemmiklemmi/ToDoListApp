@@ -182,13 +182,13 @@ export function modifyProject(id) {
   let correctMonth = '';
   let correctDay = '';
   if((date.getMonth()+1) < 10){
-    correctMonth =  '0' + (date.getMonth()+1);
+    correctMonth =  `0${date.getMonth()+1}`;
   }
   else{
     correctMonth = date.getMonth() +1;
   }
   if((date.getDate())<10){
-     correctDay = '0' + date.getDate();
+     correctDay = `0${date.getDate()}`;
   }
   else{
     correctDay = date.getDate();

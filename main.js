@@ -1,5 +1,5 @@
 import { createNewProjectBtn, createCategories, showProjects, sortByDate,
-        countData, sortByProject, isclicked} from './js/ui.js';
+         sortByProject, isclicked} from './js/ui.js';
 import {empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
 import { getData} from './js/data.js';
@@ -29,7 +29,7 @@ select.addEventListener('change', ()=>{
 const addBtn = document.querySelector('.add-btn');
 const modButton = document.querySelector('.change-btn');
 const modp = document.querySelector('.change-confirm')
-addBtn.addEventListener('click', addProject());
+addBtn.addEventListener('click',addProject());
 modButton.addEventListener('click', modbutton());
 modp.addEventListener('click', modbutton());
 
@@ -49,8 +49,14 @@ deleteBtn.addEventListener('click',deleteProject());
 function addProject(){
     return (e) => {
         e.preventDefault();
-        
-        // birtum og felum rétt element
+        const newTitle = document.querySelector('.title');
+
+        // Ef ekkert er sett í titil, þá býst verkefnið ekki til
+        if(newTitle.value === ''){
+            newTitle.placeholder = 'Ekki er hægt að búa til verkefni án titils!';
+        }
+        else{
+            // birtum og felum rétt element
         const projects = document.querySelector('.projects');
         const newProjects =document.querySelector('.new-project');
         const modProject = document.querySelector('.modify-project');
@@ -59,7 +65,6 @@ function addProject(){
         modProject.classList.add('hidden');
         
         // búum til nýtt object með öllum upplýsingum um verkefnið
-        const newTitle = document.querySelector('.title');
         const newDescription = document.querySelector('.description');
         const newDate = document.querySelector('.duedate');
         const newTag = document.querySelector('.tags');
@@ -76,7 +81,7 @@ function addProject(){
         const dates = new Date(newDate.value);
         const dateTimeStamp = dates.getTime();
         newItem.due = dateTimeStamp;
-       
+        
         // Bætum nýja verkefninu í localStorage
         addNewData(newItem);
         
@@ -94,6 +99,15 @@ function addProject(){
         allCountContainer.textContent= '';
         finishedCountContainer.textContent = '';
         createCategories();
+        
+        // Gerum öll fieldin auð þegar við opnum næst
+        newTitle.value = '';
+        newDescription.value = '';
+        newDate.value = null;
+        newTag.value = '';
+        newCat.value = '';
+        }
+        
     };
 }
 
@@ -139,9 +153,7 @@ export function modbutton() {
 function deleteProject(){
     return (e) => {
         e.preventDefault();
-        console.log(deleteBtn.id);
         const item =JSON.parse(window.localStorage.getItem(deleteBtn.id));
-        console.log(item);
         item.deleted = true;
         localStorage.setItem(item.id, JSON.stringify(item));
         if(isclicked === ''){
@@ -155,21 +167,21 @@ function deleteProject(){
         const he = document.querySelector('.new-project');
         const ul = document.querySelector('.projects');
         
-        const categoryContainer = document.querySelector('.all-container');
-        const tagContainer = document.querySelector('.all-tags');
-        const allCountContainer = document.querySelector('.project-count');
-        const finishedCountContainer = document.querySelector('.unfinished-count');
+        // const categoryContainer = document.querySelector('.all-container');
+        // const tagContainer = document.querySelector('.all-tags');
+        // const allCountContainer = document.querySelector('.project-count');
+        // const finishedCountContainer = document.querySelector('.unfinished-count');
         modify.classList.add('hidden');
         he.classList.add('hidden');
         ul.classList.remove('hidden');
         // Uppfærum flokkana og counterana vinstra megin á síðunni
         
         // Smá bögg ennþá hérna, ef maður deletar tvisvar í röð án refresh
-        //empty(categoryContainer);
-        //empty(tagContainer);
-        //allCountContainer.textContent= '';
-        //finishedCountContainer.textContent = '';
-        //createCategories();
+        // empty(categoryContainer);
+        // empty(tagContainer);
+        // allCountContainer.textContent= '';
+        // finishedCountContainer.textContent = '';
+        // createCategories();
         
     
     }

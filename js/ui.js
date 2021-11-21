@@ -167,20 +167,35 @@ export function modifyProject(id) {
   const modp = document.querySelector('.change-confirm')
   const deleteBtn = document.querySelector('.delete-button');
   const item = JSON.parse(localStorage.getItem(id));
-
+  
+  // Setjum alla hluti modify project formsins í breytur
   const newTitle = document.querySelector('.mod-title');
   const newDescription = document.querySelector('.mod-description');
   const newDate = document.querySelector('.mod-duedate');
   const newTag = document.querySelector('.mod-tags');
   const newCat = document.querySelector('.mod-category');
-
+  
+  // Setjum titilinn og descriptionið inn í formið
   newTitle.value = item.title;
   newDescription.value = item.description;
+ 
+  // Fáum dagsetningarnar á rétt form til að geta birt þær í forminu
   const date = new Date(item.due);
-  
-  // TODO þarf að setja eitthvað if statemnt til að láta date virka
-  // semsagt ef mánuður er minni en 10 þarf að bæta 0 fyrir framan date.getmonth og alveg eins með dagana
-  const correctDate =`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+  let correctMonth = '';
+  let correctDay = '';
+  if((date.getMonth()+1) < 10){
+    correctMonth =  '0' + (date.getMonth()+1);
+  }
+  else{
+    correctMonth = date.getMonth() +1;
+  }
+  if((date.getDate())<10){
+     correctDay = '0' + date.getDate();
+  }
+  else{
+    correctDay = date.getDate();
+  }
+  const correctDate =`${date.getFullYear()}-${correctMonth}-${correctDay}`;
   newDate.value = correctDate;
   // modButton.addEventListener('click', modbutton(id));
   // modp.addEventListener('click', modbutton(id));
@@ -191,9 +206,15 @@ export function modifyProject(id) {
     newTag.value += item.tags[i];
     newTag.value += ' ';
   }
+  
+  // setjum réttan flokk inn í select
+  newCat.value = item.category;
+  
+  // birtum svo og felum rétt element
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');
+  
 }
 
 export function createNewProjectBtn(){

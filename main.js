@@ -125,7 +125,9 @@ export function modbutton() {
         const modify = document.querySelector('.modify-project');
         const he = document.querySelector('.new-project');
         const ul = document.querySelector('.projects');
-        
+        const dropList = document.querySelector('.dropdown-list');
+        const container = document.querySelector('.container');
+
         const newDescription = document.querySelector('.mod-description');
         const newDate = document.querySelector('.mod-duedate');
         const newTag = document.querySelector('.mod-tags');
@@ -158,6 +160,8 @@ export function modbutton() {
         showProjects();
         createNewProjectBtn();
         
+        dropList.classList.remove('hidden');
+        container.classList.remove('hidden');
         modify.classList.add('hidden');
         he.classList.add('hidden');
         ul.classList.remove('hidden');
@@ -181,6 +185,8 @@ function deleteProject(){
         const modify = document.querySelector('.modify-project');
         const he = document.querySelector('.new-project');
         const ul = document.querySelector('.projects');
+        const dropList = document.querySelector('.dropdown-list');
+        const container = document.querySelector('.container');
         
         const categoryContainer = document.querySelector('.all-container');
         const tagContainer = document.querySelector('.all-tags');
@@ -189,6 +195,8 @@ function deleteProject(){
         modify.classList.add('hidden');
         he.classList.add('hidden');
         ul.classList.remove('hidden');
+        dropList.classList.remove('hidden');
+        container.classList.remove('hidden');
         
         // Uppfærum flokkana og counterana vinstra megin á síðunni
         categoryContainer.remove();

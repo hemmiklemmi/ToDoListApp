@@ -12,7 +12,7 @@ main {
 }
 
 .projects-container {
-  grid-column: 2/4;
+  grid-column: 2/5;
 }
 
 .projects {
@@ -111,6 +111,7 @@ li.clicked {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  width: 50%;
 }
 
 .category-container {
@@ -119,6 +120,9 @@ li.clicked {
 }
 .category-container * {
   padding-bottom: 5px;
+}
+.category-container p {
+  font-size: 1.25em;
 }
 
 .header-tag {
@@ -133,6 +137,22 @@ li.clicked {
   padding-bottom: 5px;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.25em;
+}
+
+.project-count,
+.unfinished-count {
+  font-size: 1.25em;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 100%;
+  }
+}
 .new-project {
   padding: 10px;
 }

@@ -280,6 +280,8 @@ export function showCompletedProjects(id = ''){
 }
 
 export function modifyProject(id) {
+  const dropList = document.querySelector('.dropdown-list');
+  const container = document.querySelector('.container');
   const modify = document.querySelector('.modify-project');
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
@@ -339,6 +341,8 @@ export function modifyProject(id) {
   newCat.value = item.category;
   
   // birtum svo og felum rétt element
+  dropList.classList.add('hidden');
+  container.classList.add('hidden');
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');

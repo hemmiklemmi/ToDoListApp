@@ -76,11 +76,6 @@ li input {
   height: 4vh;
 }
 
-@media (max-width: 1000px) {
-  .projects-container {
-    background: blue;
-  }
-}
 .new-project-div {
   display: flex;
   align-items: center;
@@ -98,6 +93,16 @@ li input {
   transition: 0.3s;
 }
 
+@media (max-width: 1000px) {
+  li {
+    width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  .projects-container {
+    grid-column: span 3;
+  }
+}
 .container {
   display: flex;
   flex-direction: column;

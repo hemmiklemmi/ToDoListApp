@@ -23,7 +23,7 @@ main {
 li {
   border-bottom: 1px solid grey;
   display: flex;
-  width: 50%;
+  width: 60%;
 }
 li div {
   display: grid;
@@ -34,6 +34,10 @@ li .desc {
 }
 li * {
   margin: 10px 0;
+}
+li input {
+  align-self: center;
+  margin-left: 10px;
 }
 
 .date-tag-container * {
@@ -53,14 +57,18 @@ li * {
 }
 
 .modify-project-button {
-  background-color: white;
+  background: inherit;
   border: none;
-  flex-grow: 1;
+  margin-left: 10px;
+  transition: 0.1s;
+  width: 90%;
 }
 
 .modify-project-button:hover {
   cursor: pointer;
-  background-color: #eedddd;
+  background: #ddd;
+  transition: 0.2s;
+  padding-left: 10px;
 }
 
 .delete-button {
@@ -134,6 +142,10 @@ fieldset input {
   padding: 0 10px;
 }
 
+.change-confirm:hover {
+  cursor: pointer;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -142,7 +154,8 @@ header {
 
 .dropdown-list {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  width: 60%;
 }
 
 .hidden {
@@ -151,6 +164,10 @@ header {
 
 .completed {
   display: flex;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

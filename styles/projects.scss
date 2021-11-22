@@ -10,7 +10,7 @@
 li {
     border-bottom: 1px solid grey;
     display: flex;
-    width: 50%;
+    width: 60%;
 
     div {
         display: grid;
@@ -23,6 +23,11 @@ li {
 
     * {
         margin: 10px 0;
+    }
+
+    input {
+        align-self: center;
+        margin-left: 10px;
     }
 
 }
@@ -51,14 +56,18 @@ li {
 }
 
 .modify-project-button {
-    background-color: white;
+    background: inherit;
     border: none;
-    flex-grow: 1;
+    margin-left: 10px;
+    transition: 0.1s;
+    width: 90%;
 }
 
 .modify-project-button:hover {
     cursor: pointer;
-    background-color: rgb(238, 221, 221);
+    background: #ddd;
+    transition: 0.2s;
+    padding-left: 10px;
 }
 .delete-button{
     width: 10%;

@@ -2,6 +2,7 @@
 @import 'styles/projects';
 @import 'styles/categories';
 @import 'styles/new-project';
+@import 'styles/mod-project';
 
 header {
   display: flex;
@@ -11,7 +12,8 @@ header {
 
 .dropdown-list {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  width: 60%;
 }
 
 .hidden {
@@ -19,4 +21,8 @@ header {
 }
 .completed{
   display: flex;
+}
+
+button:hover {
+  cursor: pointer;
 }

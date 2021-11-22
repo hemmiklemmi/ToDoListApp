@@ -6,6 +6,7 @@ import {showProjects, showCompletedProjects, createNewProjectBtn} from './ui.js'
 // tagg er valið eða hvort öll verkefninu eru völd.
 // eslint-disable-next-line import/no-mutable-exports
 export let isclicked ='';
+
 /**
  * Flokkar verkefnin eftir því hvað var valið í dropdown listanum
  * @param {*} id Segir til um hvað var valið í listanum

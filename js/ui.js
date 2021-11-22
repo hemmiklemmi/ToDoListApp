@@ -1,5 +1,6 @@
+/* eslint-disable import/no-cycle */
+import { completeProject, unCompleteProject } from '../main.js';
 import { el} from './helpers.js';
-// eslint-disable-next-line import/no-cycle
 import { sortByProject } from './sort.js';
 
 /**
@@ -122,12 +123,11 @@ export function showProjects(id = ''){
       const completed = el('input');
       completed.setAttribute('type','checkbox');
       completed.classList.add('checkbox');
+      if(parsedItem !== null && parsedItem !== undefined){
+        completed.id = parsedItem.id;
+      }
       completed.addEventListener('change', () => {
-        if (completed.checked) {
-          newLi.classList.add('clicked');
-        } else {
-            newLi.classList.remove('clicked');
-        }
+        completeProject(completed.id);
       });
       projectButton.classList.add('modify-project-button');
       if(parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !==true){
@@ -198,7 +198,7 @@ export function showProjects(id = ''){
 export function showCompletedProjects(id = ''){
   const ul = document.createElement('ul');
   ul.classList.add('projects');
-  const container= document.querySelector('.projects-container')
+  const container= document.querySelector('.projects-container');
   container.append(ul);
   
   // Ef showprojects fær ekkert inntak sýnir það bara allt í localStorage
@@ -216,17 +216,28 @@ export function showCompletedProjects(id = ''){
 
     const newLi = el('li','');
     const projectButton = el('button','');
+    
+    projectButton.classList.add('modify-project-button');
+    //if(parsedItem !== null && parsedItem !== undefined && 
+    //  parsedItem.deleted !==true && parsedItem.completed !== false){
+    //  projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
+    //}
+    // Setjum checkboxið rétt inn, því verkefnin eru kláruð
     const completed = el('input');
     completed.setAttribute('type','checkbox');
-    projectButton.classList.add('modify-project-button');
-    if(parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !==true){
-      projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
+    completed.checked = true;
+    if(parsedItem !== null && parsedItem !== undefined){
+      completed.id = parsedItem.id;
+      completed.addEventListener('change', ()=>{
+        unCompleteProject(completed.id);
+      })
     }
-  
+    projectButton.classList.add('clicked');
+    
     const dateTagsContainer = el('div', '');
     
     if (parsedItem !== null && parsedItem !== undefined && 
-        parsedItem.deleted !== true) {
+        parsedItem.deleted !== true && parsedItem.completed !== false) {
       // Birtum titil verkefnisins
       const title = el('h3',  parsedItem.title);
       title.classList.add('project-title');
@@ -349,6 +360,9 @@ export function modifyProject(id) {
   
 }
 
+/**
+ * Býr til takka sem fer opnar formið til að búa til nýtt verkefni
+ */
 export function createNewProjectBtn(){
   const dropList = document.querySelector('.dropdown-list');
   const container = document.querySelector('.container');

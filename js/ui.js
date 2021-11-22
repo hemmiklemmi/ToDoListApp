@@ -254,11 +254,23 @@ export function modifyProject(id) {
 }
 
 export function createNewProjectBtn(){
-  const newProjectBtn = el('button', 'Búa til nýtt verkefni');
+  const newprojectdiv = el('div','');
+  const newProjectBtn = el('button', '+');
+  const newprojectp = el('p','Bæta við nýju verkefni');
+  newprojectdiv.classList.add('new-project-div');
+  newprojectdiv.appendChild(newProjectBtn);
+  newprojectdiv.appendChild(newprojectp);
   const ul = document.querySelector('.projects');
-  ul.append(newProjectBtn);
+  ul.append(newprojectdiv);
   newProjectBtn.classList.add('new-modify-project');
   newProjectBtn.addEventListener('click', ()=>{
+    const he = document.querySelector('.new-project');
+    const modify = document.querySelector('.modify-project');
+    he.classList.remove('hidden');
+    ul.classList.add('hidden');
+    modify.classList.add('hidden');
+  } )
+  newprojectp.addEventListener('click', ()=>{
     const he = document.querySelector('.new-project');
     const modify = document.querySelector('.modify-project');
     he.classList.remove('hidden');

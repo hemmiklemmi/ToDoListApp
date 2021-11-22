@@ -121,6 +121,7 @@ export function showProjects(id = ''){
       const projectButton = el('button','');
       const completed = el('input');
       completed.setAttribute('type','checkbox');
+      completed.classList.add('checkbox');
       projectButton.classList.add('modify-project-button');
       if(parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !==true){
         projectButton.addEventListener('click', () => modifyProject(parsedItem.id));

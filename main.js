@@ -76,7 +76,6 @@ function addProject(){
         newItem.title = newTitle.value;
         newItem.description = newDescription.value;
         newItem.category = newCat.value;
-        console.log(priority.checked);
         newItem.priority = priority.checked;
         const tags = (newTag.value).split(' ');
         newItem.tags = tags;

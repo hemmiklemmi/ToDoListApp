@@ -138,10 +138,10 @@ export function showProjects(id = ''){
         
         // Checkbox fyrir completed, á eftir að útfæra
         // Set allt hér í comment til að geta pushað, held þetta sé eins
-        //const checkbox = el('input', 'completed');
-        //checkbox.type ='checkbox';
-        //checkbox.classList.add('completed');
-        //projectButton.append(checkbox);
+        // const checkbox = el('input', 'completed');
+        // checkbox.type ='checkbox';
+        // checkbox.classList.add('completed');
+        // projectButton.append(checkbox);
         
         // Birtum lýsinguna fyrir verkefnið
         if(parsedItem.description !== ''){

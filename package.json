@@ -14,7 +14,7 @@
     "sass": "sass styles.scss styles.css",
     "sass-watch": "sass --watch styles.scss styles.css",
     "dev": "concurrently npm:sass-watch npm:browser-sync",
-    "lintscss":"stylelint styles.scss",
+    "lintscss": "stylelint styles.scss",
     "lintjs": "eslint /**/*.js",
     "lint": "concurrently npm:lintscss npm:lintjs",
     "sass-build": "sass styles.scss ./build/styles.css",

@@ -71,6 +71,7 @@ export let isclicked ='';
     const allCompleted = [];
     for(let i = 1; i<=window.localStorage.length; i+= 1){
       const parsedItem = JSON.parse(window.localStorage.getItem(i));
+      if (parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !== true) {
         if(parsedItem.category === id){
           allInCat[i] = parsedItem;
         }
@@ -85,6 +86,8 @@ export let isclicked ='';
           }
       }
     }
+    }
+
     const ul = document.querySelector('.projects');
     ul.remove();
     if(id === 'Kláruð verkefni'){

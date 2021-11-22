@@ -131,8 +131,8 @@ export function showProjects(id = ''){
         const title = el('h3',  parsedItem.title);
         title.classList.add('project-title');
         ul.appendChild(newLi);
-        newLi.appendChild(completed);
         newLi.append(projectButton);
+        newLi.appendChild(completed);
         projectButton.append(title);
         dateTagsContainer.classList.add('date-tag-container');
         

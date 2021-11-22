@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import {showProjects, showCompletedProjects, createNewProjectBtn} from './ui.js';
 
 // Sáum enga þæginlega leið en að disablea þetta hér

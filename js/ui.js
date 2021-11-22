@@ -75,6 +75,8 @@ export function countData() {
       if (id.completed === true) {
         finishedCount+=1;
       }
+    }
+    if(id.deleted !== true && id.completed !== true){
       if (!catCount[id.category]) {
         catCount[id.category] = 0;
       }
@@ -126,7 +128,8 @@ export function showProjects(id = ''){
     
       const dateTagsContainer = el('div', '');
       
-      if (parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !== true) {
+      if (parsedItem !== null && parsedItem !== undefined && 
+          parsedItem.deleted !== true && parsedItem.completed !== true) {
         // Birtum titil verkefnisins
         const title = el('h3',  parsedItem.title);
         title.classList.add('project-title');
@@ -135,13 +138,6 @@ export function showProjects(id = ''){
         newLi.appendChild(completed);
         projectButton.append(title);
         dateTagsContainer.classList.add('date-tag-container');
-        
-        // Checkbox fyrir completed, á eftir að útfæra
-        // Set allt hér í comment til að geta pushað, held þetta sé eins
-        // const checkbox = el('input', 'completed');
-        // checkbox.type ='checkbox';
-        // checkbox.classList.add('completed');
-        // projectButton.append(checkbox);
         
         // Birtum lýsinguna fyrir verkefnið
         if(parsedItem.description !== ''){
@@ -185,6 +181,94 @@ export function showProjects(id = ''){
       }
     }
     
+}
+
+/**
+ * Fall sem birtir öll kláruð verkefni á skjáinn
+ * @param {} id obj með hluta af verkefnunum, ef tómt þá er allt birt út localStorage
+ */
+export function showCompletedProjects(id = ''){
+  const ul = document.createElement('ul');
+  ul.classList.add('projects');
+  const container= document.querySelector('.projects-container')
+  container.append(ul);
+  
+  // Ef showprojects fær ekkert inntak sýnir það bara allt í localStorage
+  // Annars sýnir það verkefnin í objectinu sem var tekið inn sem id
+  for(let i = 0; i<=window.localStorage.length; i+= 1){
+    let parsedItem;
+    if(id !== ''){
+      if(id[i]){
+        parsedItem = id[i];
+      }
+    }
+    else{
+      parsedItem = JSON.parse(window.localStorage.getItem(i));
+    }
+
+    const newLi = el('li','');
+    const projectButton = el('button','');
+    const completed = el('input');
+    completed.setAttribute('type','checkbox');
+    projectButton.classList.add('modify-project-button');
+    if(parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !==true){
+      projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
+    }
+  
+    const dateTagsContainer = el('div', '');
+    
+    if (parsedItem !== null && parsedItem !== undefined && 
+        parsedItem.deleted !== true) {
+      // Birtum titil verkefnisins
+      const title = el('h3',  parsedItem.title);
+      title.classList.add('project-title');
+      ul.appendChild(newLi);
+      newLi.append(projectButton);
+      newLi.appendChild(completed);
+      projectButton.append(title);
+      dateTagsContainer.classList.add('date-tag-container');
+      
+      // Birtum lýsinguna fyrir verkefnið
+      if(parsedItem.description !== ''){
+        const descript = el('p' , parsedItem.description);
+        descript.classList.add('desc');
+        projectButton.appendChild(descript);
+      }
+      projectButton.append(dateTagsContainer);
+      
+      // Ef verkefnið er í forgangi, þá birtum við það, annars ekki
+      if(parsedItem.priority ===true){
+        const prio = el('p' , 'Í forgangi');
+        prio.classList.add('priority');
+        projectButton.appendChild(prio);
+      }
+      
+      // Birtum dagsetningu á skilum á verkefninu
+      if(parsedItem.due !== null){
+        const date = new Date(parsedItem.due)
+        const dateString =(date.toString()).split(' ');
+        const dateTime = el('p' , dateString[2], ' ', dateString[1]);
+        dateTime.classList.add('date-tag-container-dagsetning');
+        dateTagsContainer.append(dateTime);
+      }
+      
+      // Birtum töggin á verkefninu
+      for(const item in parsedItem.tags){
+          if(parsedItem.tags[item] !== ''){
+              const tag = el('button', parsedItem.tags[item])
+              tag.classList.add('date-tag-container-tag');
+              dateTagsContainer.append(tag);
+          }
+      }
+      
+      // Birtum flokkana á verkefninu
+      if(parsedItem.category !== ''){
+        const category = el('p' , parsedItem.category);
+        category.classList.add('date-tag-container-category');
+        dateTagsContainer.appendChild(category);
+      }
+    }
+  }
 }
 
 export function modifyProject(id) {

@@ -1,4 +1,4 @@
-import {showProjects,createNewProjectBtn} from './ui.js';
+import {showProjects, showCompletedProjects, createNewProjectBtn} from './ui.js';
 
 // Sáum enga þæginlega leið en að disablea þetta hér
 // Leyfir okkar flokka rétt eftir því hvort einhver flokkur/
@@ -71,7 +71,7 @@ export let isclicked ='';
     const allCompleted = [];
     for(let i = 1; i<=window.localStorage.length; i+= 1){
       const parsedItem = JSON.parse(window.localStorage.getItem(i));
-      if (parsedItem !== null && parsedItem !== undefined && parsedItem.deleted !== true) {
+      if (parsedItem !== null && parsedItem !== undefined) {
         if(parsedItem.category === id){
           allInCat[i] = parsedItem;
         }
@@ -136,6 +136,12 @@ export let isclicked ='';
       return 1;
       });
     }
-    showProjects(item);
-    createNewProjectBtn();
+    if(item[0].completed === true){
+      showCompletedProjects(item);
+      createNewProjectBtn();
+    }
+    else{
+      showProjects(item);
+      createNewProjectBtn();
+    }
   }

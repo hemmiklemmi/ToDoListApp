@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import {showProjects, showCompletedProjects, createNewProjectBtn} from './ui.js';
 
 // Sáum enga þæginlega leið en að disablea þetta hér
@@ -140,13 +141,13 @@ export let isclicked ='';
     // Finnum hvort við viljum birta kláruð verkefni eða einhvern flokk/tagg
     for(let i = 0; i<item.length-1; i+= 1){
       if(item[i] !== null && item[i] !== undefined){
-        if(item[i].completed === true){
-          showCompletedProjects(item);
+        if(item[i].completed !== true){
+          showProjects(item);
           createNewProjectBtn();
           return;
         }
       }
     }
-    showProjects(item);
+    showCompletedProjects(item);
     createNewProjectBtn();
   }

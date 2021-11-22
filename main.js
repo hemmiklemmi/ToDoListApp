@@ -1,6 +1,5 @@
 import { createNewProjectBtn, createCategories, showProjects} from './js/ui.js';
 import {sortByProject, sortBy, isclicked} from './js/sort.js';
-import {empty} from './js/helpers.js';
 import { importData, addNewData } from './js/locals.js';
 import { getData} from './js/data.js';
 
@@ -108,7 +107,6 @@ function addProject(){
         newTag.value = '';
         newCat.value = '';
         }
-        //window.location.reload();
     };
 }
 

@@ -96,8 +96,8 @@ function addProject(){
         const finishedCountContainer = document.querySelector('.unfinished-count');
         
         // Uppfærum flokkana og counterana vinstra megin á síðunni
-        empty(categoryContainer);
-        empty(tagContainer);
+        categoryContainer.remove();
+        tagContainer.remove();
         allCountContainer.textContent= '';
         finishedCountContainer.textContent = '';
         createCategories();
@@ -109,52 +109,58 @@ function addProject(){
         newTag.value = '';
         newCat.value = '';
         }
-        
+        //window.location.reload();
     };
 }
 
 export function modbutton() {
     return (e) => {
       e.preventDefault();
-      const modify = document.querySelector('.modify-project');
-      const he = document.querySelector('.new-project');
-      const ul = document.querySelector('.projects');
       const newTitle = document.querySelector('.mod-title');
-      const newDescription = document.querySelector('.mod-description');
-      const newDate = document.querySelector('.mod-duedate');
-      const newTag = document.querySelector('.mod-tags');
-      const newCat = document.querySelector('.mod-category');
-      const newPrio = document.querySelector('.mod-priority-check');
-      const newItem = {};
-   
-      newItem.id = deleteBtn.id;
-      newItem.title = newTitle.value;
-      newItem.description = newDescription.value;
-      newItem.category = newCat.value;
-      newItem.priority = newPrio.checked;
-      const tags = (newTag.value).split(' ');
-      newItem.tags = tags;
-      const dates = new Date(newDate.value);
-      const dateTimeStamp = dates.getTime();
-      newItem.due = dateTimeStamp;
-
-      // uppfærum hvenær verkefnið var síðast breytt
-      const lastModified = new Date();
-      newItem.modified = lastModified.getTime();
-      
-      // Uppfærum verkefnið í localStorage
-      addNewData(newItem);
-      
-      // Getum gert þetta í stað reloads til að fá upplýsingar strax inn
-      const addNewBtn = document.querySelector('.new-modify-project')
-      addNewBtn.remove();
-      ul.remove();
-      showProjects();
-      createNewProjectBtn();
-      
-      modify.classList.add('hidden');
-      he.classList.add('hidden');
-      ul.classList.remove('hidden');
+      if(newTitle.value === ''){
+        newTitle.placeholder = 'Ekki er hægt að hafa verkefni án titils!';
+        }
+      else{
+        const modify = document.querySelector('.modify-project');
+        const he = document.querySelector('.new-project');
+        const ul = document.querySelector('.projects');
+        
+        const newDescription = document.querySelector('.mod-description');
+        const newDate = document.querySelector('.mod-duedate');
+        const newTag = document.querySelector('.mod-tags');
+        const newCat = document.querySelector('.mod-category');
+        const newPrio = document.querySelector('.mod-priority-check');
+        const newItem = {};
+        
+        newItem.id = deleteBtn.id;
+        newItem.title = newTitle.value;
+        newItem.description = newDescription.value;
+        newItem.category = newCat.value;
+        newItem.priority = newPrio.checked;
+        const tags = (newTag.value).split(' ');
+        newItem.tags = tags;
+        const dates = new Date(newDate.value);
+        const dateTimeStamp = dates.getTime();
+        newItem.due = dateTimeStamp;
+        
+        // uppfærum hvenær verkefnið var síðast breytt
+        const lastModified = new Date();
+        newItem.modified = lastModified.getTime();
+        
+        // Uppfærum verkefnið í localStorage
+        addNewData(newItem);
+        
+        // Getum gert þetta í stað reloads til að fá upplýsingar strax inn
+        const addNewBtn = document.querySelector('.new-modify-project')
+        addNewBtn.remove();
+        ul.remove();
+        showProjects();
+        createNewProjectBtn();
+        
+        modify.classList.add('hidden');
+        he.classList.add('hidden');
+        ul.classList.remove('hidden');
+      }
     }
 }
 
@@ -175,21 +181,20 @@ function deleteProject(){
         const he = document.querySelector('.new-project');
         const ul = document.querySelector('.projects');
         
-        // const categoryContainer = document.querySelector('.all-container');
-        // const tagContainer = document.querySelector('.all-tags');
-        // const allCountContainer = document.querySelector('.project-count');
-        // const finishedCountContainer = document.querySelector('.unfinished-count');
+        const categoryContainer = document.querySelector('.all-container');
+        const tagContainer = document.querySelector('.all-tags');
+        const allCountContainer = document.querySelector('.project-count');
+        const finishedCountContainer = document.querySelector('.unfinished-count');
         modify.classList.add('hidden');
         he.classList.add('hidden');
         ul.classList.remove('hidden');
-        // Uppfærum flokkana og counterana vinstra megin á síðunni
         
-        // Smá bögg ennþá hérna, ef maður deletar tvisvar í röð án refresh
-        // empty(categoryContainer);
-        // empty(tagContainer);
-        // allCountContainer.textContent= '';
-        // finishedCountContainer.textContent = '';
-        // createCategories();
+        // Uppfærum flokkana og counterana vinstra megin á síðunni
+        categoryContainer.remove();
+        tagContainer.remove();
+        allCountContainer.textContent= '';
+        finishedCountContainer.textContent = '';
+        createCategories();
         
     
     }

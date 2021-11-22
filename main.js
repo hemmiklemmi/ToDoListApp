@@ -56,12 +56,16 @@ function addProject(){
         }
         else{
             // birtum og felum rétt element
+        const dropList = document.querySelector('.dropdown-list');
         const projects = document.querySelector('.projects');
         const newProjects =document.querySelector('.new-project');
         const modProject = document.querySelector('.modify-project');
+        const container = document.querySelector('.container');
         projects.classList.remove('hidden');
         newProjects.classList.add('hidden');
         modProject.classList.add('hidden');
+        dropList.classList.remove('hidden');
+        container.classList.remove('hidden');
         
         // búum til nýtt object með öllum upplýsingum um verkefnið
         const newDescription = document.querySelector('.description');

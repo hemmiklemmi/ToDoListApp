@@ -338,6 +338,8 @@ export function modifyProject(id) {
 }
 
 export function createNewProjectBtn(){
+  const dropList = document.querySelector('.dropdown-list');
+  const container = document.querySelector('.container');
   const newprojectdiv = el('div','');
   const newProjectBtn = el('button', '+');
   const newprojectp = el('p','Bæta við nýju verkefni');
@@ -353,6 +355,8 @@ export function createNewProjectBtn(){
     he.classList.remove('hidden');
     ul.classList.add('hidden');
     modify.classList.add('hidden');
+    dropList.classList.add('hidden');
+    container.classList.add('hidden');
   } )
   newprojectp.addEventListener('click', ()=>{
     const he = document.querySelector('.new-project');
@@ -360,6 +364,8 @@ export function createNewProjectBtn(){
     he.classList.remove('hidden');
     ul.classList.add('hidden');
     modify.classList.add('hidden');
+    dropList.classList.add('hidden');
+    container.classList.add('hidden');
   } )
 }
 

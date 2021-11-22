@@ -40,6 +40,10 @@ li input {
   margin-left: 10px;
 }
 
+li.clicked {
+  opacity: 50%;
+}
+
 .date-tag-container * {
   grid-column: span 1;
 }

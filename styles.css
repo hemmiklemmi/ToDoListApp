@@ -81,6 +81,23 @@ li input {
     background: blue;
   }
 }
+.new-project-div {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+.new-project-div button {
+  background: white;
+  font-size: 1rem;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.new-project-div button:hover {
+  background: black;
+  color: white;
+  transition: 0.3s;
+}
+
 .container {
   display: flex;
   flex-direction: column;

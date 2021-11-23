@@ -1,7 +1,7 @@
-@import 'styles/config';
-@import 'styles/projects';
-@import 'styles/categories';
-@import 'styles/forms';
+@import "styles/config";
+@import "styles/projects";
+@import "styles/categories";
+@import "styles/forms";
 
 header {
   display: flex;
@@ -18,13 +18,13 @@ header {
 .hidden {
   display: none;
 }
-.completed{
+.completed {
   display: flex;
 }
 
 button:hover {
   cursor: pointer;
 }
-.selected{
+.selected {
   font-weight: 800;
 }

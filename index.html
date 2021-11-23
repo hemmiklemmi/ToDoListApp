@@ -32,55 +32,65 @@
         </div>
       </div>
       <div class="projects-container">
-        <div class="dropdown-list ">
+        <div class="dropdown-list">
           <p>Raða eftir:</p>
-          <select autocomplete="off" class ="select" name="Raða eftir" id="Raða eftir">
+          <select
+            autocomplete="off"
+            class="select"
+            name="Raða eftir"
+            id="Raða eftir"
+          >
             <option class="select-title" value="title">Titli</option>
             <option class="select-date" value="date">Dagsetningu</option>
-            <option class="select-prio"value="priority">Forgangi</option>
+            <option class="select-prio" value="priority">Forgangi</option>
           </select>
         </div>
         <div class="new-project hidden">
-            <h2>Búa til nýtt verkefni</h2>
-            <form autocomplete="off" action="">
-              <fieldset>
-                <div class="title-container">
-                  <p>Titill:</p>
-                  <input type="text" class ="title" name="Titill" required/>
-                </div>
-                <div class="desc-container">
-                  <p>Lýsing:</p>
-                  <input type="text" class="description" name="Lýsing"/>
-                </div>
-                <div class="date-container">
-                  <p>Hvenær skal verkefni klárast:</p>
-                  <input type="date" class="duedate"  name="Due"/>
-                </div>
-                <div class="prio-container">
-                  <p>Forgangur</p>
-                  <input type="checkbox" class= 'priority-check'>
-                </div>
-                <div class="tag-container">
-                  <p>Tags:</p>
-                  <input type="text" class="tags" name="" placeholder="Bætið tags hér við með bil á milli"/>
-                </div>
-                <div class="cat-container">
-                  <p>Flokkar:</p>
-                  <p>
-                      <select class= "category" name="Flokkar">
-                        <option value=""></option>
-                        <option  value="vefforrit">Vefforrit</option>
-                        <option value="skipulag">Skipulag</option>
-                        <option value="vefþjónustur">Vefþjónustur</option>
-                      </select>
-                  </p>
-                </div>
-                <div class="button-style">
-                  <button class="add-btn">+</button>
-                  <p class="addp pointer">Bæta við verkefni!</p>
-                </div>
-              </fieldset>
-            </form>
+          <h2>Búa til nýtt verkefni</h2>
+          <form autocomplete="off" action="">
+            <fieldset>
+              <div class="title-container">
+                <p>Titill:</p>
+                <input type="text" class="title" name="Titill" required />
+              </div>
+              <div class="desc-container">
+                <p>Lýsing:</p>
+                <input type="text" class="description" name="Lýsing" />
+              </div>
+              <div class="date-container">
+                <p>Hvenær skal verkefni klárast:</p>
+                <input type="date" class="duedate" name="Due" />
+              </div>
+              <div class="prio-container">
+                <p>Forgangur</p>
+                <input type="checkbox" class="priority-check" />
+              </div>
+              <div class="tag-container">
+                <p>Tags:</p>
+                <input
+                  type="text"
+                  class="tags"
+                  name=""
+                  placeholder="Bætið tags hér við með bil á milli"
+                />
+              </div>
+              <div class="cat-container">
+                <p>Flokkar:</p>
+                <p>
+                  <select class="category" name="Flokkar">
+                    <option value=""></option>
+                    <option value="vefforrit">Vefforrit</option>
+                    <option value="skipulag">Skipulag</option>
+                    <option value="vefþjónustur">Vefþjónustur</option>
+                  </select>
+                </p>
+              </div>
+              <div class="button-style">
+                <button class="add-btn">+</button>
+                <p class="addp pointer">Bæta við verkefni!</p>
+              </div>
+            </fieldset>
+          </form>
         </div>
         <div class="modify-project hidden">
           <h2>Breyta verkefni</h2>
@@ -88,33 +98,50 @@
             <fieldset>
               <div class="title-container">
                 <label for="titill">Titill:</label>
-                <input type="text" class ="mod-title" name="Titill" id="titill" required>
+                <input
+                  type="text"
+                  class="mod-title"
+                  name="Titill"
+                  id="titill"
+                  required
+                />
               </div>
               <div class="desc-container">
                 <label for="lýsing">Lýsing:</label>
-                <input type="text" class="mod-description" name="Lýsing" id="lýsing">
+                <input
+                  type="text"
+                  class="mod-description"
+                  name="Lýsing"
+                  id="lýsing"
+                />
               </div>
               <div class="date-container">
                 <label for="date">Hvenær skal verkefni klárast:</label>
-                <input type="date" class="mod-duedate"  name="Due" id="date">
+                <input type="date" class="mod-duedate" name="Due" id="date" />
               </div>
               <div class="prio-container">
                 <p>Forgangur</p>
-                <input type="checkbox" class= 'mod-priority-check'>
+                <input type="checkbox" class="mod-priority-check" />
               </div>
               <div class="tag-container">
                 <label for="tags">Tags:</label>
-                <input type="text" class="mod-tags" name="" placeholder="Bætið tags hér við með bil á milli" id="tags">
+                <input
+                  type="text"
+                  class="mod-tags"
+                  name=""
+                  placeholder="Bætið tags hér við með bil á milli"
+                  id="tags"
+                />
               </div>
               <div class="cat-container">
                 <label for="cat">Flokkar:</label>
                 <p>
-                    <select class= "mod-category" name="Flokkar" id="cat">
-                      <option value=""></option>
-                      <option  value="vefforrit">Vefforrit</option>
-                      <option value="skipulag">Skipulag</option>
-                      <option value="vefþjónustur">Vefþjónustur</option>
-                    </select>
+                  <select class="mod-category" name="Flokkar" id="cat">
+                    <option value=""></option>
+                    <option value="vefforrit">Vefforrit</option>
+                    <option value="skipulag">Skipulag</option>
+                    <option value="vefþjónustur">Vefþjónustur</option>
+                  </select>
                 </p>
               </div>
               <div class="buttons-container">

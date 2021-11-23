@@ -1,106 +1,106 @@
 .new-project {
-    padding: 10px 10px 10px 0;
+  padding: 10px 10px 10px 0;
 }
 
 fieldset {
-    border: none;
+  border: none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+    width: 60%;
+    padding: 10px 10px 10px 0;
+  }
+
+  .desc-container {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+    width: 60%;
+    padding: 10px 10px 10px 0;
+  }
+
+  .date-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 0;
+  }
+
+  .prio-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 0;
+  }
+
+  .tag-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 0;
+  }
+
+  .cat-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 0;
+  }
+
+  .buttons-container {
     display: grid;
     gap: 10px;
+    grid-column: span 2;
     grid-template-columns: repeat(2, 1fr);
-    
-    .title-container {
-        display: flex;
-        flex-direction: column;
-        grid-column: span 2;
-        width: 60%;
-        padding: 10px 10px 10px 0;
-    }
+  }
 
-    .desc-container {
-        display: flex;
-        flex-direction: column;
-        grid-column: span 2;
-        width: 60%;
-        padding: 10px 10px 10px 0;
-    }
+  input {
+    padding: 5px;
+    font-size: 1rem;
+  }
 
-    .date-container {
-        display: flex;
-        flex-direction: column;
-        padding: 10px 10px 10px 0;
-    }
+  p {
+    font-size: 1.2rem;
+  }
 
-    .prio-container {
-        display: flex;
-        flex-direction: column;
-        padding: 10px 10px 10px 0;
-    }
+  label {
+    font-size: 1.2rem;
+  }
 
-    .tag-container {
-        display: flex;
-        flex-direction: column;
-        padding: 10px 10px 10px 0;
-    }
+  .description {
+    padding-bottom: 30px;
+  }
 
-    .cat-container {
-        display: flex;
-        flex-direction: column;
-        padding: 10px 10px 10px 0;
-    }
-
-    .buttons-container {
-        display: grid;
-        gap: 10px;
-        grid-column: span 2;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    input {
-        padding: 5px;
-        font-size: 1rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    label {
-        font-size: 1.2rem;
-    }
-
-    .description {
-        padding-bottom: 30px;
-    }
-
-    .mod-description {
-        padding-bottom: 30px;
-    }
+  .mod-description {
+    padding-bottom: 30px;
+  }
 }
 
 .button-style {
-    display: flex;
-    padding: 10px 10px 10px 0;
+  display: flex;
+  padding: 10px 10px 10px 0;
 
-    button {
-        font-size: 1rem;
-        background: white;
-        border-radius: 50%;
-        width: 4%;
-        color: black;
-        transition: 0.1s;
-    }
+  button {
+    font-size: 1rem;
+    background: white;
+    border-radius: 50%;
+    width: 4%;
+    color: black;
+    transition: 0.1s;
+  }
 
-    button:hover {
-        background: black;
-        color: white;
-        transition: 0.2s;
-    }
+  button:hover {
+    background: black;
+    color: white;
+    transition: 0.2s;
+  }
 
-    p {
-        margin-left: 5px;
-    }
+  p {
+    margin-left: 5px;
+  }
 }
 
 .pointer:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

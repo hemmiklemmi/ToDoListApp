@@ -57,7 +57,7 @@ li input {
 .date-tag-container-tag {
   border-radius: 5px;
   width: 90%;
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 .modify-project-button {
@@ -239,11 +239,10 @@ fieldset .mod-description {
 }
 .button-style button {
   font-size: 1.2rem;
-  background: #0A66C2;
-  border: 0;
+  background: white;
   border-radius: 999px;
   width: 60%;
-  color: #ffffff;
+  color: black;
   padding: 5px 0;
   transition: 0.1s;
 }

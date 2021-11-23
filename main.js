@@ -98,12 +98,9 @@ function addProject() {
 
 // Bætum eventlisteners á delete takkann
 const deleteBtn = document.querySelector('.delete-button');
-const deletep = document.querySelector('.deletep');
 // Ekki hægt að stilla þessu upp til að uppfylla þessa reglu
 // eslint-disable-next-line no-use-before-define
 deleteBtn.addEventListener('click', deleteProject());
-// eslint-disable-next-line no-use-before-define
-deletep.addEventListener('click', deleteProject());
 
 export function modbutton() {
   return (e) => {
@@ -204,13 +201,9 @@ select.addEventListener('change', () => {
 
 // Bætum eventListener við hnappana
 const addBtn = document.querySelector('.add-btn');
-const addp = document.querySelector('.addp');
 const modButton = document.querySelector('.change-btn');
-const modp = document.querySelector('.change-confirm');
 addBtn.addEventListener('click', addProject());
-addp.addEventListener('click', addProject());
 modButton.addEventListener('click', modbutton());
-modp.addEventListener('click', modbutton());
 
 // Bætum eventlistener við flokkana vinstra megin á siðunni
 const showAll = document.querySelector('.show-projects');

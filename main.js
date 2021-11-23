@@ -216,6 +216,7 @@ export function completeProject(id){
         const item =JSON.parse(window.localStorage.getItem(id));
         item.completed = true;
         localStorage.setItem(item.id, JSON.stringify(item));
+        console.log(id);
         if(isclicked === ''){
             sortBy(select.value);
         }

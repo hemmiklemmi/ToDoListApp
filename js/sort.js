@@ -93,10 +93,10 @@ export let isclicked ='';
     const ul = document.querySelector('.projects');
     ul.remove();
     if(id === 'Kláruð verkefni'){
-      sortSelectedCat(allCompleted);
+      sortSelectedCat(allCompleted,id);
     }
     else{
-      sortSelectedCat(allInCat);
+      sortSelectedCat(allInCat,id);
     }
   }
   
@@ -104,7 +104,8 @@ export let isclicked ='';
    * Tekur við verkefnum sem á að sýna, flokkar þau rétt og sýnir þau svo
    * @param {} item 
    */
-  function sortSelectedCat(item) {
+  function sortSelectedCat(item,id) {
+    console.log(id);
     const select = document.querySelector('.select');
     // ef title er valið þá sorterum við eftir titli
     if(select.value === 'title'){
@@ -138,17 +139,13 @@ export let isclicked ='';
       return 1;
       });
     }
-    
-    // Finnum hvort við viljum birta kláruð verkefni eða einhvern flokk/tagg
-    for(let i = 0; i<item.length-1; i+= 1){
-      if(item[i] !== null && item[i] !== undefined){
-        if(item[i].completed !== true){
-          showProjects(item);
-          createNewProjectBtn();
-          return;
-        }
-      }
+  // Birtum rétt efni
+    if(id !== 'Kláruð verkefni'){
+      showProjects(item);
+      createNewProjectBtn();
     }
-    showCompletedProjects(item);
-    createNewProjectBtn();
+    else{
+      showCompletedProjects(item);
+      createNewProjectBtn();
+    }
   }

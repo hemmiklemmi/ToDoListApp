@@ -57,7 +57,7 @@ li input {
 .date-tag-container-tag {
   border-radius: 5px;
   width: 90%;
-  overflow: hidden;
+  font-size: 1vw;
 }
 
 .modify-project-button {

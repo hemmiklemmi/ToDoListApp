@@ -67,6 +67,15 @@ export let isclicked ='';
    * @param {*} id 
    */
   export function sortByProject(id = ''){
+    // Tökum selected af öllum flokkum
+    const showAll = document.querySelector('.show-projects');
+    const showFinished = document.querySelector('.show-finishedprojects');
+    showAll.classList.remove('selected');
+    showFinished.classList.remove('selected');
+    const cats = document.querySelectorAll('.sort-category');
+    for(let i = 0; i< cats.length; i+= 1){
+        cats[i].classList.remove('selected');
+    }
     isclicked = id;
     window.event.preventDefault();
     const allInCat = [];
@@ -83,13 +92,19 @@ export let isclicked ='';
             }
         }
         if(id === 'Kláruð verkefni'){
+          showFinished.classList.add('selected');
           if(parsedItem.completed === true){
             allCompleted[i] = parsedItem;
           }
       }
     }
     }
-
+    // Bætum selected classnum við flokkinn sem var valinn
+    for(let i = 0; i< cats.length; i+= 1){
+      if(cats[i].id === id){
+        cats[i].classList.add('selected');
+      }
+    }
     const ul = document.querySelector('.projects');
     ul.remove();
     if(id === 'Kláruð verkefni'){
@@ -105,7 +120,6 @@ export let isclicked ='';
    * @param {} item 
    */
   function sortSelectedCat(item,id) {
-    console.log(id);
     const select = document.querySelector('.select');
     // ef title er valið þá sorterum við eftir titli
     if(select.value === 'title'){

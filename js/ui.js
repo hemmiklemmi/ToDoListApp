@@ -22,6 +22,8 @@ export function createCategories() {
       const newCat = el('a', items);
       newCat.href = '';
       newCat.classList.add('sort-category');
+      newCat.id = newCat.textContent;
+      console.log(newCat.id);
       newCat.addEventListener('click', () => sortByProject(newCat.textContent));
       ge.append(newCat);
       const counter = el('p', `${counts.catCount[items]}`);
@@ -37,6 +39,8 @@ export function createCategories() {
         const newCat = el('a', items);
         newCat.href = '';
         newCat.classList.add('sort-category');
+        newCat.id = newCat.textContent;
+        console.log(newCat.id);
         newCat.addEventListener('click', () => sortByProject(newCat.textContent));
         ge.append(newCat);
         const counter = el('p', `${counts.tagCount[items]}`);
@@ -218,10 +222,6 @@ export function showCompletedProjects(id = ''){
     const projectButton = el('button','');
     
     projectButton.classList.add('modify-project-button');
-    //if(parsedItem !== null && parsedItem !== undefined && 
-    //  parsedItem.deleted !==true && parsedItem.completed !== false){
-    //  projectButton.addEventListener('click', () => modifyProject(parsedItem.id));
-    //}
     // Setjum checkboxið rétt inn, því verkefnin eru kláruð
     const completed = el('input');
     completed.setAttribute('type','checkbox');
@@ -394,4 +394,3 @@ export function createNewProjectBtn(){
     container.classList.add('hidden');
   } )
 }
-

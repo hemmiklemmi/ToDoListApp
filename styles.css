@@ -264,4 +264,8 @@ button:hover {
   cursor: pointer;
 }
 
+.selected {
+  font-weight: 800;
+}
+
 /*# sourceMappingURL=styles.css.map */

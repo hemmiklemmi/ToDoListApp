@@ -39,11 +39,20 @@ modp.addEventListener('click', modbutton());
 const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');
 showAll.addEventListener('click', () => {
+    const cats = document.querySelectorAll('.sort-category');
+    for(let i = 0; i< cats.length; i+= 1){
+        cats[i].classList.remove('selected');
+    }
+    showFinished.classList.remove('selected');
+    showAll.classList.add('selected');
     window.event.preventDefault();
     sortBy(select.value);
 });
    
-showFinished.addEventListener('click', () => sortByProject(showFinished.textContent));
+showFinished.addEventListener('click', () =>{
+    showFinished.classList.add('selected');
+    sortByProject(showFinished.textContent);
+});
 
 const deleteBtn = document.querySelector('.delete-button');
 deleteBtn.addEventListener('click',deleteProject());

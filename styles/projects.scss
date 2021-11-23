@@ -1,5 +1,5 @@
 .projects-container {
-    grid-column: 2/5;
+    grid-column: 2/span 2;
 }
 
 .projects {
@@ -72,10 +72,6 @@ li {
     background: #ddd;
     transition: 0.2s;
     padding-left: 10px;
-}
-.delete-button{
-    width: 10%;
-    height: 4vh;
 }
 
 .new-project-div {

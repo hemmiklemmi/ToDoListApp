@@ -12,7 +12,7 @@ main {
 }
 
 .projects-container {
-  grid-column: 2/5;
+  grid-column: 2/span 2;
 }
 
 .projects {
@@ -73,11 +73,6 @@ li input {
   background: #ddd;
   transition: 0.2s;
   padding-left: 10px;
-}
-
-.delete-button {
-  width: 10%;
-  height: 4vh;
 }
 
 .new-project-div {
@@ -154,43 +149,91 @@ a {
   }
 }
 .new-project {
-  padding: 10px;
+  padding: 10px 10px 10px 0;
 }
 
 fieldset {
   border: none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+fieldset .title-container {
   display: flex;
   flex-direction: column;
+  grid-column: span 2;
+  width: 60%;
+  padding: 10px 10px 10px 0;
 }
-fieldset p {
-  padding-bottom: 5px;
+fieldset .desc-container {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  width: 60%;
+  padding: 10px 10px 10px 0;
+}
+fieldset .date-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 0;
+}
+fieldset .prio-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 0;
+}
+fieldset .tag-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 0;
+}
+fieldset .cat-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 0;
+}
+fieldset .buttons-container {
+  display: grid;
+  gap: 10px;
+  grid-column: span 2;
+  grid-template-columns: repeat(2, 1fr);
 }
 fieldset input {
-  width: 50%;
-  padding: 5px 0;
-  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1rem;
+}
+fieldset p {
+  font-size: 1.2rem;
+}
+fieldset label {
+  font-size: 1.2rem;
+}
+fieldset .description {
+  padding-bottom: 30px;
+}
+fieldset .mod-description {
+  padding-bottom: 30px;
 }
 
 .button-style {
   display: flex;
-  align-items: center;
+  padding: 10px 10px 10px 0;
 }
 .button-style button {
   font-size: 1rem;
-  font-weight: 700;
-  padding: 0;
-  border-radius: 10px;
-  width: 2%;
-  background-color: white;
-  color: #580e0e;
+  background: white;
+  border-radius: 50%;
+  width: 4%;
+  color: black;
+  transition: 0.1s;
 }
 .button-style button:hover {
-  background-color: #580e0e;
+  background: black;
   color: white;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .button-style p {
-  padding: 0 10px;
+  margin-left: 5px;
 }
 
 .change-confirm:hover {

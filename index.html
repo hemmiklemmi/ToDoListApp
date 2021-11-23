@@ -44,16 +44,27 @@
             <h2>Búa til nýtt verkefni</h2>
             <form autocomplete="off" action="">
               <fieldset>
+                <div class="title-container">
                   <p>Titill:</p>
                   <input type="text" class ="title" name="Titill" required/>
+                </div>
+                <div class="desc-container">
                   <p>Lýsing:</p>
                   <input type="text" class="description" name="Lýsing"/>
+                </div>
+                <div class="date-container">
                   <p>Hvenær skal verkefni klárast:</p>
                   <input type="date" class="duedate"  name="Due"/>
+                </div>
+                <div class="prio-container">
                   <p>Forgangur</p>
                   <input type="checkbox" class= 'priority-check'>
+                </div>
+                <div class="tag-container">
                   <p>Tags:</p>
                   <input type="text" class="tags" name="" placeholder="Bætið tags hér við með bil á milli"/>
+                </div>
+                <div class="cat-container">
                   <p>Flokkar:</p>
                   <p>
                       <select class= "category" name="Flokkar">
@@ -63,10 +74,11 @@
                         <option value="vefþjónustur">Vefþjónustur</option>
                       </select>
                   </p>
-                  <div class="button-style">
-                    <button class="add-btn">+</button>
-                    <p>Bæta við verkefni!</p>
-                  </div>
+                </div>
+                <div class="button-style">
+                  <button class="add-btn">+</button>
+                  <p>Bæta við verkefni!</p>
+                </div>
               </fieldset>
             </form>
         </div>
@@ -74,16 +86,27 @@
           <h2>Breyta verkefni</h2>
           <form autocomplete="off" action="">
             <fieldset>
+              <div class="title-container">
                 <label for="titill">Titill:</label>
                 <input type="text" class ="mod-title" name="Titill" id="titill" required>
+              </div>
+              <div class="desc-container">
                 <label for="lýsing">Lýsing:</label>
                 <input type="text" class="mod-description" name="Lýsing" id="lýsing">
+              </div>
+              <div class="date-container">
                 <label for="date">Hvenær skal verkefni klárast:</label>
                 <input type="date" class="mod-duedate"  name="Due" id="date">
+              </div>
+              <div class="prio-container">
                 <p>Forgangur</p>
-                  <input type="checkbox" class= 'mod-priority-check'>
+                <input type="checkbox" class= 'mod-priority-check'>
+              </div>
+              <div class="tag-container">
                 <label for="tags">Tags:</label>
                 <input type="text" class="mod-tags" name="" placeholder="Bætið tags hér við með bil á milli" id="tags">
+              </div>
+              <div class="cat-container">
                 <label for="cat">Flokkar:</label>
                 <p>
                     <select class= "mod-category" name="Flokkar" id="cat">
@@ -93,11 +116,17 @@
                       <option value="vefþjónustur">Vefþjónustur</option>
                     </select>
                 </p>
+              </div>
+              <div class="buttons-container">
                 <div class="button-style">
                   <button class="change-btn">+</button>
                   <p class="change-confirm">Staðfesta Breytingar!</p>
                 </div>
-                <button class="delete-button">Eyða verkefni</button>
+                <div class="button-style">
+                  <button class="delete-button">-</button>
+                  <p class="deletep">Eyða Verkefni</p>
+                </div>
+              </div>
             </fieldset>
           </form>
         </div>

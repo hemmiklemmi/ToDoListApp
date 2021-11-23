@@ -57,7 +57,7 @@ li input {
 .date-tag-container-tag {
   border-radius: 5px;
   width: 90%;
-  overflow: hidden;
+  font-size: 1vw;
 }
 
 .modify-project-button {
@@ -148,6 +148,24 @@ a {
     width: 100%;
   }
 }
+@media (max-width: 700px) {
+  .container {
+    display: grid;
+    gap: 10px;
+    grid-column: span 3;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+  .container .all-finished-projects {
+    grid-column: span 4;
+  }
+  .container .project-categories {
+    grid-column: span 2;
+  }
+  .container .project-tags {
+    grid-column: span 2;
+  }
+}
 .new-project {
   padding: 10px 10px 10px 0;
 }
@@ -236,7 +254,7 @@ fieldset .mod-description {
   margin-left: 5px;
 }
 
-.change-confirm:hover {
+.pointer:hover {
   cursor: pointer;
 }
 

@@ -48,3 +48,25 @@ a{
         width: 100%;
     }
 }
+
+@media (max-width:700px) {
+    .container {
+        display: grid;
+        gap: 10px;
+        grid-column: span 3;
+        grid-template-columns: repeat(4,1fr);
+        width: 100%;
+
+        .all-finished-projects {
+            grid-column: span 4;
+        }
+
+        .project-categories {
+            grid-column: span 2;
+        }
+
+        .project-tags {
+            grid-column: span 2;
+        }
+    }
+}

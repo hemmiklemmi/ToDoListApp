@@ -49,8 +49,8 @@ showFinished.addEventListener('click', () => sortByProject(showFinished.textCont
 
 const deleteBtn = document.querySelector('.delete-button');
 const deletep = document.querySelector('.deletep');
-deleteBtn.addEventListener('click',deleteProject());
-deletep.addEventListener('click',deleteProject());
+deleteBtn.addEventListener('click', deleteProject());
+deletep.addEventListener('click', deleteProject());
 
 
 function addProject(){

@@ -48,6 +48,13 @@ fieldset {
         padding: 10px 10px 10px 0;
     }
 
+    .buttons-container {
+        display: grid;
+        gap: 10px;
+        grid-column: span 2;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     input {
         padding: 5px;
         font-size: 1rem;
@@ -57,20 +64,28 @@ fieldset {
         font-size: 1.2rem;
     }
 
+    label {
+        font-size: 1.2rem;
+    }
+
     .description {
+        padding-bottom: 30px;
+    }
+
+    .mod-description {
         padding-bottom: 30px;
     }
 }
 
 .button-style {
     display: flex;
-    grid-column: span 2;
     padding: 10px 10px 10px 0;
 
     button {
         font-size: 1rem;
         background: white;
         border-radius: 50%;
+        width: 4%;
         color: black;
         transition: 0.1s;
     }
@@ -84,4 +99,8 @@ fieldset {
     p {
         margin-left: 5px;
     }
+}
+
+.change-confirm:hover {
+    cursor: pointer;
 }

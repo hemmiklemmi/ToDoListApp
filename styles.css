@@ -75,11 +75,6 @@ li input {
   padding-left: 10px;
 }
 
-.delete-button {
-  width: 10%;
-  height: 4vh;
-}
-
 .new-project-div {
   display: flex;
   align-items: center;
@@ -197,6 +192,12 @@ fieldset .cat-container {
   flex-direction: column;
   padding: 10px 10px 10px 0;
 }
+fieldset .buttons-container {
+  display: grid;
+  gap: 10px;
+  grid-column: span 2;
+  grid-template-columns: repeat(2, 1fr);
+}
 fieldset input {
   padding: 5px;
   font-size: 1rem;
@@ -204,19 +205,25 @@ fieldset input {
 fieldset p {
   font-size: 1.2rem;
 }
+fieldset label {
+  font-size: 1.2rem;
+}
 fieldset .description {
+  padding-bottom: 30px;
+}
+fieldset .mod-description {
   padding-bottom: 30px;
 }
 
 .button-style {
   display: flex;
-  grid-column: span 2;
   padding: 10px 10px 10px 0;
 }
 .button-style button {
   font-size: 1rem;
   background: white;
   border-radius: 50%;
+  width: 4%;
   color: black;
   transition: 0.1s;
 }

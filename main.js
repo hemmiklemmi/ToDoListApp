@@ -29,9 +29,11 @@ select.addEventListener('change', ()=>{
 
   // Bætum eventListener við hnappana
 const addBtn = document.querySelector('.add-btn');
+const addp = document.querySelector('.addp');
 const modButton = document.querySelector('.change-btn');
 const modp = document.querySelector('.change-confirm');
 addBtn.addEventListener('click',addProject());
+addp.addEventListener('click', addProject());
 modButton.addEventListener('click', modbutton());
 modp.addEventListener('click', modbutton());
 
@@ -46,7 +48,9 @@ showAll.addEventListener('click', () => {
 showFinished.addEventListener('click', () => sortByProject(showFinished.textContent));
 
 const deleteBtn = document.querySelector('.delete-button');
+const deletep = document.querySelector('.deletep');
 deleteBtn.addEventListener('click',deleteProject());
+deletep.addEventListener('click',deleteProject());
 
 
 function addProject(){

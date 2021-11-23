@@ -369,6 +369,7 @@ export function createNewProjectBtn(){
   const newprojectdiv = el('div','');
   const newProjectBtn = el('button', '+');
   const newprojectp = el('p','Bæta við nýju verkefni');
+  newprojectp.classList.add('pointer');
   newprojectdiv.classList.add('new-project-div');
   newprojectdiv.appendChild(newProjectBtn);
   newprojectdiv.appendChild(newprojectp);

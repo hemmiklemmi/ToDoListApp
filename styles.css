@@ -287,70 +287,79 @@ fieldset .mod-description {
 }
 
 @media (max-width: 1000px) {
-  .new-project {
-    align-items: center;
-  }
   .new-project h2 {
     padding: 10px;
   }
-  .new-project .title-container {
+
+  .modify-project h2 {
+    padding: 10px;
+  }
+
+  fieldset .title-container {
     width: 80%;
     padding: 10px;
   }
-  .new-project .desc-container {
+  fieldset .desc-container {
     width: 80%;
     padding: 10px;
   }
-  .new-project .date-container {
+  fieldset .date-container {
     padding: 10px;
   }
-  .new-project .prio-container {
+  fieldset .prio-container {
     padding: 10px;
   }
-  .new-project .tag-container {
+  fieldset .tag-container {
     padding: 10px;
   }
-  .new-project .cat-container {
+  fieldset .cat-container {
     padding: 10px;
   }
-  .new-project .button-style {
+
+  .button-style {
     padding: 10px;
   }
-  .new-project button {
+  .button-style button {
     width: 100%;
   }
 }
 @media (max-width: 700px) {
-  .new-project {
-    align-items: center;
-  }
   .new-project h2 {
     padding: 10px;
   }
-  .new-project .title-container {
+
+  .modify-project h2 {
+    padding: 10px;
+  }
+
+  fieldset h2 {
+    padding: 10px;
+  }
+  fieldset .title-container {
     width: 100%;
     padding: 10px;
   }
-  .new-project .desc-container {
+  fieldset .desc-container {
     width: 100%;
     padding: 10px;
   }
-  .new-project .date-container {
+  fieldset .date-container {
     padding: 10px;
   }
-  .new-project .prio-container {
+  fieldset .prio-container {
     padding: 10px;
   }
-  .new-project .tag-container {
+  fieldset .tag-container {
     padding: 10px;
   }
-  .new-project .cat-container {
+  fieldset .cat-container {
     padding: 10px;
   }
-  .new-project .button-style {
+
+  .button-style {
     padding: 10px;
   }
-  .new-project button {
+  .button-style button {
     width: 100%;
   }
 }

@@ -130,4 +130,10 @@ li {
     grid-column: span 1;
     width: 100%;
   }
+
+  .date-tag-container {
+    &-tag {
+      font-size: 0.6rem;
+    }
+  }
 }

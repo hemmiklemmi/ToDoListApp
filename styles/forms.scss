@@ -105,3 +105,91 @@ fieldset {
 .pointer:hover {
   cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+  .new-project {
+    align-items: center;
+
+    h2 {
+      padding: 10px;
+    }
+
+    .title-container {
+      width: 80%;
+      padding: 10px;
+    }
+  
+    .desc-container {
+      width: 80%;
+      padding: 10px;
+    }
+  
+    .date-container {
+      padding: 10px;
+    }
+  
+    .prio-container {
+      padding: 10px;
+    }
+  
+    .tag-container {
+      padding: 10px;
+    }
+  
+    .cat-container {
+      padding: 10px;
+    }
+
+    .button-style {
+      padding: 10px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width:700px) {
+  .new-project {
+    align-items: center;
+
+    h2 {
+      padding: 10px;
+    }
+
+    .title-container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .desc-container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .date-container {
+      padding: 10px;
+    }
+  
+    .prio-container {
+      padding: 10px;
+    }
+  
+    .tag-container {
+      padding: 10px;
+    }
+  
+    .cat-container {
+      padding: 10px;
+    }
+
+    .button-style {
+      padding: 10px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

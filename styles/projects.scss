@@ -66,8 +66,7 @@ li {
   &-tag {
     border: none;
     background: inherit;
-    grid-column: span 1;
-    width: 100%;
+    max-width: 100%;
     font-size: clamp(1vw, 1rem ,1rem);
   }
 }
@@ -119,6 +118,17 @@ li {
 
 @media (max-width: 700px) {
   .projects-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     grid-column: span 3;
+  }
+
+  .projects {
+    grid-column: span 1;
+  }
+
+  .dropdown-list {
+    grid-column: span 1;
+    width: 100%;
   }
 }

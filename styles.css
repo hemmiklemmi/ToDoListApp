@@ -75,6 +75,7 @@ li input {
   border: 0;
   font-size: clamp(1vw, 1rem, 1rem);
   max-width: 100%;
+  overflow: hidden;
 }
 
 .modify-project-button {

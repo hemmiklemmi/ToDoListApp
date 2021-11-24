@@ -6,11 +6,12 @@
 }
 
 .category-container {
+  border-bottom: 1px solid rgba($color: #808080, $alpha: 0.5);
   display: flex;
   justify-content: space-between;
 
   * {
-    padding-bottom: 5px;
+    padding: 10px 0 5px;
   }
 
   p {
@@ -49,6 +50,10 @@ a {
   .container {
     width: 100%;
   }
+
+  .category-container {
+    border: 0;
+  }
 }
 
 @media (max-width: 700px) {
@@ -58,6 +63,10 @@ a {
     grid-column: span 3;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
+
+    .category-container {
+      border: 0;
+    }
 
     .all-finished-projects {
       grid-column: span 4;

@@ -39,7 +39,7 @@ button:hover {
 li {
   border-bottom: 1px solid #808080;
   display: flex;
-  width: 60%;
+  width: 80%;
 }
 li div {
   display: grid;
@@ -141,11 +141,12 @@ li input {
 }
 
 .category-container {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
   display: flex;
   justify-content: space-between;
 }
 .category-container * {
-  padding-bottom: 5px;
+  padding: 10px 0 5px;
 }
 .category-container p {
   font-size: 1.25em;
@@ -178,6 +179,10 @@ a {
   .container {
     width: 100%;
   }
+
+  .category-container {
+    border: 0;
+  }
 }
 @media (max-width: 700px) {
   .container {
@@ -186,6 +191,9 @@ a {
     grid-column: span 3;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
+  }
+  .container .category-container {
+    border: 0;
   }
   .container .all-finished-projects {
     grid-column: span 4;

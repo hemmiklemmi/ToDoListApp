@@ -313,7 +313,7 @@ function listen() {
 }
 
 listen();
-media.addEventListener('change', listen)
+media.addEventListener('change', listen);
 
 
 

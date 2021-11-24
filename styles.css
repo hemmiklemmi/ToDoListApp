@@ -8,7 +8,7 @@
 main {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 button:hover {
@@ -16,7 +16,7 @@ button:hover {
 }
 
 .projects-container {
-  grid-column: 2/span 2;
+  grid-column: 2/span 3;
 }
 
 .dropdown-list {
@@ -137,11 +137,10 @@ li input {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 90%;
+  width: 80%;
 }
 
 .category-container {
-  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
   display: flex;
   justify-content: space-between;
 }

@@ -108,6 +108,7 @@ export function modifyProject(id) {
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
   const deleteBtn = document.querySelector('.delete-button');
+  const dropdown = document.querySelector('.dropdown-menu');
   const item = JSON.parse(localStorage.getItem(id));
 
   // Setjum alla hluti modify project formsins í breytur
@@ -165,6 +166,7 @@ export function modifyProject(id) {
   modify.classList.remove('hidden');
   he.classList.add('hidden');
   ul.classList.add('hidden');
+  dropdown.classList.add('hidden');
 }
 /**
  * Fall sem birtir verkefnin á skjáinn
@@ -383,10 +385,12 @@ export function createNewProjectBtn() {
   newProjectBtn.addEventListener('click', () => {
     const he = document.querySelector('.new-project');
     const modify = document.querySelector('.modify-project');
+    const dropdown = document.querySelector('.dropdown-menu');
     he.classList.remove('hidden');
     ul.classList.add('hidden');
     modify.classList.add('hidden');
     dropList.classList.add('hidden');
     container.classList.add('hidden');
+    dropdown.classList.add('hidden');
   });
 }

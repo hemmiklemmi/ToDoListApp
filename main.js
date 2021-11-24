@@ -44,10 +44,12 @@ function addProject() {
       const newProjects = document.querySelector('.new-project');
       const modProject = document.querySelector('.modify-project');
       const container = document.querySelector('.container');
+      const dropdown = document.querySelector('.dropdown-menu')
       projects.classList.remove('hidden');
       newProjects.classList.add('hidden');
       modProject.classList.add('hidden');
       dropList.classList.remove('hidden');
+      dropdown.classList.remove('hidden');
       if (!media.matches) {
         container.classList.remove('hidden');
       }
@@ -118,6 +120,7 @@ export function modbutton() {
       const ul = document.querySelector('.projects');
       const dropList = document.querySelector('.dropdown-list');
       const container = document.querySelector('.container');
+      const dropdown = document.querySelector('.dropdown-menu');
 
       const newDescription = document.querySelector('.mod-description');
       const newDate = document.querySelector('.mod-duedate');
@@ -154,6 +157,7 @@ export function modbutton() {
       modify.classList.add('hidden');
       he.classList.add('hidden');
       ul.classList.remove('hidden');
+      dropdown.classList.remove('hidden');
       if (!media.matches) {
         container.classList.remove('hidden');
       }
@@ -177,6 +181,7 @@ function deleteProject() {
     const ul = document.querySelector('.projects');
     const dropList = document.querySelector('.dropdown-list');
     const container = document.querySelector('.container');
+    const dropdown = document.querySelector('.dropdown-menu');
 
     const categoryContainer = document.querySelector('.all-container');
     const tagContainer = document.querySelector('.all-tags');
@@ -186,7 +191,10 @@ function deleteProject() {
     he.classList.add('hidden');
     ul.classList.remove('hidden');
     dropList.classList.remove('hidden');
-    container.classList.remove('hidden');
+    dropdown.classList.remove('hidden');
+    if (!media.matches) {
+      container.classList.remove('hidden');
+    }
 
     // Uppfærum flokkana og counterana vinstra megin á síðunni
     categoryContainer.remove();

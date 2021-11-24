@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 80%;
+  max-width: 80%;
 }
 
 .category-container {
@@ -57,7 +57,6 @@ a {
 
 @media (max-width: 700px) {
   .container {
-    display: grid;
     gap: 10px;
     grid-column: span 3;
     grid-template-columns: repeat(4, 1fr);

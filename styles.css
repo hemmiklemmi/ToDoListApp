@@ -121,7 +121,7 @@ li input {
 @media (max-width: 700px) {
   .projects-container {
     display: grid;
-    grid-column: span 3;
+    grid-column: span 4;
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -138,7 +138,7 @@ li input {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 80%;
+  max-width: 80%;
 }
 
 .category-container {
@@ -186,7 +186,6 @@ a {
 }
 @media (max-width: 700px) {
   .container {
-    display: grid;
     gap: 10px;
     grid-column: span 3;
     grid-template-columns: repeat(4, 1fr);
@@ -373,6 +372,11 @@ fieldset .mod-description {
     width: 100%;
   }
 }
+.dropdown-menu {
+  grid-column: 2/span 2;
+  padding: 10px;
+}
+
 .hidden {
   display: none;
 }
@@ -385,6 +389,11 @@ fieldset .mod-description {
   font-weight: 800;
 }
 
+@media (min-width: 700px) {
+  .dropdown-menu {
+    display: none;
+  }
+}
 header {
   display: flex;
   justify-content: center;

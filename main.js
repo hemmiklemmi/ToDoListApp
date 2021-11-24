@@ -286,5 +286,32 @@ export function unCompleteProject(id) {
   createNewProjectBtn();
 }
 
+const dropdown = document.querySelector('.dropdown-menu');
+const projects = document.querySelector('.projects-container');
+const categories = document.querySelector('.container');
+const media = window.matchMedia('(max-width: 700px)');
+dropdown.addEventListener('click', () => {
+    if (projects.classList.contains('hidden')) {
+        projects.classList.remove('hidden');
+        categories.classList.add('hidden');
+    } else {
+        projects.classList.add('hidden');
+        categories.classList.remove('hidden');
+    }
+});
+function listen() {
+  if (media.matches) {
+    categories.classList.add('hidden');
+  } else if (categories.classList.contains('hidden') && !media.matches) {
+    categories.classList.remove('hidden');
+  }
+}
+
+listen();
+media.addEventListener('change', listen)
+
+
+
+
 // Keyrum þetta fall þegar við opnum síðuna
 fetchAndCreatePage();

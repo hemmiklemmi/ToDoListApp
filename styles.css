@@ -7,8 +7,12 @@
 
 main {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .projects-container {
@@ -33,7 +37,7 @@ main {
 }
 
 li {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #808080;
   display: flex;
   width: 60%;
 }
@@ -67,44 +71,44 @@ li input {
   grid-column-start: 5;
 }
 .date-tag-container-tag {
-  border: none;
   background: inherit;
-  max-width: 100%;
+  border: 0;
   font-size: clamp(1vw, 1rem, 1rem);
+  max-width: 100%;
 }
 
 .modify-project-button {
   background: inherit;
-  border: none;
+  border: 0;
   margin-left: 10px;
   transition: 0.1s;
   width: 90%;
 }
 
 .modify-project-button:hover {
-  cursor: pointer;
   background: #ddd;
-  transition: 0.2s;
+  cursor: pointer;
   padding-left: 10px;
+  transition: 0.2s;
 }
 
 .new-project-div {
-  display: flex;
   align-items: center;
+  display: flex;
   padding-top: 10px;
 }
 .new-project-div button {
-  font-size: 1.2rem;
-  background: white;
+  background: #fff;
   border-radius: 10px;
-  width: 30%;
-  color: black;
+  color: #000;
+  font-size: 1.2rem;
   padding: 5px 0;
   transition: 0.1s;
+  width: 30%;
 }
 .new-project-div button:hover {
-  background: black;
-  color: white;
+  background: #000;
+  color: #fff;
   transition: 0.2s;
 }
 
@@ -116,8 +120,8 @@ li input {
 @media (max-width: 700px) {
   .projects-container {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
     grid-column: span 3;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .projects {
@@ -161,8 +165,8 @@ li input {
 
 a {
   color: #000;
-  text-decoration: none;
   font-size: 1.25em;
+  text-decoration: none;
 }
 
 .project-count,
@@ -198,7 +202,7 @@ a {
 }
 
 fieldset {
-  border: none;
+  border: 0;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, 1fr);
@@ -207,15 +211,15 @@ fieldset .title-container {
   display: flex;
   flex-direction: column;
   grid-column: span 2;
-  width: 60%;
   padding: 10px 10px 10px 0;
+  width: 60%;
 }
 fieldset .desc-container {
   display: flex;
   flex-direction: column;
   grid-column: span 2;
-  width: 60%;
   padding: 10px 10px 10px 0;
+  width: 60%;
 }
 fieldset .date-container {
   display: flex;
@@ -244,8 +248,8 @@ fieldset .buttons-container {
   grid-template-columns: repeat(2, 1fr);
 }
 fieldset input {
-  padding: 5px;
   font-size: 1rem;
+  padding: 5px;
 }
 fieldset p {
   font-size: 1.2rem;
@@ -265,17 +269,17 @@ fieldset .mod-description {
   padding: 10px 10px 10px 0;
 }
 .button-style button {
-  font-size: 1.2rem;
-  background: white;
+  background: #fff;
   border-radius: 999px;
-  width: 60%;
-  color: black;
+  color: #000;
+  font-size: 1.2rem;
   padding: 5px 0;
   transition: 0.1s;
+  width: 60%;
 }
 .button-style button:hover {
-  background: black;
-  color: white;
+  background: #000;
+  color: #fff;
   transition: 0.2s;
 }
 .button-style p {
@@ -296,12 +300,12 @@ fieldset .mod-description {
   }
 
   fieldset .title-container {
-    width: 80%;
     padding: 10px;
+    width: 80%;
   }
   fieldset .desc-container {
-    width: 80%;
     padding: 10px;
+    width: 80%;
   }
   fieldset .date-container {
     padding: 10px;
@@ -332,16 +336,13 @@ fieldset .mod-description {
     padding: 10px;
   }
 
-  fieldset h2 {
-    padding: 10px;
-  }
   fieldset .title-container {
-    width: 100%;
     padding: 10px;
+    width: 100%;
   }
   fieldset .desc-container {
-    width: 100%;
     padding: 10px;
+    width: 100%;
   }
   fieldset .date-container {
     padding: 10px;
@@ -360,16 +361,10 @@ fieldset .mod-description {
     padding: 10px;
   }
   .button-style button {
-    width: 100%;
     font-size: 0.98rem;
+    width: 100%;
   }
 }
-header {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-
 .hidden {
   display: none;
 }
@@ -378,12 +373,14 @@ header {
   display: flex;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 .selected {
   font-weight: 800;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

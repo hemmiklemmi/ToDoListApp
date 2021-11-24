@@ -2,25 +2,10 @@
 @import 'styles/projects';
 @import 'styles/categories';
 @import 'styles/forms';
+@import 'styles/js';
 
 header {
   display: flex;
   justify-content: center;
   margin: 20px;
-}
-
-.hidden {
-  display: none;
-}
-
-.completed {
-  display: flex;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-.selected {
-  font-weight: 800;
 }

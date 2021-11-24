@@ -12,6 +12,7 @@
   * {
     padding-bottom: 5px;
   }
+
   p {
     font-size: 1.25em;
   }
@@ -32,15 +33,18 @@
     padding-bottom: 5px;
   }
 }
+
 a {
   color: #000;
-  text-decoration: none;
   font-size: 1.25em;
+  text-decoration: none;
 }
+
 .project-count,
 .unfinished-count {
   font-size: 1.25em;
 }
+
 @media (max-width: 1000px) {
   .container {
     width: 100%;

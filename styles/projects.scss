@@ -22,7 +22,7 @@
 }
 
 li {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #808080;
   display: flex;
   width: 60%;
 
@@ -64,50 +64,48 @@ li {
   }
 
   &-tag {
-    border: none;
     background: inherit;
+    border: 0;
+    font-size: clamp(1vw, 1rem, 1rem);
     max-width: 100%;
-    font-size: clamp(1vw, 1rem ,1rem);
   }
 }
 
 .modify-project-button {
   background: inherit;
-  border: none;
+  border: 0;
   margin-left: 10px;
   transition: 0.1s;
   width: 90%;
 }
 
 .modify-project-button:hover {
-  cursor: pointer;
   background: #ddd;
-  transition: 0.2s;
+  cursor: pointer;
   padding-left: 10px;
+  transition: 0.2s;
 }
 
 .new-project-div {
-  display: flex;
   align-items: center;
+  display: flex;
   padding-top: 10px;
 
   button {
-    font-size: 1.2rem;
-    background: white;
+    background: #fff;
     border-radius: 10px;
-    width: 30%;
-    color: black;
+    color: #000;
+    font-size: 1.2rem;
     padding: 5px 0;
     transition: 0.1s;
+    width: 30%;
   }
 
   button:hover {
-    background: black;
-    color: white;
+    background: #000;
+    color: #fff;
     transition: 0.2s;
   }
-
-
 }
 
 @media (max-width: 1000px) {
@@ -119,8 +117,8 @@ li {
 @media (max-width: 700px) {
   .projects-container {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
     grid-column: span 3;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .projects {

@@ -3,7 +3,7 @@
 }
 
 fieldset {
-  border: none;
+  border: 0;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, 1fr);
@@ -12,16 +12,16 @@ fieldset {
     display: flex;
     flex-direction: column;
     grid-column: span 2;
-    width: 60%;
     padding: 10px 10px 10px 0;
+    width: 60%;
   }
 
   .desc-container {
     display: flex;
     flex-direction: column;
     grid-column: span 2;
-    width: 60%;
     padding: 10px 10px 10px 0;
+    width: 60%;
   }
 
   .date-container {
@@ -56,8 +56,8 @@ fieldset {
   }
 
   input {
-    padding: 5px;
     font-size: 1rem;
+    padding: 5px;
   }
 
   p {
@@ -82,18 +82,18 @@ fieldset {
   padding: 10px 10px 10px 0;
 
   button {
-    font-size: 1.2rem;
-    background: white;
+    background: #fff;
     border-radius: 999px;
-    width: 60%;
-    color: black;
+    color: #000;
+    font-size: 1.2rem;
     padding: 5px 0;
     transition: 0.1s;
+    width: 60%;
   }
 
   button:hover {
-    background: black;
-    color: white;
+    background: #000;
+    color: #fff;
     transition: 0.2s;
   }
 
@@ -108,43 +108,40 @@ fieldset {
 
 @media (max-width: 1000px) {
   .new-project {
-
     h2 {
       padding: 10px;
     }
   }
 
   .modify-project {
-
     h2 {
       padding: 10px;
     }
   }
 
   fieldset {
-
     .title-container {
-      width: 80%;
       padding: 10px;
+      width: 80%;
     }
-  
+
     .desc-container {
-      width: 80%;
       padding: 10px;
+      width: 80%;
     }
-  
+
     .date-container {
       padding: 10px;
     }
-  
+
     .prio-container {
       padding: 10px;
     }
-  
+
     .tag-container {
       padding: 10px;
     }
-  
+
     .cat-container {
       padding: 10px;
     }
@@ -159,50 +156,42 @@ fieldset {
   }
 }
 
-@media (max-width:700px) {
-
+@media (max-width: 700px) {
   .new-project {
-
     h2 {
       padding: 10px;
     }
   }
 
   .modify-project {
-    
     h2 {
       padding: 10px;
     }
   }
 
   fieldset {
-
-    h2 {
-      padding: 10px;
-    }
-
     .title-container {
-      width: 100%;
       padding: 10px;
+      width: 100%;
     }
-  
+
     .desc-container {
-      width: 100%;
       padding: 10px;
+      width: 100%;
     }
-  
+
     .date-container {
       padding: 10px;
     }
-  
+
     .prio-container {
       padding: 10px;
     }
-  
+
     .tag-container {
       padding: 10px;
     }
-  
+
     .cat-container {
       padding: 10px;
     }
@@ -212,9 +201,8 @@ fieldset {
     padding: 10px;
 
     button {
+      font-size: 0.98rem;
       width: 100%;
-      font-size: .98rem;
     }
   }
-
 }

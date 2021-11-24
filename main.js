@@ -22,6 +22,8 @@ async function fetchAndCreatePage() {
 
 // setur select elementið í variable
 const select = document.querySelector('.select');
+// breakpoint fyrir dropdown
+const media = window.matchMedia('(max-width: 700px)');
 
 /**
  * Tekur upplýsingarnar úr formi og býr til nýtt verkefni
@@ -46,7 +48,9 @@ function addProject() {
       newProjects.classList.add('hidden');
       modProject.classList.add('hidden');
       dropList.classList.remove('hidden');
-      container.classList.remove('hidden');
+      if (!media.matches) {
+        container.classList.remove('hidden');
+      }
 
       // búum til nýtt object með öllum upplýsingum um verkefnið
       const newDescription = document.querySelector('.description');
@@ -147,10 +151,12 @@ export function modbutton() {
       createNewProjectBtn();
 
       dropList.classList.remove('hidden');
-      container.classList.remove('hidden');
       modify.classList.add('hidden');
       he.classList.add('hidden');
       ul.classList.remove('hidden');
+      if (!media.matches) {
+        container.classList.remove('hidden');
+      }
     }
   };
 }
@@ -240,7 +246,7 @@ export function completeProject(id) {
   const he = document.querySelector('.new-project');
   const ul = document.querySelector('.projects');
   const dropList = document.querySelector('.dropdown-list');
-  const container = document.querySelector('.container');
+  // const container = document.querySelector('.container');
 
   const categoryContainer = document.querySelector('.all-container');
   const tagContainer = document.querySelector('.all-tags');
@@ -250,7 +256,7 @@ export function completeProject(id) {
   he.classList.add('hidden');
   ul.classList.remove('hidden');
   dropList.classList.remove('hidden');
-  container.classList.remove('hidden');
+  // container.classList.remove('hidden');
 
   // Uppfærum flokkana og counterana vinstra megin á síðunni
   categoryContainer.remove();
@@ -289,7 +295,6 @@ export function unCompleteProject(id) {
 const dropdown = document.querySelector('.dropdown-menu');
 const projects = document.querySelector('.projects-container');
 const categories = document.querySelector('.container');
-const media = window.matchMedia('(max-width: 700px)');
 dropdown.addEventListener('click', () => {
     if (projects.classList.contains('hidden')) {
         projects.classList.remove('hidden');

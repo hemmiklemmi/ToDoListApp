@@ -4,6 +4,9 @@ import { completeProject, unCompleteProject } from '../main.js';
 import { el } from './helpers.js';
 import { sortByProject } from './sort.js';
 
+// breakpoint fyrir dropdown
+const media = window.matchMedia('(max-width: 700px)');
+
 /**
  * Teljum hversu mörg entries eru í hvaða flokki og tags.
  * @param {*} data
@@ -51,6 +54,8 @@ export function countData() {
  */
 export function createCategories() {
   const counts = countData();
+  const categories = document.querySelector('.container');
+  const projects = document.querySelector('.projects-container');
   const allCatContainer = el('div', '');
   allCatContainer.classList.add('all-container');
   const allTagsContainer = el('div', '');
@@ -67,7 +72,15 @@ export function createCategories() {
       newCat.href = '';
       newCat.classList.add('sort-category');
       newCat.id = newCat.textContent;
-      newCat.addEventListener('click', () => sortByProject(newCat.textContent));
+      // Setjum eventlistener á hvern flokk
+      newCat.addEventListener('click', () => {
+        sortByProject(newCat.textContent);
+        if(media.matches){
+          categories.classList.add('hidden');
+          projects.classList.remove('hidden');
+        }
+
+      });
       ge.append(newCat);
       const counter = el('p', `${counts.catCount[items]}`);
       ge.append(counter);
@@ -83,7 +96,14 @@ export function createCategories() {
       newCat.href = '';
       newCat.classList.add('sort-category');
       newCat.id = newCat.textContent;
-      newCat.addEventListener('click', () => sortByProject(newCat.textContent));
+      // Setjum eventlistener á hvert tagg
+      newCat.addEventListener('click', () =>{
+        if(media.matches){
+          categories.classList.add('hidden');
+          projects.classList.remove('hidden');
+        }
+        sortByProject(newCat.textContent);
+      });
       ge.append(newCat);
       const counter = el('p', `${counts.tagCount[items]}`);
       ge.append(counter);

@@ -24,6 +24,29 @@ async function fetchAndCreatePage() {
 const select = document.querySelector('.select');
 // breakpoint fyrir dropdown
 const media = window.matchMedia('(max-width: 700px)');
+const dropdown = document.querySelector('.dropdown-menu');
+const allProjects = document.querySelector('.projects-container');
+const categories = document.querySelector('.container');
+
+dropdown.addEventListener('click', () => {
+    if (allProjects.classList.contains('hidden')) {
+        allProjects.classList.remove('hidden');
+        categories.classList.add('hidden');
+    } else {
+        allProjects.classList.add('hidden');
+        categories.classList.remove('hidden');
+    }
+});
+function listen() {
+  if (media.matches) {
+    categories.classList.add('hidden');
+  } else if (categories.classList.contains('hidden') && !media.matches) {
+    categories.classList.remove('hidden');
+  }
+}
+
+listen();
+media.addEventListener('change', listen);
 
 /**
  * Tekur upplýsingarnar úr formi og býr til nýtt verkefni
@@ -44,7 +67,6 @@ function addProject() {
       const newProjects = document.querySelector('.new-project');
       const modProject = document.querySelector('.modify-project');
       const container = document.querySelector('.container');
-      const dropdown = document.querySelector('.dropdown-menu')
       projects.classList.remove('hidden');
       newProjects.classList.add('hidden');
       modProject.classList.add('hidden');
@@ -121,7 +143,6 @@ export function modbutton() {
       const ul = document.querySelector('.projects');
       const dropList = document.querySelector('.dropdown-list');
       const container = document.querySelector('.container');
-      const dropdown = document.querySelector('.dropdown-menu');
 
       const newDescription = document.querySelector('.mod-description');
       const newDate = document.querySelector('.mod-duedate');
@@ -183,7 +204,6 @@ function deleteProject() {
     const ul = document.querySelector('.projects');
     const dropList = document.querySelector('.dropdown-list');
     const container = document.querySelector('.container');
-    const dropdown = document.querySelector('.dropdown-menu');
 
     const categoryContainer = document.querySelector('.all-container');
     const tagContainer = document.querySelector('.all-tags');
@@ -225,6 +245,11 @@ modButton.addEventListener('click', modbutton());
 const showAll = document.querySelector('.show-projects');
 const showFinished = document.querySelector('.show-finishedprojects');
 showAll.addEventListener('click', () => {
+  // Ef dropdownið er á skjánum, þá hverfur það þegar það er klikkað á flokk
+  if(media.matches){
+    categories.classList.add('hidden');
+    allProjects.classList.remove('hidden');
+  }
   const cats = document.querySelectorAll('.sort-category');
   for (let i = 0; i < cats.length; i += 1) {
     cats[i].classList.remove('selected');
@@ -235,6 +260,11 @@ showAll.addEventListener('click', () => {
   sortBy(select.value);
 });
 showFinished.addEventListener('click', () => {
+  // Ef dropdownið er á skjánum, þá hverfur það þegar það er klikkað á tagg
+  if(media.matches){
+    categories.classList.add('hidden');
+    allProjects.classList.remove('hidden');
+  }
   showFinished.classList.add('selected');
   sortByProject(showFinished.textContent);
 });
@@ -301,33 +331,6 @@ export function unCompleteProject(id) {
   showCompletedProjects();
   createNewProjectBtn();
 }
-
-const dropdown = document.querySelector('.dropdown-menu');
-const projects = document.querySelector('.projects-container');
-const categories = document.querySelector('.container');
-
-dropdown.addEventListener('click', () => {
-    if (projects.classList.contains('hidden')) {
-        projects.classList.remove('hidden');
-        categories.classList.add('hidden');
-    } else {
-        projects.classList.add('hidden');
-        categories.classList.remove('hidden');
-    }
-});
-
-function listen() {
-  if (media.matches) {
-    categories.classList.add('hidden');
-  } else if (categories.classList.contains('hidden') && !media.matches) {
-    categories.classList.remove('hidden');
-  }
-}
-
-listen();
-media.addEventListener('change', listen);
-
-
 
 
 // Keyrum þetta fall þegar við opnum síðuna

@@ -72,6 +72,7 @@ function addProject() {
       const dates = new Date(newDate.value);
       const dateTimeStamp = dates.getTime();
       newItem.due = dateTimeStamp;
+      newItem.completed = false;
 
       // Bætum nýja verkefninu í localStorage
       addNewData(newItem);
@@ -133,6 +134,7 @@ export function modbutton() {
       newItem.description = newDescription.value;
       newItem.category = newCat.value;
       newItem.priority = newPrio.checked;
+      newItem.completed = false;
       const tags = newTag.value.split(' ');
       newItem.tags = tags;
       const dates = new Date(newDate.value);
@@ -303,6 +305,7 @@ export function unCompleteProject(id) {
 const dropdown = document.querySelector('.dropdown-menu');
 const projects = document.querySelector('.projects-container');
 const categories = document.querySelector('.container');
+
 dropdown.addEventListener('click', () => {
     if (projects.classList.contains('hidden')) {
         projects.classList.remove('hidden');
@@ -312,6 +315,7 @@ dropdown.addEventListener('click', () => {
         categories.classList.remove('hidden');
     }
 });
+
 function listen() {
   if (media.matches) {
     categories.classList.add('hidden');

@@ -28,6 +28,7 @@ const dropdown = document.querySelector('.dropdown-menu');
 const allProjects = document.querySelector('.projects-container');
 const categories = document.querySelector('.container');
 
+// event listener á dropdown-menu þannig að allt displayast rétt
 dropdown.addEventListener('click', () => {
     if (allProjects.classList.contains('hidden')) {
         allProjects.classList.remove('hidden');
@@ -37,6 +38,10 @@ dropdown.addEventListener('click', () => {
         categories.classList.remove('hidden');
     }
 });
+
+/**
+ * Tjekkar hvort að skjárinn sé minni eða stærri en 700px og displayar rétt eftir því
+ */
 function listen() {
   if (media.matches) {
     categories.classList.add('hidden');
@@ -45,7 +50,10 @@ function listen() {
   }
 }
 
+// Tjékkar hvort skjár sé stærri eða minni en 700px þegar vefur er opnaður
 listen();
+
+// Event listener til þess að sjá breytingarnar þegar verið er að vinna í verkefninu
 media.addEventListener('change', listen);
 
 /**

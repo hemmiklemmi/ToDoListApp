@@ -4,6 +4,7 @@
 
 ## Keyrsla verkefnis
 
+- `npm install`: Þarf að vera keyrt til þess að hafa aðgang að eftirfarandi skipunum
 - `npm run dev`: keyrir verkefnið og opnar síðuna í nýjum vafra.
 - `npm run lint`: keyrir kóða verkefnisins í gegnum stylelint og eslint sem eru staðlar fyrir scss og javascript kóða.
 - https://priceless-neumann-4de510.netlify.app/ hér er linkur á vefsíðuna keyrandi á netlify.

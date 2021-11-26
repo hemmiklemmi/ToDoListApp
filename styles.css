@@ -241,6 +241,7 @@ fieldset .prio-container {
   display: flex;
   flex-direction: column;
   padding: 10px 10px 10px 0;
+  width: 15%;
 }
 fieldset .tag-container {
   display: flex;

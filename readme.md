@@ -20,6 +20,7 @@ Verkefnið er unnið með HTML, CSS og javascript, CSS hlutinn er gerður með n
 
 þær eru eftirfarandi:
 
+
 - `config.scss` - Stillinga skrá
 - `categories.scss` - Útlit flokkana vinstra megin við verkefnin
 - `forms.scss` - Útlit fyrir formin til þess að búa til verkefni eða breyta 
@@ -32,6 +33,7 @@ Verkefnið er unnið með HTML, CSS og javascript, CSS hlutinn er gerður með n
 `/js` mappan inniheldur 5 javascript skrár sem ásamt `main.js` skránni er öll javascript virkni fyrir síðuna.
 
 Þær eru eftirfarandi:
+
 
 - `data.js` - Sækir gögn úr data.json
 - `helpers.js` - Skrá með hjálparföllum til þess að búa til eða eyða HTML elementum

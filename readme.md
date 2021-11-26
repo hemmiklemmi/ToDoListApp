@@ -17,6 +17,7 @@ Síðan byrjar á því að ná í gögn úr data.json og sýnir þau. Síðan g
 Verkefnið er unnið með HTML, CSS og javascript, CSS hlutinn er gerður með nokkrum SCSS skrám sem eru svo þýddar í eina styles.css skrá.
 
 Í verkefnamöppunni eru 13 skrár og 4 möppur en við leyfum okkur að horfa framhjá tveimur þeirra. `/styles` mappan inniheldur 5 SCSS skrár sem eru grundvallaratriði CSS kóða verkefnisins.
+
 þær eru eftirfarandi:
 
 - `config.scss` - Stillinga skrá
@@ -27,8 +28,10 @@ Verkefnið er unnið með HTML, CSS og javascript, CSS hlutinn er gerður með n
 
 >Þessi skjöl eru keyrð í gegnum `styles.scss` sem er aðal scss skjalið og útfrá því verður `styles.css` til.
 
+
 `/js` mappan inniheldur 5 javascript skrár sem ásamt `main.js` skránni er öll javascript virkni fyrir síðuna.
-Þær eru eftirfarandi.
+
+Þær eru eftirfarandi:
 
 - `data.js` - Sækir gögn úr data.json
 - `helpers.js` - Skrá með hjálparföllum til þess að búa til eða eyða HTML elementum
@@ -37,6 +40,7 @@ Verkefnið er unnið með HTML, CSS og javascript, CSS hlutinn er gerður með n
 - `ui.js` - Sýnir það sem á að sýna fyrir hverja stöðu
 
 >Þetta er allt útfært með `type=module` og `src=main.js` þannig að vefsíðan keyrir `main.js` skránna og nær hún í föll frá hinum skránum.
+
 
 Annað sem hægt er að finna í möppunni er t.d. `index.html` sem er HTML kóði verkefnisins og `package.json` sem er með allar scriptur og dependencies verkefnisins.
 

@@ -11,6 +11,12 @@ main {
   grid-template-columns: repeat(4, 1fr);
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
 button:hover {
   cursor: pointer;
 }
